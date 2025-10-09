@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Универсальный доступ - Fliqer</title>
+    <title>Accessibility - Fliqer</title>
     <style>
 /* Общий стиль для всех страниц Fliqer */
 * {
@@ -124,7 +124,7 @@ li {
 }
 
 .feature-card {
-    background: rgba(255, 106, 28, 0.08);
+    background: transparent;
     padding: 25px;
     border-radius: 15px;
     text-align: center;
@@ -152,7 +152,7 @@ li {
 .feature-card p {
     margin: 0;
     font-size: 0.95em;
-    color: #6e6e73;
+    color: #1d1d1f;
 }
 
 .highlight {
@@ -192,22 +192,23 @@ li {
 }
 
 .accessibility-intro {
-    background: linear-gradient(135deg, #FF6A1C 0%, #D5520D 100%);
-    color: white;
+    background: rgba(255, 255, 255, 0.9);
+    color: #1d1d1f;
     padding: 30px;
     border-radius: 15px;
     margin: 30px 0;
     text-align: center;
+    border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .accessibility-intro h3 {
-    color: white;
+    color: #1d1d1f;
     margin-bottom: 15px;
     font-size: 1.6em;
 }
 
 .accessibility-intro p {
-    color: white;
+    color: #1d1d1f;
     opacity: 0.9;
     font-size: 1.1em;
 }
@@ -229,10 +230,10 @@ li {
     margin-left: 20px;
 }
 
-    .compatibility-list li {
-        margin-bottom: 8px;
-        color: #f5f5f7;
-    }
+.compatibility-list li {
+    margin-bottom: 8px;
+    color: #1d1d1f;
+}
 
 footer {
     background: #1d1d1f;
@@ -338,11 +339,25 @@ strong {
     }
     
     .feature-card {
-        background: rgba(255, 106, 28, 0.12);
+        background: transparent;
     }
     
     .compatibility-list {
         background: rgba(255, 106, 28, 0.12);
+    }
+    
+    .accessibility-intro {
+        background: rgba(28, 28, 30, 0.9);
+        color: #f5f5f7;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .accessibility-intro h3 {
+        color: #f5f5f7;
+    }
+    
+    .accessibility-intro p {
+        color: #f5f5f7;
     }
 }
     </style>
@@ -350,211 +365,211 @@ strong {
 <body>
     <div class="container">
         <header>
-            <h1>Универсальный доступ</h1>
-            <p>Fliqer доступен для всех пользователей</p>
+            <h1>Accessibility</h1>
+            <p>Fliqer is accessible to all users</p>
         </header>
         
         <div class="content">
             <div class="accessibility-intro">
-                <h3>Приверженность доступности</h3>
-                <p>Мы стремимся сделать Fliqer максимально доступным для всех пользователей, независимо от их возможностей или предпочтений.</p>
+                <h3>Our Commitment to Accessibility</h3>
+                <p>We strive to make Fliqer as accessible as possible for all users, regardless of their abilities or preferences.</p>
             </div>
             
-            <h2>Поддерживаемые функции</h2>
+            <h2>Supported Features</h2>
             
             <div class="feature-grid">
                 <div class="feature-card">
                     <div class="feature-icon">A+</div>
-                    <h3>Крупный текст</h3>
-                    <p>Поддержка системных настроек увеличения размера шрифта для удобного чтения</p>
+                    <h3>Large Text</h3>
+                    <p>Support for system settings to increase font size for comfortable reading</p>
                 </div>
                 
                 <div class="feature-card">
                     <div class="feature-icon">●▲■</div>
-                    <h3>Дифференциация не только с помощью цвета</h3>
-                    <p>Интерфейс использует не только цвета, но и формы, иконки и текст для передачи информации</p>
+                    <h3>Differentiation Not Only by Color</h3>
+                    <p>The interface uses not only colors, but also shapes, icons, and text to convey information</p>
                 </div>
                 
                 <div class="feature-card">
                     <div class="feature-icon">◐</div>
-                    <h3>Темный интерфейс</h3>
-                    <p>Автоматическое переключение на темную тему согласно системным настройкам</p>
+                    <h3>Dark Interface</h3>
+                    <p>Automatic switching to dark theme according to system settings</p>
                 </div>
                 
                 <div class="feature-card">
                     <div class="feature-icon">◐</div>
-                    <h3>Уменьшение движения</h3>
-                    <p>Соблюдение настройки "Уменьшить движение" для анимаций и переходов</p>
+                    <h3>Reduced Motion</h3>
+                    <p>Compliance with "Reduce Motion" setting for animations and transitions</p>
                 </div>
                 
                 <div class="feature-card">
                     <div class="feature-icon">●</div>
-                    <h3>Достаточная контрастность</h3>
-                    <p>Высокий контраст между текстом и фоном для лучшей читаемости</p>
+                    <h3>Sufficient Contrast</h3>
+                    <p>High contrast between text and background for better readability</p>
                 </div>
                 
                 <div class="feature-card">
                     <div class="feature-icon">V</div>
-                    <h3>VoiceOver поддержка</h3>
-                    <p>Полная поддержка VoiceOver для навигации с помощью голоса</p>
+                    <h3>VoiceOver Support</h3>
+                    <p>Full VoiceOver support for voice navigation</p>
                 </div>
             </div>
             
-            <h2>Технические особенности</h2>
+            <h2>Technical Features</h2>
             
-            <h3>VoiceOver и динамический текст</h3>
+            <h3>VoiceOver and Dynamic Text</h3>
             <ul>
-                <li><strong>Семантические элементы:</strong> Все элементы интерфейса имеют правильные роли и метки для VoiceOver</li>
-                <li><strong>Навигация:</strong> Логическая последовательность элементов для удобной навигации</li>
-                <li><strong>Динамический текст:</strong> Автоматическая адаптация размера шрифта под системные настройки</li>
-                <li><strong>Альтернативный текст:</strong> Описания для всех графических элементов</li>
+                <li><strong>Semantic Elements:</strong> All interface elements have proper roles and labels for VoiceOver</li>
+                <li><strong>Navigation:</strong> Logical sequence of elements for convenient navigation</li>
+                <li><strong>Dynamic Text:</strong> Automatic adaptation of font size to system settings</li>
+                <li><strong>Alternative Text:</strong> Descriptions for all graphical elements</li>
             </ul>
             
-            <h3>Цветовая схема</h3>
+            <h3>Color Scheme</h3>
             <div class="info-box">
-                <strong>Контрастность и доступность цветов</strong><br>
+                <strong>Color Contrast and Accessibility</strong><br>
                 <ul style="margin-top: 10px;">
-                    <li>Соотношение контрастности текста к фону: минимум 4.5:1</li>
-                    <li>Цветовая информация дублируется текстом и иконками</li>
-                    <li>Поддержка цветовых фильтров iOS</li>
-                    <li>Адаптация под настройки "Инвертировать цвета"</li>
+                    <li>Text to background contrast ratio: minimum 4.5:1</li>
+                    <li>Color information is duplicated with text and icons</li>
+                    <li>Support for iOS color filters</li>
+                    <li>Adaptation to "Invert Colors" settings</li>
                 </ul>
             </div>
             
-            <h3>Управление жестами</h3>
+            <h3>Gesture Control</h3>
             <ul>
-                <li><strong>Альтернативные жесты:</strong> Все функции доступны через разные способы взаимодействия</li>
-                <li><strong>Увеличенные области касания:</strong> Кнопки и элементы управления имеют достаточный размер</li>
-                <li><strong>Настраиваемые жесты:</strong> Поддержка пользовательских настроек жестов iOS</li>
+                <li><strong>Alternative Gestures:</strong> All functions are accessible through different interaction methods</li>
+                <li><strong>Larger Touch Areas:</strong> Buttons and controls have sufficient size</li>
+                <li><strong>Customizable Gestures:</strong> Support for user-defined iOS gesture settings</li>
             </ul>
             
-            <h2>Совместимость с iOS</h2>
+            <h2>iOS Compatibility</h2>
             
             <div class="compatibility-list">
-                <h4>Поддерживаемые технологии доступности</h4>
+                <h4>Supported Accessibility Technologies</h4>
                 <ul>
-                    <li><strong>VoiceOver:</strong> Полная поддержка чтения экрана</li>
-                    <li><strong>Zoom:</strong> Совместимость с функцией увеличения экрана</li>
-                    <li><strong>Switch Control:</strong> Поддержка управления переключателями</li>
-                    <li><strong>AssistiveTouch:</strong> Работа с виртуальными кнопками</li>
-                    <li><strong>Guided Access:</strong> Ограничение доступа к определенным областям</li>
-                    <li><strong>Speak Screen:</strong> Чтение содержимого экрана</li>
+                    <li><strong>VoiceOver:</strong> Full screen reader support</li>
+                    <li><strong>Zoom:</strong> Compatibility with screen magnification feature</li>
+                    <li><strong>Switch Control:</strong> Support for switch-based control</li>
+                    <li><strong>AssistiveTouch:</strong> Works with virtual buttons</li>
+                    <li><strong>Guided Access:</strong> Restricts access to specific areas</li>
+                    <li><strong>Speak Screen:</strong> Reads screen content</li>
                 </ul>
             </div>
             
-            <h2>Настройки и персонализация</h2>
+            <h2>Settings and Personalization</h2>
             
-            <h3>Адаптивные темы</h3>
+            <h3>Adaptive Themes</h3>
             <div class="highlight">
-                <strong>Автоматическая адаптация</strong><br>
-                Fliqer автоматически переключается между светлой и темной темой в зависимости от системных настроек iOS, обеспечивая оптимальный уровень контрастности и комфорта для глаз.
+                <strong>Automatic Adaptation</strong><br>
+                Fliqer automatically switches between light and dark themes depending on iOS system settings, ensuring optimal contrast and eye comfort.
             </div>
             
-            <h3>Настройки интерфейса</h3>
+            <h3>Interface Settings</h3>
             <ul>
-                <li><strong>Размер шрифта:</strong> Автоматическое масштабирование текста</li>
-                <li><strong>Жирность шрифта:</strong> Поддержка пользовательских настроек</li>
-                <li><strong>Анимации:</strong> Соблюдение настройки "Уменьшить движение"</li>
-                <li><strong>Контрастность:</strong> Адаптация под системные настройки</li>
+                <li><strong>Font Size:</strong> Automatic text scaling</li>
+                <li><strong>Font Weight:</strong> Support for user-defined settings</li>
+                <li><strong>Animations:</strong> Compliance with "Reduce Motion" setting</li>
+                <li><strong>Contrast:</strong> Adaptation to system settings</li>
             </ul>
             
-            <h2>Поддержка и обратная связь</h2>
+            <h2>Support and Feedback</h2>
             
             <div class="contact-box">
-                <h3>Нужна помощь с доступностью?</h3>
-                <p>Мы всегда готовы помочь с настройкой доступности</p>
+                <h3>Need Help with Accessibility?</h3>
+                <p>We're always ready to help with accessibility setup</p>
                 <a href="mailto:support@fliqer.app">support@fliqer.app</a>
-                <p style="margin-top: 20px; font-size: 0.95em; opacity: 0.9;">Опишите ваши потребности в доступности</p>
+                <p style="margin-top: 20px; font-size: 0.95em; opacity: 0.9;">Describe your accessibility needs</p>
             </div>
             
-            <h3>Как мы можем помочь</h3>
+            <h3>How We Can Help</h3>
             <ul>
-                <li><strong>Настройка VoiceOver:</strong> Помощь в настройке и использовании</li>
-                <li><strong>Альтернативные способы:</strong> Предложение альтернативных методов взаимодействия</li>
-                <li><strong>Улучшения:</strong> Ваши предложения по улучшению доступности</li>
-                <li><strong>Совместимость:</strong> Проверка работы с вспомогательными технологиями</li>
+                <li><strong>VoiceOver Setup:</strong> Help with setup and usage</li>
+                <li><strong>Alternative Methods:</strong> Suggesting alternative interaction methods</li>
+                <li><strong>Improvements:</strong> Your suggestions for accessibility improvements</li>
+                <li><strong>Compatibility:</strong> Testing with assistive technologies</li>
             </ul>
             
-            <h2>Непрерывные улучшения</h2>
+            <h2>Continuous Improvements</h2>
             
             <div class="info-box">
-                <strong>Наша приверженность доступности</strong><br>
+                <strong>Our Accessibility Commitment</strong><br>
                 <ul style="margin-top: 10px;">
-                    <li>Регулярное тестирование с реальными пользователями</li>
-                    <li>Следование рекомендациям WCAG 2.1</li>
-                    <li>Обновления в соответствии с новыми стандартами iOS</li>
-                    <li>Учет обратной связи пользователей</li>
+                    <li>Regular testing with real users</li>
+                    <li>Following WCAG 2.1 guidelines</li>
+                    <li>Updates according to new iOS standards</li>
+                    <li>Considering user feedback</li>
                 </ul>
             </div>
             
-            <h3>Планируемые улучшения</h3>
+            <h3>Planned Improvements</h3>
             <ul>
-                <li>Расширенная поддержка Switch Control</li>
-                <li>Улучшенные голосовые команды</li>
-                <li>Дополнительные настройки контрастности</li>
-                <li>Оптимизация для внешних клавиатур</li>
+                <li>Enhanced Switch Control support</li>
+                <li>Improved voice commands</li>
+                <li>Additional contrast settings</li>
+                <li>External keyboard optimization</li>
             </ul>
             
-            <h2>Дополнительные ресурсы</h2>
+            <h2>Additional Resources</h2>
             
             <div class="highlight">
-                <strong>Полезные ссылки</strong><br>
+                <strong>Useful Links</strong><br>
                 <ul style="margin-top: 10px;">
-                    <li><a href="https://www.apple.com/accessibility/">Apple Accessibility</a> - Официальная информация о доступности iOS</li>
-                    <li><a href="https://developer.apple.com/accessibility/">Apple Developer Accessibility</a> - Руководство для разработчиков</li>
-                    <li><a href="https://www.w3.org/WAI/WCAG21/quickref/">WCAG 2.1 Quick Reference</a> - Стандарты веб-доступности</li>
+                    <li><a href="https://www.apple.com/accessibility/">Apple Accessibility</a> - Official iOS accessibility information</li>
+                    <li><a href="https://developer.apple.com/accessibility/">Apple Developer Accessibility</a> - Developer guidelines</li>
+                    <li><a href="https://www.w3.org/WAI/WCAG21/quickref/">WCAG 2.1 Quick Reference</a> - Web accessibility standards</li>
                 </ul>
             </div>
             
-            <h2>Соответствие стандартам</h2>
+            <h2>Standards Compliance</h2>
             
             <div class="warning-box">
-                <strong>Сертификация доступности</strong><br>
-                Fliqer разработан в соответствии с:
+                <strong>Accessibility Certification</strong><br>
+                Fliqer is developed in accordance with:
                 <ul style="margin-top: 10px;">
-                    <li>Руководящими принципами доступности Apple</li>
-                    <li>Стандартами WCAG 2.1 уровня AA</li>
-                    <li>Рекомендациями iOS Human Interface Guidelines</li>
-                    <li>Требованиями App Store по доступности</li>
+                    <li>Apple's accessibility guidelines</li>
+                    <li>WCAG 2.1 Level AA standards</li>
+                    <li>iOS Human Interface Guidelines recommendations</li>
+                    <li>App Store accessibility requirements</li>
                 </ul>
             </div>
             
-            <h2>Отзывы пользователей</h2>
+            <h2>User Feedback</h2>
             
-            <p>Мы ценим обратную связь от пользователей с особыми потребностями. Ваши отзывы помогают нам делать Fliqer еще более доступным.</p>
+            <p>We value feedback from users with special needs. Your feedback helps us make Fliqer even more accessible.</p>
             
             <div class="contact-box">
-                <h3>Поделитесь своим опытом</h3>
-                <p>Расскажите нам, как Fliqer работает для вас</p>
+                <h3>Share Your Experience</h3>
+                <p>Tell us how Fliqer works for you</p>
                 <a href="mailto:accessibility@fliqer.app">accessibility@fliqer.app</a>
                 <p style="margin-top: 20px; font-size: 0.95em; opacity: 0.9;">
-                    Ваши предложения и опыт очень важны для нас
+                    Your suggestions and experience are very important to us
                 </p>
             </div>
             
-            <h2>Системные требования</h2>
+            <h2>System Requirements</h2>
             
             <div class="highlight">
                 <ul style="margin: 10px 0 0 0;">
-                    <li><strong>iOS версия:</strong> iOS 15.0 или новее</li>
-                    <li><strong>Совместимые устройства:</strong> iPhone 7 и новее</li>
-                    <li><strong>Доступность:</strong> Полная поддержка всех функций доступности iOS</li>
-                    <li><strong>Вспомогательные технологии:</strong> VoiceOver, Zoom, Switch Control и другие</li>
+                    <li><strong>iOS Version:</strong> iOS 15.0 or newer</li>
+                    <li><strong>Compatible Devices:</strong> iPhone 7 and newer</li>
+                    <li><strong>Accessibility:</strong> Full support for all iOS accessibility features</li>
+                    <li><strong>Assistive Technologies:</strong> VoiceOver, Zoom, Switch Control and others</li>
                 </ul>
             </div>
         </div>
         
         <footer>
-            <p><strong>Fliqer</strong> - Доступность для всех</p>
-            <p>© 2025 Egor Sazanov. Все права защищены.</p>
+            <p><strong>Fliqer</strong> - Accessibility for Everyone</p>
+            <p>© 2025 Egor Sazanov. All rights reserved.</p>
             <div class="footer-links">
-                <a href="terms-of-service.html">Условия использования</a>
-                <a href="privacy-policy.html">Политика конфиденциальности</a>
-                <a href="support.html">Поддержка</a>
-                <a href="accessibility.html">Универсальный доступ</a>
+                <a href="terms-of-service.html">Terms of Service</a>
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="support.html">Support</a>
+                <a href="accessibility.html">Accessibility</a>
             </div>
             <p class="date">
-                Последнее обновление: 7 октября 2025
+                Last Updated: October 7, 2025
             </p>
         </footer>
     </div>
