@@ -81,6 +81,14 @@
             position: relative;
         }
         
+        .hero-logo {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 30px auto;
+            display: block;
+            animation: fadeInUp 0.6s ease;
+        }
+        
         .hero h1 {
             font-size: clamp(3rem, 10vw, 6rem);
             font-weight: 700;
@@ -455,6 +463,12 @@
                 padding: 60px 20px;
             }
             
+            .hero-logo {
+                width: 100px;
+                height: 100px;
+                margin-bottom: 25px;
+            }
+            
             .section {
                 padding: 80px 20px;
             }
@@ -549,6 +563,7 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
+            <img src="/fleexyAppLogo.svg" alt="Fliqer Logo" class="hero-logo">
             <h1>Fliqer</h1>
             <p class="tagline">Professional Video Frame Extraction</p>
             <p class="description">Extract high-quality frames from your videos with precision and ease. The ultimate tool for iOS.</p>
