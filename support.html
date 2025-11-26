@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support - Fliqer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 50px 40px;
+            text-align: center;
+        }
+        
+        header h1 {
+            font-size: 2.8em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        h2 {
+            color: #667eea;
+            font-size: 2em;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            font-weight: 600;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+        
+        h3 {
+            color: #764ba2;
+            font-size: 1.4em;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            color: #555;
+            font-size: 1.05em;
+        }
+        
+        ul, ol {
+            margin-left: 30px;
+            margin-bottom: 15px;
+        }
+        
+        li {
+            margin-bottom: 10px;
+            color: #555;
+        }
+        
+        .contact-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            text-align: center;
+        }
+        
+        .contact-box h3 {
+            color: white;
+            margin-bottom: 15px;
+            font-size: 1.6em;
+        }
+        
+        .contact-box a {
+            color: white;
+            font-size: 1.3em;
+            font-weight: 600;
+            text-decoration: none;
+            border-bottom: 2px solid white;
+        }
+        
+        .contact-box a:hover {
+            opacity: 0.8;
+        }
+        
+        .faq-item {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .faq-item h3 {
+            color: #667eea;
+            margin-top: 0;
+            font-size: 1.2em;
+        }
+        
+        .highlight {
+            background: #f0f4ff;
+            padding: 20px;
+            border-left: 4px solid #667eea;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        
+        .info-box {
+            background: #e8f5e9;
+            padding: 20px;
+            border-left: 4px solid #4caf50;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        
+        .warning-box {
+            background: #fff3cd;
+            padding: 20px;
+            border-left: 4px solid #ffc107;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .feature-card {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .feature-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+        
+        .feature-card h3 {
+            margin: 0 0 10px 0;
+            font-size: 1.2em;
+        }
+        
+        .feature-card p {
+            margin: 0;
+            font-size: 0.95em;
+        }
+        
+        footer {
+            background: #f8f9fa;
+            padding: 30px;
+            text-align: center;
+            color: #666;
+            border-top: 1px solid #eee;
+        }
+        
+        a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+        
+        .button {
+            display: inline-block;
+            padding: 12px 30px;
+            background: #667eea;
+            color: white;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            margin: 10px;
+            transition: background 0.3s, transform 0.2s;
+        }
+        
+        .button:hover {
+            background: #764ba2;
+            transform: scale(1.05);
+            text-decoration: none;
+        }
+        
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+            
+            header {
+                padding: 30px 20px;
+            }
+            
+            header h1 {
+                font-size: 2em;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>⚡ Fliqer Support</h1>
+            <p>We're here to help you get the most out of Fliqer</p>
+        </header>
+        
+        <div class="content">
+            <div class="contact-box">
+                <h3>📧 Need Help?</h3>
+                <p>Contact our support team</p>
+                <a href="mailto:support@fliqer.app">support@fliqer.app</a>
+                <p style="margin-top: 20px; font-size: 0.95em; opacity: 0.9;">We typically respond within 24-48 hours</p>
+            </div>
+            
+            <h2>🚀 Getting Started</h2>
+            
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>1. Install Fliqer</h3>
+                    <p>Download from the App Store and open the app</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎬</div>
+                    <h3>2. Grant Access</h3>
+                    <p>Allow photo library access to view your videos</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>3. Extract Frames</h3>
+                    <p>Select a video and start extracting frames</p>
+                </div>
+            </div>
+            
+            <h2>📖 User Guide</h2>
+            
+            <h3>Extracting Frames</h3>
+            <ol>
+                <li><strong>Open an Album:</strong> Browse your video albums from the main screen</li>
+                <li><strong>Select a Video:</strong> Tap on any video to open it</li>
+                <li><strong>Navigate Time:</strong> Use the time slider to find the perfect moment</li>
+                <li><strong>Extract Frame:</strong> Tap the camera button to capture the frame</li>
+                <li><strong>Find Extracted Frames:</strong> Frames are saved to your photo library in the Fliqer album (or general library based on settings)</li>
+            </ol>
+            
+            <h3>Navigation Tips</h3>
+            <ul>
+                <li><strong>Swipe Left/Right:</strong> Navigate between videos in an album</li>
+                <li><strong>Pin Albums:</strong> Swipe left on an album and tap the pin icon</li>
+                <li><strong>Search:</strong> Use the search bar to quickly find albums</li>
+                <li><strong>Time Precision:</strong> Tap on the time slider for frame-accurate positioning</li>
+            </ul>
+            
+            <h3>Settings & Customization</h3>
+            <ul>
+                <li><strong>Theme:</strong> Choose between Light, Dark, or System theme</li>
+                <li><strong>Image Format:</strong> Select JPG, PNG, or HEIC format</li>
+                <li><strong>Image Quality:</strong> Adjust quality from 50%, 70%, or 100% to balance file size and quality</li>
+                <li><strong>Save Location:</strong> Choose Fliqer album or general library</li>
+                <li><strong>Credits:</strong> View balance and manage subscriptions</li>
+            </ul>
+            
+            <h2>💳 Credits & Subscriptions</h2>
+            
+            <div class="info-box">
+                <strong>How Credits Work</strong><br>
+                Each extracted frame uses 1 credit. Credits are consumed from your monthly quota first, then from add-on packs.
+            </div>
+            
+            <h3>Subscription Plans</h3>
+            <ul>
+                <li><strong>Base (Free):</strong> 200 frames per month - Perfect for casual use</li>
+                <li><strong>Pro Monthly:</strong> 500 frames per month for $2.99 - Great for regular users</li>
+                <li><strong>Pro Annual:</strong> Unlimited frames for $29.99/year - Best value for power users</li>
+            </ul>
+            
+            <h3>Add-on Packs</h3>
+            <ul>
+                <li><strong>Starter Pack:</strong> 100 frames for $0.99</li>
+                <li><strong>Popular Pack:</strong> 500 frames for $4.99</li>
+                <li><strong>Pro Pack:</strong> 2000 frames for $9.99</li>
+            </ul>
+            
+            <div class="highlight">
+                <strong>💡 Tip:</strong> Add-on credits never expire! They're perfect for one-time projects or occasional heavy use. Note: Add-ons are not available for Pro Annual plan since it includes unlimited frames.
+            </div>
+            
+            <h3>Managing Subscriptions</h3>
+            <ol>
+                <li>Open iPhone Settings</li>
+                <li>Tap your Apple ID at the top</li>
+                <li>Select "Subscriptions"</li>
+                <li>Choose Fliqer</li>
+                <li>Manage or cancel your subscription</li>
+            </ol>
+            
+            <h2>❓ Frequently Asked Questions</h2>
+            
+            <div class="faq-item">
+                <h3>Q: Where are my extracted frames saved?</h3>
+                <p>By default, frames are saved to a dedicated "Fliqer" album in your photo library. You can change this to the general library in Settings.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3>Q: What video formats are supported?</h3>
+                <p>Fliqer supports all video formats that iOS supports, including MP4, MOV, HEVC, and more.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3>Q: Can I extract frames from videos not in my library?</h3>
+                <p>Currently, Fliqer only works with videos in your photo library. You'll need to save videos to your library first.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3>Q: How do credits reset?</h3>
+                <p>Monthly subscription credits reset on your billing date. Add-on credits never expire and roll over indefinitely.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3>Q: What happens if I run out of credits?</h3>
+                <p>You'll be prompted to either upgrade your subscription or purchase an add-on pack. You can also wait for your monthly credits to reset.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3>Q: Can I get a refund?</h3>
+                <p>Refund requests must be made through Apple's App Store. We cannot process refunds directly. Go to reportaproblem.apple.com to request a refund.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3>Q: Does Fliqer upload my videos?</h3>
+                <p>No! All video processing happens locally on your device. We never upload or access your videos.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3>Q: Why can't I see any videos?</h3>
+                <p>Make sure you've granted Fliqer access to your photo library. Go to Settings > Fliqer > Photos and select "All Photos."</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3>Q: What image quality does Fliqer extract?</h3>
+                <p>Fliqer extracts frames at the maximum quality available in the source video, preserving the original resolution. You can also adjust the compression quality (50%, 70%, or 100%) in Settings to balance file size and image quality according to your needs.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3>Q: Can I restore my purchases on a new device?</h3>
+                <p>Yes! Go to Settings in Fliqer and tap "Restore Purchases" to restore your subscriptions and add-on packs.</p>
+            </div>
+            
+            <h2>🔧 Troubleshooting</h2>
+            
+            <h3>App Crashes or Freezes</h3>
+            <ul>
+                <li>Force quit the app and reopen it</li>
+                <li>Restart your iPhone</li>
+                <li>Update to the latest iOS version</li>
+                <li>Update Fliqer to the latest version</li>
+                <li>Free up storage space on your device</li>
+            </ul>
+            
+            <h3>Can't See Videos</h3>
+            <ul>
+                <li>Check photo library permissions in Settings > Fliqer > Photos</li>
+                <li>Ensure you have videos in your photo library</li>
+                <li>Try closing and reopening the app</li>
+            </ul>
+            
+            <h3>Frame Extraction Fails</h3>
+            <ul>
+                <li>Check if you have sufficient storage space</li>
+                <li>Verify you have available credits</li>
+                <li>Try extracting from a different video</li>
+                <li>Check photo library write permissions</li>
+            </ul>
+            
+            <h3>Purchase Issues</h3>
+            <ul>
+                <li>Verify your Apple ID has a valid payment method</li>
+                <li>Check your internet connection</li>
+                <li>Try "Restore Purchases" in Settings</li>
+                <li>Sign out and back into App Store</li>
+                <li>Contact Apple Support for payment issues</li>
+            </ul>
+            
+            <h3>Credits Not Updating</h3>
+            <ul>
+                <li>Pull down to refresh on the main screen</li>
+                <li>Check your internet connection</li>
+                <li>Restart the app</li>
+                <li>Tap "Restore Purchases" in Settings</li>
+            </ul>
+            
+            <h2>⚙️ System Requirements</h2>
+            
+            <div class="highlight">
+                <ul style="margin: 10px 0 0 0;">
+                    <li><strong>iOS Version:</strong> iOS 15.0 or later</li>
+                    <li><strong>Compatible Devices:</strong> iPhone 7 and newer</li>
+                    <li><strong>Storage:</strong> 50 MB app size + space for extracted frames</li>
+                    <li><strong>Permissions:</strong> Photo library access required</li>
+                    <li><strong>Internet:</strong> Required for subscriptions and credit management</li>
+                </ul>
+            </div>
+            
+            <h2>🛡️ Privacy & Security</h2>
+            
+            <div class="info-box">
+                <strong>Your Privacy is Our Priority</strong><br>
+                <ul style="margin-top: 10px;">
+                    <li>All video processing happens on your device</li>
+                    <li>We never upload your videos or frames</li>
+                    <li>Minimal data collection (only for app functionality)</li>
+                    <li>No third-party analytics or advertising</li>
+                    <li>Full compliance with Apple's privacy standards</li>
+                    <li>GDPR and DSA compliant for EU users</li>
+                </ul>
+            </div>
+            
+            <p>Read our full <a href="privacy-policy.html">Privacy Policy</a> and <a href="terms-of-service.html">Terms of Service</a> for details.</p>
+            
+            <h3>EU Digital Services Act (DSA) Compliance</h3>
+            <p>Fliqer complies with the EU Digital Services Act. We provide:</p>
+            <ul>
+                <li><strong>Transparent contact information:</strong> support@fliqer.app</li>
+                <li><strong>Clear service description:</strong> Video frame extraction tool (no user-generated content)</li>
+                <li><strong>Responsive support:</strong> 24-48 hour response time</li>
+                <li><strong>Dispute resolution:</strong> EU users can use the <a href="https://ec.europa.eu/consumers/odr" target="_blank">ODR platform</a></li>
+            </ul>
+            
+            <h2>📱 Feedback & Feature Requests</h2>
+            
+            <p>We love hearing from our users! If you have:</p>
+            <ul>
+                <li><strong>Bug reports:</strong> Please include iOS version, device model, and steps to reproduce</li>
+                <li><strong>Feature requests:</strong> Tell us what features would make Fliqer better for you</li>
+                <li><strong>General feedback:</strong> We appreciate all comments and suggestions</li>
+            </ul>
+            
+            <div class="highlight">
+                <strong>📧 Send feedback to:</strong> <a href="mailto:support@fliqer.app">support@fliqer.app</a><br>
+                <p style="margin-top: 10px;">Include "Feedback" in the subject line</p>
+            </div>
+            
+            <h2>🌟 Leave a Review</h2>
+            
+            <p>If you enjoy using Fliqer, please consider leaving a review on the App Store. Your feedback helps us improve and helps other users discover Fliqer!</p>
+            
+            <div style="text-align: center; margin: 30px 0;">
+                <a href="https://apps.apple.com" class="button">⭐ Rate on App Store</a>
+            </div>
+            
+            <h2>📚 Additional Resources</h2>
+            
+            <ul>
+                <li><a href="privacy-policy.html">Privacy Policy</a> - How we handle your data</li>
+                <li><a href="terms-of-service.html">Terms of Service</a> - Legal terms and conditions</li>
+                <li><strong>Email Support:</strong> <a href="mailto:support@fliqer.app">support@fliqer.app</a></li>
+                <li><strong>Ideas & Feedback:</strong> <a href="mailto:hello@fliqer.app">hello@fliqer.app</a></li>
+            </ul>
+            
+            <h2>👨‍💻 About the Developer</h2>
+            
+            <p>Fliqer is developed by <strong>Egor Sazanov</strong>, an independent iOS developer passionate about creating professional tools with intuitive interfaces.</p>
+            
+            <div class="warning-box">
+                <strong>⚠️ Important Note</strong><br>
+                Fliqer is independently developed and is not affiliated with, endorsed by, or sponsored by Apple Inc. All trademarks are the property of their respective owners.
+            </div>
+            
+            <h2>🆘 Still Need Help?</h2>
+            
+            <p>If you couldn't find the answer to your question, don't hesitate to reach out:</p>
+            
+            <div class="contact-box">
+                <h3>Contact Support</h3>
+                <p>Email us at:</p>
+                <a href="mailto:support@fliqer.app">support@fliqer.app</a>
+                <p style="margin-top: 20px; font-size: 0.95em; opacity: 0.9;">
+                    Please include:<br>
+                    • Your iOS version<br>
+                    • Device model<br>
+                    • Description of the issue<br>
+                    • Screenshots (if applicable)
+                </p>
+            </div>
+            
+            <div class="info-box" style="margin-top: 40px;">
+                <strong>💡 Pro Tip:</strong> The more details you provide, the faster we can help you! Include screenshots, device info, and exact steps to reproduce any issues.
+            </div>
+        </div>
+        
+        <footer>
+            <p><strong>Fliqer</strong> - Professional Video Frame Extraction</p>
+            <p>© 2025 Egor Sazanov. All rights reserved.</p>
+            <p style="margin-top: 15px;">
+                <a href="terms-of-service.html">Terms of Service</a> | 
+                <a href="privacy-policy.html">Privacy Policy</a> | 
+                <a href="support.html">Support</a>
+            </p>
+            <p style="margin-top: 20px; font-size: 0.9em; color: #999;">
+                Last Updated: October 17, 2025
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
+
