@@ -29,10 +29,13 @@
         }
         
         header {
-            background: linear-gradient(135deg, #FF9B04 0%, #FA4D06 100%);
+            background: rgba(255, 155, 4, 0.1);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
             color: white;
             padding: 40px;
             text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
         
         header h1 {
@@ -133,8 +136,11 @@
         }
         
         table th {
-            background: #FF9B04;
-            color: white;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #FF9B04;
         }
         
         table tr:nth-child(even) {
