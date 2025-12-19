@@ -122,35 +122,66 @@
             z-index: 1000;
         }
         
-        .language-selector select {
+        /* Google Translate widget styling */
+        #google_translate_element {
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
-            color: white;
             border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: 10px;
-            padding: 10px 15px;
-            font-size: 14px;
-            cursor: pointer;
-            outline: none;
-            transition: all 0.3s ease;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            padding: 5px;
+            overflow: hidden;
         }
         
-        .language-selector select:hover {
-            background: rgba(255, 255, 255, 0.15);
-            border-color: rgba(255, 255, 255, 0.3);
+        #google_translate_element .goog-te-gadget {
+            color: white !important;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif !important;
+            font-size: 14px !important;
         }
         
-        .language-selector select:focus {
-            border-color: #FF9B04;
-            box-shadow: 0 0 0 3px rgba(255, 155, 4, 0.2);
+        #google_translate_element .goog-te-gadget-simple {
+            background-color: transparent !important;
+            border: none !important;
+            padding: 8px 12px !important;
+            color: white !important;
+            font-size: 14px !important;
         }
         
-        .language-selector select option {
-            background: #1a1a1a;
-            color: white;
-            padding: 10px;
+        #google_translate_element .goog-te-gadget-simple .goog-te-menu-value {
+            color: white !important;
+        }
+        
+        #google_translate_element .goog-te-gadget-simple .goog-te-menu-value span {
+            color: white !important;
+        }
+        
+        #google_translate_element .goog-te-gadget-icon {
+            display: none !important;
+        }
+        
+        /* Hide Google branding */
+        .goog-te-banner-frame {
+            display: none !important;
+        }
+        
+        .goog-te-balloon-frame {
+            display: none !important;
+        }
+        
+        body {
+            top: 0 !important;
+        }
+        
+        /* Ensure notranslate elements stay as is */
+        .notranslate {
+            font-style: normal !important;
+        }
+        
+        /* Style the dropdown */
+        .goog-te-menu-frame {
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3) !important;
+            border-radius: 10px !important;
+            overflow: hidden !important;
         }
         
         @media (max-width: 600px) {
@@ -175,35 +206,25 @@
                 right: 10px;
             }
             
-            .language-selector select {
-                padding: 8px 12px;
-                font-size: 12px;
+            #google_translate_element {
+                padding: 3px;
+            }
+            
+            #google_translate_element .goog-te-gadget-simple {
+                padding: 6px 10px !important;
+                font-size: 12px !important;
             }
         }
     </style>
 </head>
 <body>
     <div class="language-selector">
-        <select id="languageSelect" aria-label="Select language">
-            <option value="en" data-icon="EN">EN English</option>
-            <option value="ar" data-icon="ع">Arabic</option>
-            <option value="zh" data-icon="中">Chinese, Simplified</option>
-            <option value="fr" data-icon="FR">FR French</option>
-            <option value="de" data-icon="DE">DE German</option>
-            <option value="ja" data-icon="あ">Japanese</option>
-            <option value="ko" data-icon="한">Korean</option>
-            <option value="pt" data-icon="PT">PT Portuguese (Brazil)</option>
-            <option value="ru" data-icon="RU">RU Russian</option>
-            <option value="es" data-icon="ES">ES Spanish</option>
-            <option value="th" data-icon="ไทย">Thai</option>
-            <option value="uk" data-icon="UA">UA Ukrainian</option>
-            <option value="vi" data-icon="VI">VI Vietnamese</option>
-        </select>
+        <div id="google_translate_element"></div>
     </div>
     
     <div class="container">
         <header>
-            <h1>⚡ Fliqer</h1>
+            <h1 class="notranslate">⚡ Fliqer</h1>
             <p>Privacy Policy</p>
         </header>
         
@@ -395,11 +416,11 @@
             <h2>12. Contact Us</h2>
             <p>If you have questions about this Privacy Policy or want to exercise your rights, please contact us:</p>
             <div class="highlight">
-                <strong>Email:</strong> <a href="mailto:support@fliqer.app">support@fliqer.app</a><br>
-                <strong>Support Page:</strong> <a href="support.html">fliqer.app/support</a><br>
-                <strong>Developer:</strong> Egor Sazanov<br>
+                <strong>Email:</strong> <a href="mailto:support@fliqer.app" class="notranslate">support@fliqer.app</a><br>
+                <strong>Support Page:</strong> <a href="support.html" class="notranslate">fliqer.app/support</a><br>
+                <strong>Developer:</strong> <span class="notranslate">Egor Sazanov</span><br>
                 <strong>Response Time:</strong> Within 24-48 hours<br>
-                <strong>EU ODR Platform:</strong> <a href="https://ec.europa.eu/consumers/odr" target="_blank">ec.europa.eu/consumers/odr</a> (for EU users)
+                <strong>EU ODR Platform:</strong> <a href="https://ec.europa.eu/consumers/odr" target="_blank" class="notranslate">ec.europa.eu/consumers/odr</a> (for EU users)
             </div>
             
             <h2>13. Your Consent</h2>
@@ -419,8 +440,8 @@
         </div>
         
         <footer>
-            <p><strong>Fliqer</strong> - Professional Video Frame Extraction</p>
-            <p>© 2025 Egor Sazanov. All rights reserved.</p>
+            <p><strong class="notranslate">Fliqer</strong> - Professional Video Frame Extraction</p>
+            <p class="notranslate">© 2025 Egor Sazanov. All rights reserved.</p>
             <p>
                 <a href="terms-of-service.html">Terms of Service</a> | 
                 <a href="privacy-policy.html">Privacy Policy</a> | 
@@ -429,153 +450,34 @@
         </footer>
     </div>
     
-    <script>
-        // Language selector functionality
-        const languageSelect = document.getElementById('languageSelect');
-        const translations = {
-            en: {
-                title: "Privacy Policy",
-                lastUpdated: "Last Updated: December 19, 2025",
-                privacyMatters: "Your Privacy Matters",
-                privacyMattersDesc: "Fliqer is committed to protecting your privacy. This policy explains how we handle your data when you use our app."
-            },
-            ar: {
-                title: "سياسة الخصوصية",
-                lastUpdated: "آخر تحديث: 19 ديسمبر 2025",
-                privacyMatters: "خصوصيتك مهمة",
-                privacyMattersDesc: "ملتزمون بحماية خصوصيتك. توضح هذه السياسة كيفية التعامل مع بياناتك عند استخدام التطبيق."
-            },
-            zh: {
-                title: "隐私政策",
-                lastUpdated: "最后更新：2025年12月19日",
-                privacyMatters: "您的隐私很重要",
-                privacyMattersDesc: "致力于保护您的隐私。本政策说明我们在您使用应用时如何处理您的数据。"
-            },
-            fr: {
-                title: "Politique de Confidentialité",
-                lastUpdated: "Dernière mise à jour : 19 décembre 2025",
-                privacyMatters: "Votre vie privée compte",
-                privacyMattersDesc: "s'engage à protéger votre vie privée. Cette politique explique comment nous traitons vos données lorsque vous utilisez notre application."
-            },
-            de: {
-                title: "Datenschutzrichtlinie",
-                lastUpdated: "Zuletzt aktualisiert: 19. Dezember 2025",
-                privacyMatters: "Ihre Privatsphäre ist wichtig",
-                privacyMattersDesc: "ist verpflichtet, Ihre Privatsphäre zu schützen. Diese Richtlinie erklärt, wie wir mit Ihren Daten umgehen, wenn Sie unsere App verwenden."
-            },
-            ja: {
-                title: "プライバシーポリシー",
-                lastUpdated: "最終更新日：2025年12月19日",
-                privacyMatters: "あなたのプライバシーは重要です",
-                privacyMattersDesc: "はあなたのプライバシーを保護することに取り組んでいます。このポリシーは、アプリを使用する際にデータをどのように処理するかを説明しています。"
-            },
-            ko: {
-                title: "개인정보 보호정책",
-                lastUpdated: "최종 업데이트: 2025년 12월 19일",
-                privacyMatters: "귀하의 개인정보가 중요합니다",
-                privacyMattersDesc: "는 귀하의 개인정보를 보호하기 위해 최선을 다하고 있습니다. 이 정책은 앱을 사용할 때 데이터를 처리하는 방법을 설명합니다."
-            },
-            pt: {
-                title: "Política de Privacidade",
-                lastUpdated: "Última atualização: 19 de dezembro de 2025",
-                privacyMatters: "Sua Privacidade Importa",
-                privacyMattersDesc: "está comprometido em proteger sua privacidade. Esta política explica como lidamos com seus dados quando você usa nosso aplicativo."
-            },
-            ru: {
-                title: "Политика Конфиденциальности",
-                lastUpdated: "Последнее обновление: 19 декабря 2025",
-                privacyMatters: "Ваша Конфиденциальность Важна",
-                privacyMattersDesc: "обязуется защищать вашу конфиденциальность. Эта политика объясняет, как мы обрабатываем ваши данные при использовании нашего приложения."
-            },
-            es: {
-                title: "Política de Privacidad",
-                lastUpdated: "Última actualización: 19 de diciembre de 2025",
-                privacyMatters: "Tu Privacidad Importa",
-                privacyMattersDesc: "está comprometido a proteger tu privacidad. Esta política explica cómo manejamos tus datos cuando usas nuestra aplicación."
-            },
-            th: {
-                title: "นโยบายความเป็นส่วนตัว",
-                lastUpdated: "อัปเดตล่าสุด: 19 ธันวาคม 2025",
-                privacyMatters: "ความเป็นส่วนตัวของคุณมีความสำคัญ",
-                privacyMattersDesc: "มุ่งมั่นในการปกป้องความเป็นส่วนตัวของคุณ นโยบายนี้อธิบายวิธีที่เราจัดการข้อมูลของคุณเมื่อคุณใช้แอปของเรา"
-            },
-            uk: {
-                title: "Політика Конфіденційності",
-                lastUpdated: "Останнє оновлення: 19 грудня 2025",
-                privacyMatters: "Ваша Конфіденційність Важлива",
-                privacyMattersDesc: "зобов'язується захищати вашу конфіденційність. Ця політика пояснює, як ми обробляємо ваші дані під час використання нашого додатку."
-            },
-            vi: {
-                title: "Chính Sách Bảo Mật",
-                lastUpdated: "Cập nhật lần cuối: 19 tháng 12 năm 2025",
-                privacyMatters: "Quyền Riêng Tư Của Bạn Quan Trọng",
-                privacyMattersDesc: "cam kết bảo vệ quyền riêng tư của bạn. Chính sách này giải thích cách chúng tôi xử lý dữ liệu của bạn khi bạn sử dụng ứng dụng của chúng tôi."
-            }
-        };
-        
-        // Get language from URL parameter or localStorage, default to 'en'
-        function getCurrentLanguage() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const langFromUrl = urlParams.get('lang');
-            const langFromStorage = localStorage.getItem('fliqer_lang');
-            return langFromUrl || langFromStorage || 'en';
+    <!-- Google Translate Script -->
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                includedLanguages: 'en,ar,zh-CN,fr,de,ja,ko,pt,ru,es,th,uk,vi',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+                autoDisplay: false,
+                multilanguagePage: true
+            }, 'google_translate_element');
         }
         
-        // Set language
-        function setLanguage(lang) {
-            localStorage.setItem('fliqer_lang', lang);
-            languageSelect.value = lang;
-            
-            // Update URL without reload
-            const url = new URL(window.location);
-            url.searchParams.set('lang', lang);
-            window.history.replaceState({}, '', url);
-            
-            // Update page language attribute
-            document.documentElement.lang = lang;
-            
-            // Update text direction for RTL languages
-            if (lang === 'ar' || lang === 'he' || lang === 'ur') {
-                document.documentElement.dir = 'rtl';
-            } else {
-                document.documentElement.dir = 'ltr';
+        // Hide Google branding banner
+        function removeGoogleBanner() {
+            const banner = document.querySelector('.goog-te-banner-frame');
+            if (banner) {
+                banner.style.display = 'none';
             }
-            
-            // Apply translations if available
-            if (translations[lang]) {
-                const t = translations[lang];
-                const headerTitle = document.querySelector('header p');
-                const dateElement = document.querySelector('.date');
-                const highlightBox = document.querySelector('.highlight');
-                
-                if (headerTitle) {
-                    headerTitle.textContent = t.title;
-                }
-                if (dateElement) {
-                    dateElement.textContent = t.lastUpdated;
-                }
-                if (highlightBox) {
-                    const strong = highlightBox.querySelector('strong');
-                    const br = highlightBox.querySelector('br');
-                    if (strong) strong.textContent = t.privacyMatters;
-                    if (br && br.nextSibling) {
-                        br.nextSibling.textContent = ' ' + t.privacyMattersDesc;
-                    }
-                }
-            }
+            document.body.style.top = '0';
         }
         
-        // Initialize language on page load
-        const currentLang = getCurrentLanguage();
-        setLanguage(currentLang);
-        
-        // Handle language change
-        languageSelect.addEventListener('change', function() {
-            setLanguage(this.value);
-            // Note: Full translation would require translating all content
-            // For now, this sets up the structure and updates basic elements
+        // Run after page load
+        window.addEventListener('load', function() {
+            setTimeout(removeGoogleBanner, 100);
+            setInterval(removeGoogleBanner, 500);
         });
     </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
 
