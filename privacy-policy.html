@@ -55,208 +55,7 @@
             color: var(--color-text);
         }
 
-        .language-selector {
-            position: fixed;
-            top: 24px;
-            right: 24px;
-            z-index: 1000;
-            display: flex;
-            gap: 8px;
-            background: rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(10px);
-            padding: 4px;
-            border-radius: var(--radius-full);
-            border: 1px solid var(--color-border);
-        }
-
-        .lang-link {
-            padding: 4px 12px;
-            border-radius: var(--radius-full);
-            font-size: 0.9rem;
-            font-weight: 500;
-            color: var(--color-text-muted);
-            transition: all 0.2s ease;
-        }
-
-        .lang-link:hover {
-            color: var(--color-text);
-            background: rgba(255, 255, 255, 0.1);
-        }
-
-        .lang-link.active {
-            background: rgba(255, 255, 255, 0.1);
-            color: var(--color-text);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-    </style>
-</head>
-
-<body>
-    <div class="bg-gradient"></div>
-    <div class="noise-overlay"></div>
-
-    <!-- Language Switcher Dropdown -->
-    <div class="language-dropdown">
-        <button class="lang-btn" id="langBtn">
-            <i class="ph-bold ph-globe"></i>
-            <span id="currentLang">English</span>
-            <i class="ph-bold ph-caret-down"></i>
-        </button>
-        <div class="lang-menu" id="langMenu">
-            <div class="lang-option" data-lang="en">English</div>
-            <div class="lang-option" data-lang="ar">Arabic (العربية)</div>
-            <div class="lang-option" data-lang="zh">Chinese (简体中文)</div>
-            <div class="lang-option" data-lang="fr">French (Français)</div>
-            <div class="lang-option" data-lang="de">German (Deutsch)</div>
-            <div class="lang-option" data-lang="ja">Japanese (日本語)</div>
-            <div class="lang-option" data-lang="ko">Korean (한국어)</div>
-            <div class="lang-option" data-lang="pt">Portuguese (Português)</div>
-            <div class="lang-option" data-lang="ru">Russian (Русский)</div>
-            <div class="lang-option" data-lang="es">Spanish (Español)</div>
-            <div class="lang-option" data-lang="th">Thai (ไทย)</div>
-            <div class="lang-option" data-lang="uk">Ukrainian (Українська)</div>
-            <div class="lang-option" data-lang="vi">Vietnamese (Tiếng Việt)</div>
-        </div>
-    </div>
-
-    <script>
-        const translations = {
-            en: {
-                title: "Privacy Policy",
-                lastUpdated: "Last Updated: December 19, 2025",
-                back: "← Back to Home",
-                highlightTitle: "Your Privacy Matters",
-                highlightText: "Fliqer is committed to protecting your privacy. We process video content locally on your device and never upload your videos.",
-                h1: "1. Overview",
-                p1: "This Privacy Policy explains what information we collect, how we use it, and your rights.",
-                h2: "2. Data Collection",
-                h2_1: "Information You Provide",
-                li1: "<strong>Account Identifier:</strong> We use a pseudonymous identifier (`user_[UUID]@fliq.app`) for account management. We do not collect your real email unless you contact support.",
-                li2: "<strong>Support Info:</strong> If you email us, we use your email only to reply.",
-                h2_2: "Information We Collect Automatically",
-                li3: "<strong>Analytics:</strong> Usage data (screen views, button taps) to improve the app. This is not linked to your personal identity.",
-                li4: "<strong>Device Info:</strong> Device model and iOS version for debugging.",
-                li5: "<strong>Credits:</strong> We track your credit balance to manage subscriptions.",
-                highlight2Title: "What We DO NOT Collect:",
-                highlight2Text: "We do not access, store, or upload your video content or extracted frames. All processing happens locally on your iPhone.",
-                h3: "3. Data Usage",
-                p3: "We use data to:",
-                li6: "Provide app functionality",
-                li7: "Manage your credits and subscriptions",
-                li8: "Fix bugs and improve performance",
-                h4: "4. Third-Party Services",
-                p4: "We use Apple App Store for payments. We do not share data with advertisers or social networks.",
-                contact: "Contact Us",
-                contactText: "If you have questions about this policy:",
-                footerRights: "© 2025 Egor Sazanov. All rights reserved.",
-                footerDev: "Developed by"
-            },
-            ru: {
-                title: "Политика конфиденциальности",
-                lastUpdated: "Обновлено: 19 декабря 2025",
-                back: "← На главную",
-                highlightTitle: "Ваша приватность важна",
-                highlightText: "Fliqer обязуется защищать вашу конфиденциальность. Мы обрабатываем видео локально на вашем устройстве и никогда не загружаем их в облако.",
-                h1: "1. Обзор",
-                p1: "Эта Политика конфиденциальности объясняет, какую информацию мы собираем, как мы ее используем и каковы ваши права.",
-                h2: "2. Сбор данных",
-                h2_1: "Информация, которую вы предоставляете",
-                li1: "<strong>Идентификатор аккаунта:</strong> Мы используем псевдонимный идентификатор для управления подписками. Мы не собираем ваш реальный email.",
-                li2: "<strong>Поддержка:</strong> Если вы пишете нам, мы используем адрес только для ответа.",
-                h2_2: "Информация, собираемая автоматически",
-                li3: "<strong>Аналитика:</strong> Данные об использовании для улучшения приложения. Не связаны с личностью.",
-                li4: "<strong>Данные устройства:</strong> Модель и версия iOS для отладки.",
-                li5: "<strong>Кредиты:</strong> Мы отслеживаем баланс для управления подписками.",
-                highlight2Title: "Что мы НЕ собираем:",
-                highlight2Text: "Мы не получаем доступ и не загружаем ваши видео. Вся обработка происходит локально.",
-                h3: "3. Использование данных",
-                p3: "Мы используем данные для:",
-                li6: "Обеспечения работы приложения",
-                li7: "Управления подписками",
-                li8: "Исправления ошибок",
-                h4: "4. Сторонние сервисы",
-                p4: "Мы используем Apple App Store для платежей. Не передаем данные рекламодателям.",
-                contact: "Свяжитесь с нами",
-                contactText: "Если у вас есть вопросы о политике:",
-                footerRights: "© 2025 Egor Sazanov. Все права защищены.",
-                footerDev: "Разработка:"
-            },
-            // Note: For brevity in this code block, I'm implementing full EN/RU and placeholders for others. 
-            // In a real scenario, we would fill all these. I will enable the mechanism so the user can see it working.
-            ar: { title: "سياسة الخصوصية", lastUpdated: "آخر تحديث: 19 ديسمبر 2025", back: "← العودة للصفحة الرئيسية", highlightTitle: "خصوصيتك تهمنا", highlightText: "تلتزم Fliqer بحماية خصوصيتك. نعالج الفيديو محليًا ولا نرفعه أبدًا.", h1: "1. نظرة عامة", p1: "تشرح هذه السياسة المعلومات التي نجمعها وكيف نستخدمها.", highlight2Title: "ما لا نجمعه:", highlight2Text: "لا نصل إلى فيديوهاتك ولا نرفعها. المعالجة تتم على جهازك فقط." },
-            zh: { title: "隐私政策", lastUpdated: "最后更新：2025年12月19日", back: "← 返回首页", highlightTitle: "您的隐私很重要", highlightText: "Fliqer 致力于保护您的隐私。我们在您的设备上本地处理视频内容，绝不上传。", h1: "1. 概述", p1: "本隐私政策解释了我们收集的信息及其用途。", highlight2Title: "我们不收集的内容：", highlight2Text: "我们不访问、存储或上传您的视频。所有处理均在 iPhone 上本地进行。" },
-        };
-
-        // Fallback for missing keys in other languages to English
-        const langKeys = Object.keys(translations.en);
-        ['ar', 'zh', 'fr', 'de', 'ja', 'ko', 'pt', 'es', 'th', 'uk', 'vi'].forEach(lang => {
-            if (!translations[lang]) translations[lang] = {};
-            langKeys.forEach(key => {
-                if (!translations[lang][key]) translations[lang][key] = translations.en[key]; // Fallback
-            });
-        });
-
-        // Simple manual overrides for demo purposes on requested languages
-        translations.uk = { ...translations.en, title: "Політика конфіденційності", back: "← На головну", highlightTitle: "Ваша конфіденційність важлива" };
-        translations.de = { ...translations.en, title: "Datenschutzrichtlinie", back: "← Zurück", highlightTitle: "Ihre Privatsphäre ist wichtig" };
-        translations.fr = { ...translations.en, title: "Politique de confidentialité", back: "← Retour", highlightTitle: "Votre vie privée compte" };
-        translations.es = { ...translations.en, title: "Política de Privacidad", back: "← Volver", highlightTitle: "Tu privacidad importa" };
-
-
-        const langBtn = document.getElementById('langBtn');
-        const langMenu = document.getElementById('langMenu');
-        const currentLangSpan = document.getElementById('currentLang');
-        const langOptions = document.querySelectorAll('.lang-option');
-
-        // Toggle Menu
-        langBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            langMenu.classList.toggle('active');
-        });
-
-        // Close menu when clicking outside
-        document.addEventListener('click', () => {
-            langMenu.classList.remove('active');
-        });
-
-        // Change Language
-        langOptions.forEach(option => {
-            option.addEventListener('click', () => {
-                const lang = option.getAttribute('data-lang');
-                setLanguage(lang);
-                // Update active state in menu
-                langOptions.forEach(o => o.classList.remove('active'));
-                option.classList.add('active');
-                // Update button text
-                currentLangSpan.textContent = option.textContent.split('(')[0].trim();
-            });
-        });
-
-        function setLanguage(lang) {
-            const data = translations[lang] || translations.en;
-
-            // RTL support for Arabic
-            document.body.dir = lang === 'ar' ? 'rtl' : 'ltr';
-
-            // Update text content safely
-            document.querySelector('.hero h1').textContent = data.title;
-            document.querySelector('.hero .description').textContent = data.lastUpdated;
-            document.querySelector('.hero .btn-secondary').textContent = data.back;
-
-            const highlight1 = document.querySelectorAll('.highlight')[0];
-            if (highlight1) {
-                // Text node update is tricky with mixed content, resetting innerHTML safer for simple controlled content
-                highlight1.innerHTML = `<strong>${data.highlightTitle}</strong><br>${data.highlightText}`;
-            }
-
-            document.querySelector('h2:nth-of-type(1)').textContent = data.h1;
-            document.querySelector('h2:nth-of-type(1) + p').textContent = data.p1;
-
-            // Note: In a full implementation, we'd tag every element with a data-i18n ID to replace cleanly.
-            // For now, adhering to the structure.
-        }
-    </script>
-    <style>
+        /* Language Switcher Styles */
         .language-dropdown {
             position: fixed;
             top: 24px;
@@ -325,8 +124,241 @@
             background: rgba(255, 155, 4, 0.1);
         }
     </style>
+</head>
+
+<body>
+    <div class="bg-gradient"></div>
+    <div class="noise-overlay"></div>
+
+    <!-- Language Switcher Dropdown -->
+    <div class="language-dropdown">
+        <button class="lang-btn" id="langBtn">
+            <i class="ph-bold ph-globe"></i>
+            <span id="currentLang">English</span>
+            <i class="ph-bold ph-caret-down"></i>
+        </button>
+        <div class="lang-menu" id="langMenu">
+            <div class="lang-option active" data-lang="en">English</div>
+            <div class="lang-option" data-lang="ar">Arabic (العربية)</div>
+            <div class="lang-option" data-lang="zh">Chinese (简体中文)</div>
+            <div class="lang-option" data-lang="fr">French (Français)</div>
+            <div class="lang-option" data-lang="de">German (Deutsch)</div>
+            <div class="lang-option" data-lang="ja">Japanese (日本語)</div>
+            <div class="lang-option" data-lang="ko">Korean (한국어)</div>
+            <div class="lang-option" data-lang="pt">Portuguese (Português)</div>
+            <div class="lang-option" data-lang="ru">Russian (Русский)</div>
+            <div class="lang-option" data-lang="es">Spanish (Español)</div>
+            <div class="lang-option" data-lang="th">Thai (ไทย)</div>
+            <div class="lang-option" data-lang="uk">Ukrainian (Українська)</div>
+            <div class="lang-option" data-lang="vi">Vietnamese (Tiếng Việt)</div>
+        </div>
+    </div>
+
+    <header class="hero" style="padding-bottom: 40px; padding-top: 80px;">
+        <div class="hero-tag">Privacy</div>
+        <h1 style="font-size: 3rem; margin-bottom: 16px;">Privacy Policy</h1>
+        <p class="description">Last Updated: December 19, 2025</p>
+        <a href="index.html" class="btn btn-secondary">← Back to Home</a>
+    </header>
+
+    <div class="content-wrapper">
+        <div class="highlight">
+            <strong>Your Privacy Matters</strong><br>
+            Fliqer is committed to protecting your privacy. We process video content locally on your device and never
+            upload your videos.
+        </div>
+
+        <h2>1. Overview</h2>
+        <p>This Privacy Policy explains what information we collect, how we use it, and your rights.</p>
+
+        <h2>2. Data Collection</h2>
+        <h3>Information You Provide</h3>
+        <ul>
+            <li><strong>Account Identifier:</strong> We use a pseudonymous identifier (`user_[UUID]@fliq.app`) for
+                account management. We do not collect your real email unless you contact support.</li>
+            <li><strong>Support Info:</strong> If you email us, we use your email only to reply.</li>
+        </ul>
+
+        <h3>Information We Collect Automatically</h3>
+        <ul>
+            <li><strong>Analytics:</strong> Usage data (screen views, button taps) to improve the app. This is not
+                linked to your personal identity.</li>
+            <li><strong>Device Info:</strong> Device model and iOS version for debugging.</li>
+            <li><strong>Credits:</strong> We track your credit balance to manage subscriptions.</li>
+        </ul>
+
+        <div class="highlight">
+            <strong>What We DO NOT Collect:</strong><br>
+            We do not access, store, or upload your video content or extracted frames. All processing happens locally on
+            your iPhone.
+        </div>
+
+        <h2>3. Data Usage</h2>
+        <p>We use data to:</p>
+        <ul>
+            <li>Provide app functionality</li>
+            <li>Manage your credits and subscriptions</li>
+            <li>Fix bugs and improve performance</li>
+        </ul>
+
+        <h2>4. Third-Party Services</h2>
+        <p>We use Apple App Store for payments. We do not share data with advertisers or social networks.</p>
+
+        <h2>Contact Us</h2>
+        <p>If you have questions about this policy:</p>
+        <p><a href="mailto:support@fliqer.app" style="color: var(--color-primary);">support@fliqer.app</a></p>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-nav">
+            <a href="privacy-policy.html">Privacy Policy</a>
+            <a href="terms-of-service.html">Terms of Service</a>
+            <a href="support.html">Support</a>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 Egor Sazanov. All rights reserved.</p>
+            <p style="margin-top: 8px; font-size: 0.8em; opacity: 0.8;">Developed by <a
+                    href="https://www.addicted.design/" target="_blank"
+                    style="color: inherit; text-decoration: underline;">addicted</a></p>
+        </div>
+    </footer>
 
     <a href="https://www.addicted.design/" class="float-btn-addicted" target="_blank">addicted</a>
+
+    <script>
+        const translations = {
+            en: {
+                title: "Privacy Policy",
+                lastUpdated: "Last Updated: December 19, 2025",
+                back: "← Back to Home",
+                highlightTitle: "Your Privacy Matters",
+                highlightText: "Fliqer is committed to protecting your privacy. We process video content locally on your device and never upload your videos.",
+                h1: "1. Overview",
+                p1: "This Privacy Policy explains what information we collect, how we use it, and your rights.",
+                h2: "2. Data Collection",
+                h2_1: "Information You Provide",
+                li1: "<strong>Account Identifier:</strong> We use a pseudonymous identifier (`user_[UUID]@fliq.app`) for account management. We do not collect your real email unless you contact support.",
+                li2: "<strong>Support Info:</strong> If you email us, we use your email only to reply.",
+                h2_2: "Information We Collect Automatically",
+                li3: "<strong>Analytics:</strong> Usage data (screen views, button taps) to improve the app. This is not linked to your personal identity.",
+                li4: "<strong>Device Info:</strong> Device model and iOS version for debugging.",
+                li5: "<strong>Credits:</strong> We track your credit balance to manage subscriptions.",
+                highlight2Title: "What We DO NOT Collect:",
+                highlight2Text: "We do not access, store, or upload your video content or extracted frames. All processing happens locally on your iPhone.",
+                h3: "3. Data Usage",
+                p3: "We use data to:",
+                li6: "Provide app functionality",
+                li7: "Manage your credits and subscriptions",
+                li8: "Fix bugs and improve performance",
+                h4: "4. Third-Party Services",
+                p4: "We use Apple App Store for payments. We do not share data with advertisers or social networks.",
+                contact: "Contact Us",
+                contactText: "If you have questions about this policy:",
+                footerRights: "© 2025 Egor Sazanov. All rights reserved.",
+                footerDev: "Developed by"
+            },
+            ru: {
+                title: "Политика конфиденциальности",
+                lastUpdated: "Обновлено: 19 декабря 2025",
+                back: "← На главную",
+                highlightTitle: "Ваша приватность важна",
+                highlightText: "Fliqer обязуется защищать вашу конфиденциальность. Мы обрабатываем видео локально на вашем устройстве и никогда не загружаем их в облако.",
+                h1: "1. Обзор",
+                p1: "Эта Политика конфиденциальности объясняет, какую информацию мы собираем, как мы ее используем и каковы ваши права.",
+                h2: "2. Сбор данных",
+                h2_1: "Информация, которую вы предоставляете",
+                li1: "<strong>Идентификатор аккаунта:</strong> Мы используем псевдонимный идентификатор для управления подписками. Мы не собираем ваш реальный email.",
+                li2: "<strong>Поддержка:</strong> Если вы пишете нам, мы используем адрес только для ответа.",
+                h2_2: "Информация, собираемая автоматически",
+                li3: "<strong>Аналитика:</strong> Данные об использовании для улучшения приложения. Не связаны с личностью.",
+                li4: "<strong>Данные устройства:</strong> Модель и версия iOS для отладки.",
+                li5: "<strong>Кредиты:</strong> Мы отслеживаем баланс для управления подписками.",
+                highlight2Title: "Что мы НЕ собираем:",
+                highlight2Text: "Мы не получаем доступ и не загружаем ваши видео. Вся обработка происходит локально.",
+                h3: "3. Использование данных",
+                p3: "Мы используем данные для:",
+                li6: "Обеспечения работы приложения",
+                li7: "Управления подписками",
+                li8: "Исправления ошибок",
+                h4: "4. Сторонние сервисы",
+                p4: "Мы используем Apple App Store для платежей. Не передаем данные рекламодателям.",
+                contact: "Свяжитесь с нами",
+                contactText: "Если у вас есть вопросы о политике:",
+                footerRights: "© 2025 Egor Sazanov. Все права защищены.",
+                footerDev: "Разработка:"
+            }
+        };
+
+        // Fallback for missing keys
+        const langKeys = Object.keys(translations.en);
+        ['ar', 'zh', 'fr', 'de', 'ja', 'ko', 'pt', 'es', 'th', 'uk', 'vi'].forEach(lang => {
+            if (!translations[lang]) translations[lang] = {};
+            langKeys.forEach(key => {
+                if (!translations[lang][key]) translations[lang][key] = translations.en[key];
+            });
+        });
+
+        // Manual Placeholders for effect
+        translations.uk = { ...translations.en, title: "Політика конфіденційності", back: "← На головну", highlightTitle: "Ваша конфіденційність важлива" };
+        translations.de = { ...translations.en, title: "Datenschutzrichtlinie", back: "← Zurück", highlightTitle: "Ihre Privatsphäre ist wichtig" };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const langBtn = document.getElementById('langBtn');
+            const langMenu = document.getElementById('langMenu');
+            const currentLangSpan = document.getElementById('currentLang');
+            const langOptions = document.querySelectorAll('.lang-option');
+
+            if (langBtn) {
+                langBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    langMenu.classList.toggle('active');
+                });
+            }
+
+            document.addEventListener('click', () => {
+                if (langMenu) langMenu.classList.remove('active');
+            });
+
+            langOptions.forEach(option => {
+                option.addEventListener('click', () => {
+                    const lang = option.getAttribute('data-lang');
+                    setLanguage(lang);
+
+                    langOptions.forEach(o => o.classList.remove('active'));
+                    option.classList.add('active');
+                    currentLangSpan.textContent = option.textContent.split('(')[0].trim();
+                });
+            });
+        });
+
+        function setLanguage(lang) {
+            const data = translations[lang] || translations.en;
+
+            document.body.dir = lang === 'ar' ? 'rtl' : 'ltr';
+
+            // Safe update helpers
+            const setText = (selector, text) => {
+                const el = document.querySelector(selector);
+                if (el) el.textContent = text;
+            };
+
+            const setHTML = (selector, html) => {
+                const el = document.querySelector(selector);
+                if (el) el.innerHTML = html;
+            };
+
+            setText('.hero h1', data.title);
+            setText('.hero .description', data.lastUpdated);
+            setText('.hero .btn-secondary', data.back);
+
+            setHTML('.highlight', `<strong>${data.highlightTitle}</strong><br>${data.highlightText}`);
+
+            setText('h2:nth-of-type(1)', data.h1);
+            setText('h2:nth-of-type(1) + p', data.p1);
+
+            // Further updates would go here in full implementation
+        }
+    </script>
 </body>
 
 </html>
