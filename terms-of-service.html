@@ -188,7 +188,7 @@
     <header class="hero" style="padding-bottom: 40px; padding-top: 80px;">
         <div id="hero-tag" class="hero-tag">Legal</div>
         <h1 id="hero-title" style="font-size: 3rem; margin-bottom: 16px;">Terms of Service</h1>
-        <p id="hero-desc" class="description">Last Updated: December 19, 2025</p>
+        <p id="hero-desc" class="description">Last Updated: January 15, 2026</p>
         <a id="hero-back" href="index.html" class="btn btn-secondary">← Back to Home</a>
     </header>
 
@@ -210,9 +210,13 @@
         <ul>
             <li id="li-browse">Browse videos from their photo library</li>
             <li id="li-extract">Extract individual frames from videos with high precision</li>
+            <li id="li-ai">Apply AI enhancements to extracted frames (normal enhancement, blur fix, noise clean)</li>
             <li id="li-save">Save extracted frames in multiple formats (JPG, PNG, HEIC)</li>
+            <li id="li-location">Choose save location (dedicated Fliqer album or directly to Recents)</li>
             <li id="li-manage">Manage frame extraction credits and subscriptions</li>
+            <li id="li-sync">Sync credits and account across devices using Apple Sign In (optional)</li>
         </ul>
+        <p id="p2-desc-2"><strong>Important:</strong> All video processing and frame extraction happens locally on your device. Your videos and extracted frames never leave your iPhone.</p>
 
         <h2 id="h3-credits">3. Credits System</h2>
         <table>
@@ -271,11 +275,12 @@
     <script>
         const translations = {
             en: {
-                heroTag: "Legal", heroTitle: "Terms of Service", heroDesc: "Last Updated: December 19, 2025", heroBack: "← Back to Home",
+                heroTag: "Legal", heroTitle: "Terms of Service", heroDesc: "Last Updated: January 15, 2026", heroBack: "← Back to Home",
                 hlTitle: "Agreement to Terms", hlText: "By downloading, installing, or using Fliqer, you agree to be bound by these Terms of Service. If you do not agree, do not use the app.",
                 h1Accept: "1. Acceptance of Terms", p1Accept: "These Terms of Service ('Terms') govern your use of the Fliqer mobile application ('App') developed by Egor Sazanov ('we,' 'us,' or 'our'). By accessing or using the App, you agree to these Terms and our Privacy Policy.",
                 h2Desc: "2. Description of Service", p2Desc: "Fliqer is a professional iOS application that allows users to:",
-                liBrowse: "Browse videos from their photo library", liExtract: "Extract individual frames from videos with high precision", liSave: "Save extracted frames in multiple formats (JPG, PNG, HEIC)", liManage: "Manage frame extraction credits and subscriptions",
+                liBrowse: "Browse videos from their photo library", liExtract: "Extract individual frames from videos with high precision", liAi: "Apply AI enhancements to extracted frames (normal enhancement, blur fix, noise clean)", liSave: "Save extracted frames in multiple formats (JPG, PNG, HEIC)", liLocation: "Choose save location (dedicated Fliqer album or directly to Recents)", liManage: "Manage frame extraction credits and subscriptions", liSync: "Sync credits and account across devices using Apple Sign In (optional)",
+                p2Desc2: "<strong>Important:</strong> All video processing and frame extraction happens locally on your device. Your videos and extracted frames never leave your iPhone.",
                 h3Credits: "3. Credits System", thPlan: "Plan", thCredits: "Credits", thPrice: "Price",
                 tdBase: "Base", tdBaseC: "30/month", tdBaseP: "Free",
                 tdProM: "Pro Monthly", tdProMC: "300/month", tdProMP: "$2.99/mo",
@@ -287,11 +292,12 @@
                 footerRights: "© 2025 Egor Sazanov. All rights reserved.", footerDev: "Developed by"
             },
             ru: {
-                heroTag: "Юридическая информация", heroTitle: "Условия использования", heroDesc: "Обновлено: 19 декабря 2025", heroBack: "← На главную",
+                heroTag: "Юридическая информация", heroTitle: "Условия использования", heroDesc: "Обновлено: 15 января 2026", heroBack: "← На главную",
                 hlTitle: "Согласие с условиями", hlText: "Загружая, устанавливая или используя Fliqer, вы соглашаетесь с этими Условиями использования. Если вы не согласны, не используйте приложение.",
                 h1Accept: "1. Принятие условий", p1Accept: "Эти Условия использования ('Условия') регулируют использование мобильного приложения Fliqer ('Приложение'), разработанного Егором Сазановым. Используя Приложение, вы соглашаетесь с этими Условиями и нашей Политикой конфиденциальности.",
                 h2Desc: "2. Описание сервиса", p2Desc: "Fliqer — это профессиональное iOS приложение, которое позволяет пользователям:",
-                liBrowse: "Просматривать видео из фотопленки", liExtract: "Извлекать кадры из видео с высокой точностью", liSave: "Сохранять кадры в разных форматах (JPG, PNG, HEIC)", liManage: "Управлять кредитами на извлечение и подписками",
+                liBrowse: "Просматривать видео из фотопленки", liExtract: "Извлекать кадры из видео с высокой точностью", liAi: "Применять AI улучшения к извлеченным кадрам (обычное улучшение, исправление размытия, очистка шума)", liSave: "Сохранять кадры в разных форматах (JPG, PNG, HEIC)", liLocation: "Выбирать место сохранения (альбом Fliqer или напрямую в Недавние)", liManage: "Управлять кредитами на извлечение и подписками", liSync: "Синхронизировать кредиты и аккаунт между устройствами через Apple Sign In (опционально)",
+                p2Desc2: "<strong>Важно:</strong> Вся обработка видео и извлечение кадров происходит локально на вашем устройстве. Ваши видео и извлеченные кадры никогда не покидают ваш iPhone.",
                 h3Credits: "3. Система кредитов", thPlan: "План", thCredits: "Кредиты", thPrice: "Цена",
                 tdBase: "Базовый", tdBaseC: "30/мес", tdBaseP: "Бесплатно",
                 tdProM: "Pro Месяц", tdProMC: "300/мес", tdProMP: "$2.99/мес",
@@ -411,8 +417,12 @@
             setText('p2-desc', data.p2Desc);
             setText('li-browse', data.liBrowse);
             setText('li-extract', data.liExtract);
+            setText('li-ai', data.liAi);
             setText('li-save', data.liSave);
+            setText('li-location', data.liLocation);
             setText('li-manage', data.liManage);
+            setText('li-sync', data.liSync);
+            setHTML('p2-desc-2', data.p2Desc2);
 
             setText('h3-credits', data.h3Credits);
             setText('th-plan', data.thPlan);

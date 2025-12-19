@@ -157,7 +157,7 @@
     <header class="hero" style="padding-bottom: 40px; padding-top: 80px;">
         <div class="hero-tag">Privacy</div>
         <h1 id="hero-title" style="font-size: 3rem; margin-bottom: 16px;">Privacy Policy</h1>
-        <p id="hero-desc" class="description">Last Updated: December 19, 2025</p>
+        <p id="hero-desc" class="description">Last Updated: January 15, 2026</p>
         <a id="hero-back" href="index.html" class="btn btn-secondary">← Back to Home</a>
     </header>
 
@@ -176,17 +176,26 @@
         <h3 id="h3-provide">Information You Provide</h3>
         <ul>
             <li id="li-account"><strong>Account Identifier:</strong> We use a pseudonymous identifier
-                (`user_[UUID]@fliq.app`) for account management. We do not collect your real email unless you contact
-                support.</li>
+                (`user_[UUID]@fliq.app` or your Apple ID email if you sign in) for account management and credit synchronization across devices.</li>
+            <li id="li-email"><strong>Email Address:</strong> If you sign in with Apple Sign In, we may receive your email address (or a proxy email if you choose to hide it). This is used only for account management and support.</li>
             <li id="li-support"><strong>Support Info:</strong> If you email us, we use your email only to reply.</li>
         </ul>
 
         <h3 id="h3-auto">Information We Collect Automatically</h3>
         <ul>
-            <li id="li-analytics"><strong>Analytics:</strong> Usage data (screen views, button taps) to improve the app.
-                This is not linked to your personal identity.</li>
-            <li id="li-device"><strong>Device Info:</strong> Device model and iOS version for debugging.</li>
-            <li id="li-credits"><strong>Credits:</strong> We track your credit balance to manage subscriptions.</li>
+            <li id="li-analytics"><strong>Analytics Events:</strong> We collect usage analytics to improve the app, including:
+                <ul style="margin-top: 8px; margin-left: 20px;">
+                    <li>App usage events (app opened, screen views, button taps)</li>
+                    <li>Frame extraction events (number of frames extracted, export format)</li>
+                    <li>AI enhancement usage (preset type: normal, blur fix, noise clean)</li>
+                    <li>Subscription and purchase events (plan type, purchase attempts, completions, failures)</li>
+                    <li>Credit system events (balance views, credit consumption, insufficient credits)</li>
+                    <li>Error events (for debugging and improvement)</li>
+                </ul>
+                This data is pseudonymous and not linked to your personal identity.
+            </li>
+            <li id="li-device"><strong>Device Information:</strong> Platform (iOS), OS version, and app version for debugging and compatibility.</li>
+            <li id="li-credits"><strong>Credit Balance:</strong> We track your credit balance and subscription plan to manage your account and sync across devices.</li>
         </ul>
 
         <div class="highlight">
@@ -196,16 +205,21 @@
         </div>
 
         <h2 id="h2-usage">3. Data Usage</h2>
-        <p id="p3-usage">We use data to:</p>
+        <p id="p3-usage">We use collected data to:</p>
         <ul>
-            <li id="li-func">Provide app functionality</li>
-            <li id="li-manage">Manage your credits and subscriptions</li>
-            <li id="li-fix">Fix bugs and improve performance</li>
+            <li id="li-func">Provide app functionality and sync your credits across devices</li>
+            <li id="li-manage">Manage your credits, subscriptions, and account</li>
+            <li id="li-fix">Fix bugs, improve performance, and enhance features</li>
+            <li id="li-analytics-usage">Analyze usage patterns to understand how features are used and improve user experience</li>
         </ul>
 
         <h2 id="h2-third">4. Third-Party Services</h2>
-        <p id="p4-third">We use Apple App Store for payments. We do not share data with advertisers or social networks.
-        </p>
+        <p id="p4-third">We use the following third-party services:</p>
+        <ul>
+            <li id="li-apple-store"><strong>Apple App Store:</strong> For in-app purchases and subscription management. Apple processes payments and we receive transaction information.</li>
+            <li id="li-apple-signin"><strong>Apple Sign In:</strong> For optional account authentication and cross-device synchronization. Apple handles authentication and may share your email (or proxy email) with us if you choose to sign in.</li>
+        </ul>
+        <p id="p4-third-2">We do not share data with advertisers, social networks, or data brokers. Analytics data is stored on our servers and used solely for app improvement.</p>
 
         <h2 id="h2-contact">Contact Us</h2>
         <p id="p5-contact">If you have questions about this policy:</p>
@@ -232,7 +246,7 @@
         const translations = {
             en: {
                 heroTitle: "Privacy Policy",
-                heroDesc: "Last Updated: December 19, 2025",
+                heroDesc: "Last Updated: January 15, 2026",
                 heroBack: "← Back to Home",
                 hl1Title: "Your Privacy Matters",
                 hl1Text: "Fliqer is committed to protecting your privacy. We process video content locally on your device and never upload your videos.",
@@ -240,21 +254,26 @@
                 p1Overview: "This Privacy Policy explains what information we collect, how we use it, and your rights.",
                 h2Collection: "2. Data Collection",
                 h3Provide: "Information You Provide",
-                liAccount: "<strong>Account Identifier:</strong> We use a pseudonymous identifier (`user_[UUID]@fliq.app`) for account management. We do not collect your real email unless you contact support.",
+                liAccount: "<strong>Account Identifier:</strong> We use a pseudonymous identifier (`user_[UUID]@fliq.app` or your Apple ID email if you sign in) for account management and credit synchronization across devices.",
+                liEmail: "<strong>Email Address:</strong> If you sign in with Apple Sign In, we may receive your email address (or a proxy email if you choose to hide it). This is used only for account management and support.",
                 liSupport: "<strong>Support Info:</strong> If you email us, we use your email only to reply.",
                 h3Auto: "Information We Collect Automatically",
-                liAnalytics: "<strong>Analytics:</strong> Usage data (screen views, button taps) to improve the app. This is not linked to your personal identity.",
-                liDevice: "<strong>Device Info:</strong> Device model and iOS version for debugging.",
-                liCredits: "<strong>Credits:</strong> We track your credit balance to manage subscriptions.",
+                liAnalytics: "<strong>Analytics Events:</strong> We collect usage analytics to improve the app, including: App usage events (app opened, screen views, button taps), Frame extraction events (number of frames extracted, export format), AI enhancement usage (preset type: normal, blur fix, noise clean), Subscription and purchase events (plan type, purchase attempts, completions, failures), Credit system events (balance views, credit consumption, insufficient credits), Error events (for debugging and improvement). This data is pseudonymous and not linked to your personal identity.",
+                liDevice: "<strong>Device Information:</strong> Platform (iOS), OS version, and app version for debugging and compatibility.",
+                liCredits: "<strong>Credit Balance:</strong> We track your credit balance and subscription plan to manage your account and sync across devices.",
                 hl2Title: "What We DO NOT Collect:",
                 hl2Text: "We do not access, store, or upload your video content or extracted frames. All processing happens locally on your iPhone.",
                 h2Usage: "3. Data Usage",
-                p3Usage: "We use data to:",
-                liFunc: "Provide app functionality",
-                liManage: "Manage your credits and subscriptions",
-                liFix: "Fix bugs and improve performance",
+                p3Usage: "We use collected data to:",
+                liFunc: "Provide app functionality and sync your credits across devices",
+                liManage: "Manage your credits, subscriptions, and account",
+                liFix: "Fix bugs, improve performance, and enhance features",
+                liAnalyticsUsage: "Analyze usage patterns to understand how features are used and improve user experience",
                 h2Third: "4. Third-Party Services",
-                p4Third: "We use Apple App Store for payments. We do not share data with advertisers or social networks.",
+                p4Third: "We use the following third-party services:",
+                liAppleStore: "<strong>Apple App Store:</strong> For in-app purchases and subscription management. Apple processes payments and we receive transaction information.",
+                liAppleSignin: "<strong>Apple Sign In:</strong> For optional account authentication and cross-device synchronization. Apple handles authentication and may share your email (or proxy email) with us if you choose to sign in.",
+                p4Third2: "We do not share data with advertisers, social networks, or data brokers. Analytics data is stored on our servers and used solely for app improvement.",
                 h2Contact: "Contact Us",
                 p5Contact: "If you have questions about this policy:",
                 footerRights: "© 2025 Egor Sazanov. All rights reserved.",
@@ -262,7 +281,7 @@
             },
             ru: {
                 heroTitle: "Политика конфиденциальности",
-                heroDesc: "Обновлено: 19 декабря 2025",
+                heroDesc: "Обновлено: 15 января 2026",
                 heroBack: "← На главную",
                 hl1Title: "Ваша конфиденциальность важна",
                 hl1Text: "Fliqer обязуется защищать вашу конфиденциальность. Мы обрабатываем видео локально на вашем устройстве и никогда не загружаем их в облако.",
@@ -270,21 +289,26 @@
                 p1Overview: "Эта Политика конфиденциальности объясняет, какую информацию мы собираем, как мы ее используем и каковы ваши права.",
                 h2Collection: "2. Сбор данных",
                 h3Provide: "Информация, которую вы предоставляете",
-                liAccount: "<strong>Идентификатор аккаунта:</strong> Мы используем псевдонимный идентификатор для управления подписками. Мы не собираем ваш реальный email, если вы не обращаетесь в поддержку.",
+                liAccount: "<strong>Идентификатор аккаунта:</strong> Мы используем псевдонимный идентификатор (`user_[UUID]@fliq.app` или email вашего Apple ID при входе) для управления аккаунтом и синхронизации кредитов между устройствами.",
+                liEmail: "<strong>Email адрес:</strong> Если вы входите через Apple Sign In, мы можем получить ваш email (или прокси-email, если вы скрыли его). Используется только для управления аккаунтом и поддержки.",
                 liSupport: "<strong>Поддержка:</strong> Если вы пишете нам на email, мы используем ваш адрес только для ответа.",
                 h3Auto: "Информация, собираемая автоматически",
-                liAnalytics: "<strong>Аналитика:</strong> Данные об использовании для улучшения приложения. Не связаны с вашей личностью.",
-                liDevice: "<strong>Данные устройства:</strong> Модель и версия iOS для отладки.",
-                liCredits: "<strong>Кредиты:</strong> Мы отслеживаем баланс кредитов для управления подписками.",
+                liAnalytics: "<strong>События аналитики:</strong> Мы собираем аналитику использования для улучшения приложения, включая: События использования (открытие приложения, просмотры экранов, нажатия кнопок), События извлечения кадров (количество извлеченных кадров, формат экспорта), Использование AI улучшений (тип пресета: обычный, исправление размытия, очистка шума), События подписок и покупок (тип плана, попытки покупки, завершения, ошибки), События кредитной системы (просмотры баланса, расход кредитов, недостаточно кредитов), События ошибок (для отладки и улучшения). Эти данные псевдонимны и не связаны с вашей личностью.",
+                liDevice: "<strong>Информация об устройстве:</strong> Платформа (iOS), версия ОС и версия приложения для отладки и совместимости.",
+                liCredits: "<strong>Баланс кредитов:</strong> Мы отслеживаем баланс кредитов и план подписки для управления аккаунтом и синхронизации между устройствами.",
                 hl2Title: "Что мы НЕ собираем:",
                 hl2Text: "Мы не получаем доступ, не храним и не загружаем ваши видео или извлеченные кадры. Вся обработка происходит локально.",
                 h2Usage: "3. Использование данных",
-                p3Usage: "Мы используем данные для:",
-                liFunc: "Обеспечения работы приложения",
-                liManage: "Управления вашими подписками и кредитами",
-                liFix: "Исправления ошибок и улучшения производительности",
+                p3Usage: "Мы используем собранные данные для:",
+                liFunc: "Обеспечения работы приложения и синхронизации кредитов между устройствами",
+                liManage: "Управления вашими кредитами, подписками и аккаунтом",
+                liFix: "Исправления ошибок, улучшения производительности и функций",
+                liAnalyticsUsage: "Анализа паттернов использования для понимания использования функций и улучшения опыта",
                 h2Third: "4. Сторонние сервисы",
-                p4Third: "Мы используем Apple App Store для обработки платежей. Мы не передаем данные рекламодателям.",
+                p4Third: "Мы используем следующие сторонние сервисы:",
+                liAppleStore: "<strong>Apple App Store:</strong> Для покупок в приложении и управления подписками. Apple обрабатывает платежи, и мы получаем информацию о транзакциях.",
+                liAppleSignin: "<strong>Apple Sign In:</strong> Для опциональной аутентификации аккаунта и синхронизации между устройствами. Apple обрабатывает аутентификацию и может передать нам ваш email (или прокси-email), если вы выберете вход.",
+                p4Third2: "Мы не передаем данные рекламодателям, социальным сетям или брокерам данных. Данные аналитики хранятся на наших серверах и используются исключительно для улучшения приложения.",
                 h2Contact: "Свяжитесь с нами",
                 p5Contact: "Если у вас есть вопросы о политике конфиденциальности:",
                 footerRights: "© 2025 Eгор Сазанов. Все права защищены.",
@@ -652,6 +676,7 @@
             setText('h2-collection', data.h2Collection);
             setText('h3-provide', data.h3Provide);
             setHTML('li-account', data.liAccount);
+            setHTML('li-email', data.liEmail);
             setHTML('li-support', data.liSupport);
 
             setText('h3-auto', data.h3Auto);
@@ -667,9 +692,13 @@
             setText('li-func', data.liFunc);
             setText('li-manage', data.liManage);
             setText('li-fix', data.liFix);
+            setText('li-analytics-usage', data.liAnalyticsUsage);
 
             setText('h2-third', data.h2Third);
             setText('p4-third', data.p4Third);
+            setHTML('li-apple-store', data.liAppleStore);
+            setHTML('li-apple-signin', data.liAppleSignin);
+            setText('p4-third-2', data.p4Third2);
 
             setText('h2-contact', data.h2Contact);
             setText('p5-contact', data.p5Contact);
