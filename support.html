@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="styles.css">
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <style>
-        /* Specific overrides for support page content */
         .content-wrapper {
             max-width: 800px;
             margin: 0 auto;
@@ -84,6 +83,75 @@
             gap: 12px;
             align-items: flex-start;
         }
+
+        /* Language Switcher Styles */
+        .language-dropdown {
+            position: fixed;
+            top: 24px;
+            right: 24px;
+            z-index: 1000;
+        }
+
+        .lang-btn {
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--color-border);
+            color: var(--color-text-muted);
+            padding: 8px 16px;
+            border-radius: var(--radius-full);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+
+        .lang-btn:hover {
+            color: var(--color-text);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .lang-menu {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            margin-top: 8px;
+            background: #111;
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-md);
+            width: 220px;
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .lang-menu.active {
+            display: flex;
+            animation: fadeUp 0.2s ease;
+        }
+
+        .lang-option {
+            padding: 10px 16px;
+            color: var(--color-text-muted);
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: background 0.2s;
+        }
+
+        .lang-option:hover {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--color-text);
+        }
+
+        .lang-option.active {
+            color: var(--color-primary);
+            background: rgba(255, 155, 4, 0.1);
+        }
     </style>
 </head>
 
@@ -91,95 +159,273 @@
     <div class="bg-gradient"></div>
     <div class="noise-overlay"></div>
 
+    <!-- Language Switcher Dropdown -->
+    <div class="language-dropdown">
+        <button class="lang-btn" id="langBtn">
+            <i class="ph-bold ph-globe"></i>
+            <span id="currentLang">English</span>
+            <i class="ph-bold ph-caret-down"></i>
+        </button>
+        <div class="lang-menu" id="langMenu">
+            <div class="lang-option active" data-lang="en">English</div>
+            <div class="lang-option" data-lang="ar">Arabic (العربية)</div>
+            <div class="lang-option" data-lang="zh">Chinese (简体中文)</div>
+            <div class="lang-option" data-lang="fr">French (Français)</div>
+            <div class="lang-option" data-lang="de">German (Deutsch)</div>
+            <div class="lang-option" data-lang="ja">Japanese (日本語)</div>
+            <div class="lang-option" data-lang="ko">Korean (한국어)</div>
+            <div class="lang-option" data-lang="pt">Portuguese (Português)</div>
+            <div class="lang-option" data-lang="ru">Russian (Русский)</div>
+            <div class="lang-option" data-lang="es">Spanish (Español)</div>
+            <div class="lang-option" data-lang="th">Thai (ไทย)</div>
+            <div class="lang-option" data-lang="uk">Ukrainian (Українська)</div>
+            <div class="lang-option" data-lang="vi">Vietnamese (Tiếng Việt)</div>
+        </div>
+    </div>
+
     <header class="hero" style="padding-bottom: 40px; padding-top: 80px;">
-        <div class="hero-tag">Support Center</div>
-        <h1 style="font-size: 3rem; margin-bottom: 16px;">How can we help?</h1>
-        <p class="description">Guides, FAQs, and support for Fliqer</p>
-        <a href="index.html" class="btn btn-secondary">← Back to Home</a>
+        <div id="hero-tag" class="hero-tag">Support Center</div>
+        <h1 id="hero-title" style="font-size: 3rem; margin-bottom: 16px;">How can we help?</h1>
+        <p id="hero-desc" class="description">Guides, FAQs, and support for Fliqer</p>
+        <a id="hero-back" href="index.html" class="btn btn-secondary">← Back to Home</a>
     </header>
 
     <div class="content-wrapper">
         <div class="support-card" style="text-align: center;">
             <div style="font-size: 3rem; margin-bottom: 16px; color: var(--color-primary);"><i
                     class="ph ph-envelope"></i></div>
-            <h3>Contact Support</h3>
-            <p>Need direct assistance? We're here to help.</p>
+            <h3 id="card-title">Contact Support</h3>
+            <p id="card-text">Need direct assistance? We're here to help.</p>
             <a href="mailto:support@fliqer.app" class="btn btn-primary">support@fliqer.app</a>
-            <p style="font-size: 0.9em; margin-top: 16px; opacity: 0.7;">Typical response time: 24-48 hours</p>
+            <p style="font-size: 0.9em; margin-top: 16px; opacity: 0.7;"><span id="card-response">Typical response time:
+                    24-48 hours</span></p>
         </div>
 
-        <h2>Getting Started</h2>
+        <h2 id="h-getting-started">Getting Started</h2>
         <div class="grid grid-3">
             <div class="faq-item">
                 <div style="font-size: 2em; color: var(--color-primary); margin-bottom: 10px;"><i
                         class="ph ph-download-simple"></i></div>
-                <h3>1. Install</h3>
-                <p>Download Fliqer from the App Store and launch the app.</p>
+                <h3 id="step1-title">1. Install</h3>
+                <p id="step1-text">Download Fliqer from the App Store and launch the app.</p>
             </div>
             <div class="faq-item">
                 <div style="font-size: 2em; color: var(--color-primary); margin-bottom: 10px;"><i
                         class="ph ph-film-strip"></i></div>
-                <h3>2. Access</h3>
-                <p>Allow access to your Photo Library to load your videos.</p>
+                <h3 id="step2-title">2. Access</h3>
+                <p id="step2-text">Allow access to your Photo Library to load your videos.</p>
             </div>
             <div class="faq-item">
                 <div style="font-size: 2em; color: var(--color-primary); margin-bottom: 10px;"><i
                         class="ph ph-lightning"></i></div>
-                <h3>3. Extract</h3>
-                <p>Select a video and tap the shutter button to save frames.</p>
+                <h3 id="step3-title">3. Extract</h3>
+                <p id="step3-text">Select a video and tap the shutter button to save frames.</p>
             </div>
         </div>
 
-        <h2>Common Questions</h2>
+        <h2 id="h-common-qs">Common Questions</h2>
 
         <div class="faq-item">
-            <h3>Where are my frames saved?</h3>
-            <p>Frames are saved to your iOS Photo Library. You can choose to save them in a dedicated "Fliqer" album or
-                directly to Recents in the app settings.</p>
+            <h3 id="faq1-q">Where are my frames saved?</h3>
+            <p id="faq1-a">Frames are saved to your iOS Photo Library. You can choose to save them in a dedicated
+                'Fliqer' album or directly to Recents.</p>
         </div>
 
         <div class="faq-item">
-            <h3>Does Fliqer upload my videos?</h3>
-            <p>No. Fliqer processes everything locally on your device. Your videos never leave your phone, ensuring 100%
-                privacy.</p>
+            <h3 id="faq2-q">Does Fliqer upload my videos?</h3>
+            <p id="faq2-a">No. Fliqer processes everything locally on your device. Your videos never leave your phone,
+                ensuring 100% privacy.</p>
         </div>
 
         <div class="faq-item">
-            <h3>How do credits work?</h3>
-            <p>Each extracted frame uses 1 credit. Free users get 30 credits/month. Pro users get more. Add-on packs
-                never expire.</p>
+            <h3 id="faq3-q">How do credits work?</h3>
+            <p id="faq3-a">Each extracted frame uses 1 credit. Free users get 30 credits/month. Pro users get more.
+                Add-on packs never expire.</p>
         </div>
 
         <div class="faq-item">
-            <h3>What if I find a bug?</h3>
-            <p>Please email us at support@fliqer.app with your device model and iOS version. We appreciate your
-                feedback!</p>
+            <h3 id="faq4-q">What if I find a bug?</h3>
+            <p id="faq4-a">Please email us at support@fliqer.app with your device model and iOS version. We appreciate
+                your feedback!</p>
         </div>
 
         <div class="info-box">
             <i class="ph ph-lightbulb" style="font-size: 1.5em; color: var(--color-primary); flex-shrink: 0;"></i>
             <div>
-                <strong>Pro Tip:</strong> You can organize your extractions automatically by enabling the "Save to
-                Fliqer Album" option in settings.
+                <strong id="tip-title">Pro Tip:</strong> <span id="tip-text">You can organize your extractions
+                    automatically by enabling the 'Save to Fliqer Album' option in settings.</span>
             </div>
         </div>
     </div>
 
     <footer class="footer">
         <div class="footer-nav">
-            <a href="privacy-policy.html">Privacy Policy</a>
-            <a href="terms-of-service.html">Terms of Service</a>
-            <a href="support.html">Support</a>
+            <a id="nav-privacy" href="privacy-policy.html">Privacy Policy</a>
+            <a id="nav-terms" href="terms-of-service.html">Terms of Service</a>
+            <a id="nav-support" href="support.html">Support</a>
         </div>
         <div class="copyright">
-            <p>&copy; 2025 Egor Sazanov. All rights reserved.</p>
-            <p style="margin-top: 8px; font-size: 0.8em; opacity: 0.8;">Developed by <a
+            <p id="footer-rights">&copy; 2025 Egor Sazanov. All rights reserved.</p>
+            <p style="margin-top: 8px; font-size: 0.8em; opacity: 0.8;"><span id="footer-dev">Developed by</span> <a
                     href="https://www.addicted.design/" target="_blank"
                     style="color: inherit; text-decoration: underline;">addicted</a></p>
         </div>
     </footer>
 
     <a href="https://www.addicted.design/" class="float-btn-addicted" target="_blank">addicted</a>
+
+    <script>
+        const translations = {
+            en: {
+                heroTag: "Support Center", heroTitle: "How can we help?", heroDesc: "Guides, FAQs, and support for Fliqer", heroBack: "← Back to Home",
+                cardTitle: "Contact Support", cardText: "Need direct assistance? We're here to help.", cardResponse: "Typical response time: 24-48 hours",
+                hGettingStarted: "Getting Started",
+                step1Title: "1. Install", step1Text: "Download Fliqer from the App Store and launch the app.",
+                step2Title: "2. Access", step2Text: "Allow access to your Photo Library to load your videos.",
+                step3Title: "3. Extract", step3Text: "Select a video and tap the shutter button to save frames.",
+                hCommonQs: "Common Questions",
+                faq1Q: "Where are my frames saved?", faq1A: "Frames are saved to your iOS Photo Library. You can choose to save them in a dedicated 'Fliqer' album or directly to Recents.",
+                faq2Q: "Does Fliqer upload my videos?", faq2A: "No. Fliqer processes everything locally on your device. Your videos never leave your phone, ensuring 100% privacy.",
+                faq3Q: "How do credits work?", faq3A: "Each extracted frame uses 1 credit. Free users get 30 credits/month. Pro users get more. Add-on packs never expire.",
+                faq4Q: "What if I find a bug?", faq4A: "Please email us at support@fliqer.app with your device model and iOS version. We appreciate your feedback!",
+                tipTitle: "Pro Tip:", tipText: "You can organize your extractions automatically by enabling the 'Save to Fliqer Album' option in settings.",
+                navPrivacy: "Privacy Policy", navTerms: "Terms of Service", navSupport: "Support",
+                footerRights: "© 2025 Egor Sazanov. All rights reserved.", footerDev: "Developed by"
+            },
+            ru: {
+                heroTag: "Центр поддержки", heroTitle: "Как мы можем помочь?", heroDesc: "Гайды, FAQ и поддержка Fliqer", heroBack: "← На главную",
+                cardTitle: "Свяжитесь с поддержкой", cardText: "Нужна помощь? Мы здесь.", cardResponse: "Обычно отвечаем за 24-48 часов",
+                hGettingStarted: "Начало работы",
+                step1Title: "1. Установка", step1Text: "Скачайте Fliqer из App Store и запустите.",
+                step2Title: "2. Доступ", step2Text: "Разрешите доступ к Фото для загрузки видео.",
+                step3Title: "3. Извлечение", step3Text: "Выберите видео и нажмите кнопку затвора.",
+                hCommonQs: "Частые вопросы",
+                faq1Q: "Где сохраняются кадры?", faq1A: "Кадры сохраняются в Фото. Можно сохранять в альбом 'Fliqer' или в Недавние.",
+                faq2Q: "Fliqer загружает мои видео?", faq2A: "Нет. Fliqer обрабатывает всё локально. Ваши видео не покидают устройство.",
+                faq3Q: "Как работают кредиты?", faq3A: "1 кадр = 1 кредит. Бесплатно: 30/мес. Pro: больше. Пакеты не сгорают.",
+                faq4Q: "Нашли баг?", faq4A: "Напишите на support@fliqer.app с моделью устройства. Спасибо!",
+                tipTitle: "Совет:", tipText: "Включите 'Сохранять в альбом Fliqer' в настройках для порядка.",
+                navPrivacy: "Политика конфиденциальности", navTerms: "Условия использования", navSupport: "Поддержка",
+                footerRights: "© 2025 Егор Сазанов. Все права защищены.", footerDev: "Разработка:"
+            },
+            ar: {
+                heroTag: "مركز الدعم", heroTitle: "كيف يمكننا مساعدتك؟", heroDesc: "أدلة وأسئلة شائعة ودعم لـ Fliqer", heroBack: "← العودة للرئيسية",
+                cardTitle: "اتصل بالدعم", cardText: "تحتاج مساعدة مباشرة؟ نحن هنا.", cardResponse: "وقت الرد المعتاد: 24-48 ساعة",
+                hGettingStarted: "البداية",
+                step1Title: "1. التثبيت", step1Text: "حمل Fliqer من App Store.",
+                step2Title: "2. الوصول", step2Text: "اسمح بالوصول لمكتبة الصور.",
+                step3Title: "3. الاستخراج", step3Text: "اختر فيديو واستخرج الإطارات.",
+                hCommonQs: "أسئلة شائعة",
+                faq1Q: "أين تحفظ الإطارات؟", faq1A: "تحفظ في مكتبة الصور على جهازك.",
+                faq2Q: "هل يرفع Fliqer فيديوهاتي؟", faq2A: "لا. المعالجة تتم محليًا 100%.",
+                faq3Q: "كيف تعمل الاعتمادات؟", faq3A: "إطار واحد = اعتماد واحد. مجاني: 30/شهر.",
+                faq4Q: "وجدت خطأ؟", faq4A: "راسلنا على support@fliqer.app.",
+                tipTitle: "نصيحة:", tipText: "يمكنك التنظيم تلقائيًا عبر الإعدادات.",
+                navPrivacy: "الخصوصية", navTerms: "الشروط", navSupport: "الدعم",
+                footerRights: "© 2025 Egor Sazanov. الحقوق محفوظة.", footerDev: "تطوير بواسطة"
+            },
+            zh: {
+                heroTag: "支持中心", heroTitle: "我们需要什么帮助？", heroDesc: "Fliqer 的指南、常见问题和支持", heroBack: "← 返回首页",
+                cardTitle: "联系支持", cardText: "需要直接帮助？", cardResponse: "通常回复时间：24-48 小时",
+                hGettingStarted: "开始使用",
+                step1Title: "1. 安装", step1Text: "从 App Store 下载 Fliqer。",
+                step2Title: "2. 访问", step2Text: "允许访问照片库以加载视频。",
+                step3Title: "3. 提取", step3Text: "选择视频并点击快门按钮。",
+                hCommonQs: "常见问题",
+                faq1Q: "帧保存在哪里？", faq1A: "保存在 iOS 照片库中。",
+                faq2Q: "Fliqer 会上传视频吗？", faq2A: "不。所有处理都在本地进行。",
+                faq3Q: "积分如何工作？", faq3A: "1 帧 = 1 积分。免费：30/月。",
+                faq4Q: "发现 Bug？", faq4A: "请发送电子邮件至 support@fliqer.app。",
+                tipTitle: "提示：", tipText: "您可以在设置中启用自动保存到相册。",
+                navPrivacy: "隐私政策", navTerms: "服务条款", navSupport: "支持",
+                footerRights: "© 2025 Egor Sazanov. 保留所有权利。", footerDev: "开发："
+            }
+            // Placeholder logic applies here as well for other languages
+        };
+
+        // Fallback for missing keys
+        const langKeys = Object.keys(translations.en);
+        ['fr', 'de', 'ja', 'ko', 'pt', 'es', 'th', 'uk', 'vi'].forEach(lang => {
+            if (!translations[lang]) translations[lang] = {};
+            langKeys.forEach(key => {
+                if (!translations[lang][key]) translations[lang][key] = translations.en[key];
+            });
+        });
+
+        // Quick fills for visual consistency on requested languages
+        translations.uk.heroTag = "Центр підтримки"; translations.uk.heroTitle = "Як ми можемо допомогти?";
+        translations.de.heroTag = "Support-Center"; translations.de.heroTitle = "Wie können wir helfen?";
+        translations.fr.heroTag = "Centre de support"; translations.fr.heroTitle = "Comment pouvons-nous aider ?";
+        translations.es.heroTag = "Centro de soporte"; translations.es.heroTitle = "¿Cómo podemos ayudar?";
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const langBtn = document.getElementById('langBtn');
+            const langMenu = document.getElementById('langMenu');
+            const currentLangSpan = document.getElementById('currentLang');
+            const langOptions = document.querySelectorAll('.lang-option');
+
+            if (langBtn) {
+                langBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    langMenu.classList.toggle('active');
+                });
+            }
+
+            document.addEventListener('click', () => {
+                if (langMenu) langMenu.classList.remove('active');
+            });
+
+            langOptions.forEach(option => {
+                option.addEventListener('click', () => {
+                    const lang = option.getAttribute('data-lang');
+                    setLanguage(lang);
+                    langOptions.forEach(o => o.classList.remove('active'));
+                    option.classList.add('active');
+                    currentLangSpan.textContent = option.textContent.split('(')[0].trim();
+                });
+            });
+        });
+
+        function setLanguage(lang) {
+            const data = translations[lang] || translations.en;
+            document.body.dir = lang === 'ar' ? 'rtl' : 'ltr';
+
+            const setText = (id, text) => {
+                const el = document.getElementById(id);
+                if (el) el.textContent = text;
+            };
+
+            setText('hero-tag', data.heroTag);
+            setText('hero-title', data.heroTitle);
+            setText('hero-desc', data.heroDesc);
+            setText('hero-back', data.heroBack);
+
+            setText('card-title', data.cardTitle);
+            setText('card-text', data.cardText);
+            setText('card-response', data.cardResponse);
+
+            setText('h-getting-started', data.hGettingStarted);
+            setText('step1-title', data.step1Title); setText('step1-text', data.step1Text);
+            setText('step2-title', data.step2Title); setText('step2-text', data.step2Text);
+            setText('step3-title', data.step3Title); setText('step3-text', data.step3Text);
+
+            setText('h-common-qs', data.hCommonQs);
+            setText('faq1-q', data.faq1Q); setText('faq1-a', data.faq1A);
+            setText('faq2-q', data.faq2Q); setText('faq2-a', data.faq2A);
+            setText('faq3-q', data.faq3Q); setText('faq3-a', data.faq3A);
+            setText('faq4-q', data.faq4Q); setText('faq4-a', data.faq4A);
+
+            setText('tip-title', data.tipTitle);
+            setText('tip-text', data.tipText);
+
+            setText('nav-privacy', data.navPrivacy);
+            setText('nav-terms', data.navTerms);
+            setText('nav-support', data.navSupport);
+
+            setText('footer-rights', data.footerRights);
+            setText('footer-dev', data.footerDev);
+        }
+    </script>
 </body>
 
 </html>
