@@ -142,7 +142,7 @@
         </header>
         
         <div class="content">
-            <p class="date">Last Updated: October 17, 2025</p>
+            <p class="date">Last Updated: January 15, 2025</p>
             
             <div class="highlight">
                 <strong>Your Privacy Matters</strong><br>
@@ -163,9 +163,17 @@
             
             <h3>2.2 Information We Collect Automatically</h3>
             <ul>
-                <li><strong>Usage Data (aggregated, not linked to identity):</strong> We may collect minimal technical and usage metrics to improve the app. These metrics are processed in an aggregated or pseudonymous form and are not used for tracking across apps or for advertising.</li>
-                <li><strong>Device Information:</strong> We collect device type, iOS version, app version, and device identifiers.</li>
-                <li><strong>Credits Usage:</strong> We track your frame extraction credits, including monthly quota and add-on purchases.</li>
+                <li><strong>Analytics Data:</strong> We collect app usage analytics to improve the app experience. This includes:
+                    <ul>
+                        <li>App events (screen views, button taps, feature usage)</li>
+                        <li>Error events (for debugging and stability improvements)</li>
+                        <li>Purchase and subscription events (for service management)</li>
+                        <li>Frame extraction events (count and operation type, not content)</li>
+                    </ul>
+                    Analytics data is sent to our analytics backend and is associated with a pseudonymous user identifier (UUID or account email). This data is not used for advertising or cross-app tracking.
+                </li>
+                <li><strong>Device Information:</strong> We collect device type, iOS version, and app version. We use your device's identifierForVendor (a device-specific UUID that resets if you delete all apps from the developer) to generate your account identifier. This identifier is not shared with third parties and is only used for account management.</li>
+                <li><strong>Credits Usage:</strong> We track your frame extraction credits, including monthly quota and add-on purchases, to manage your subscription and balance.</li>
             </ul>
             
             <h3>2.3 Information We Do NOT Collect</h3>
@@ -195,10 +203,10 @@
             <h3>4.2 Cloud Storage</h3>
             <p>We store the following data on secure cloud servers:</p>
             <ul>
-                <li>User account information</li>
-                <li>Credits balance and transaction history</li>
-                <li>Subscription status</li>
-                <li>App preferences and settings</li>
+                <li><strong>User Account Data:</strong> Pseudonymous account identifier (user_[UUID]@fliq.app), authentication tokens, and account recovery information</li>
+                <li><strong>Credits and Subscriptions:</strong> Credits balance, transaction history, subscription status, and purchase confirmations</li>
+                <li><strong>Analytics Data:</strong> App usage events, error logs, and performance metrics (stored with pseudonymous user identifiers)</li>
+                <li><strong>App Preferences:</strong> User settings and preferences synced across devices (if applicable)</li>
             </ul>
             
             <h3>4.3 Security Measures</h3>
@@ -216,8 +224,9 @@
             <h3>5.1 Third-Party Services</h3>
             <p>We use the following third-party services:</p>
             <ul>
-                <li><strong>Apple App Store:</strong> For payment processing and subscription management.</li>
-                <li><strong>Cloud Hosting:</strong> For storing account and transaction data (encrypted).</li>
+                <li><strong>Apple App Store:</strong> For payment processing and subscription management. Apple processes your payment information according to their privacy policy.</li>
+                <li><strong>Cloud Hosting:</strong> For storing account data, transaction history, and analytics data (all encrypted).</li>
+                <li><strong>Analytics Backend:</strong> We operate our own analytics service (hosted on Vercel) to collect app usage data. This service processes analytics events with pseudonymous identifiers and does not share data with third-party analytics providers.</li>
             </ul>
             
             <h3>5.2 We Do NOT Share</h3>
@@ -299,7 +308,14 @@
             </ul>
             
             <h2>10. Cookies and Tracking</h2>
-            <p>The Fliqer app does not use cookies or web tracking technologies. We do not use third-party advertising SDKs or cross‑app trackers. Any diagnostics/analytics we collect are limited to app reliability and feature improvement and are not used for advertising.</p>
+            <p>The Fliqer app does not use cookies or web tracking technologies. We do not use third-party advertising SDKs or cross‑app trackers. We operate our own analytics service that collects app usage data for reliability and feature improvement purposes only. This data is:</p>
+            <ul>
+                <li>Associated with pseudonymous identifiers (not your real identity)</li>
+                <li>Not used for advertising or marketing</li>
+                <li>Not shared with advertising networks or data brokers</li>
+                <li>Not used for cross-app or cross-site tracking</li>
+                <li>Limited to app functionality, error tracking, and feature usage analytics</li>
+            </ul>
             
             <h2>11. Changes to This Policy</h2>
             <p>We may update this Privacy Policy from time to time. We will notify you of significant changes through:</p>
