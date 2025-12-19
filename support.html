@@ -9,6 +9,7 @@
     <link rel="alternate icon" href="favicon.svg">
     <link rel="apple-touch-icon" href="favicon.svg">
     <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <style>
         /* Specific overrides for support page content */
         .content-wrapper {
@@ -79,6 +80,9 @@
             padding: 20px;
             margin: 24px 0;
             color: var(--color-text);
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
         }
     </style>
 </head>
@@ -96,7 +100,8 @@
 
     <div class="content-wrapper">
         <div class="support-card" style="text-align: center;">
-            <div style="font-size: 3rem; margin-bottom: 16px;">📧</div>
+            <div style="font-size: 3rem; margin-bottom: 16px; color: var(--color-primary);"><i
+                    class="ph ph-envelope"></i></div>
             <h3>Contact Support</h3>
             <p>Need direct assistance? We're here to help.</p>
             <a href="mailto:support@fliqer.app" class="btn btn-primary">support@fliqer.app</a>
@@ -106,14 +111,20 @@
         <h2>Getting Started</h2>
         <div class="grid grid-3">
             <div class="faq-item">
+                <div style="font-size: 2em; color: var(--color-primary); margin-bottom: 10px;"><i
+                        class="ph ph-download-simple"></i></div>
                 <h3>1. Install</h3>
                 <p>Download Fliqer from the App Store and launch the app.</p>
             </div>
             <div class="faq-item">
+                <div style="font-size: 2em; color: var(--color-primary); margin-bottom: 10px;"><i
+                        class="ph ph-film-strip"></i></div>
                 <h3>2. Access</h3>
                 <p>Allow access to your Photo Library to load your videos.</p>
             </div>
             <div class="faq-item">
+                <div style="font-size: 2em; color: var(--color-primary); margin-bottom: 10px;"><i
+                        class="ph ph-lightning"></i></div>
                 <h3>3. Extract</h3>
                 <p>Select a video and tap the shutter button to save frames.</p>
             </div>
@@ -146,8 +157,11 @@
         </div>
 
         <div class="info-box">
-            <strong>💡 Pro Tip:</strong> You can organize your extractions automatically by enabling the "Save to Fliqer
-            Album" option in settings.
+            <i class="ph ph-lightbulb" style="font-size: 1.5em; color: var(--color-primary); flex-shrink: 0;"></i>
+            <div>
+                <strong>Pro Tip:</strong> You can organize your extractions automatically by enabling the "Save to
+                Fliqer Album" option in settings.
+            </div>
         </div>
     </div>
 

@@ -57,6 +57,14 @@ a {
     transition: all 0.2s ease;
 }
 
+/* Icons */
+.ph,
+.ph-bold,
+.ph-fill {
+    vertical-align: middle;
+    display: inline-block;
+}
+
 /* Background Effects */
 .bg-gradient {
     position: fixed;
@@ -332,6 +340,10 @@ a {
     margin: 32px 0;
     text-align: left;
     space-y: 12px;
+    /* fallback */
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 }
 
 .pricing-features li {

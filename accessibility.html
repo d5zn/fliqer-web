@@ -9,6 +9,7 @@
     <link rel="alternate icon" href="favicon.svg">
     <link rel="apple-touch-icon" href="favicon.svg">
     <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <style>
         .content-wrapper {
             max-width: 900px;
@@ -60,6 +61,12 @@
             margin: 24px 0;
             color: var(--color-text);
         }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--color-primary);
+            margin-bottom: 16px;
+        }
     </style>
 </head>
 
@@ -76,7 +83,9 @@
 
     <div class="content-wrapper">
         <div class="info-box" style="text-align: center;">
-            <h3>🌍 Приверженность доступности</h3>
+            <div style="font-size: 2rem; margin-bottom: 16px; color: var(--color-primary);"><i class="ph ph-globe"></i>
+            </div>
+            <h3>Приверженность доступности</h3>
             <p style="margin-bottom: 0;">Мы стремимся сделать Fliqer максимально доступным для всех пользователей,
                 независимо от их возможностей.</p>
         </div>
@@ -84,22 +93,22 @@
         <h2>✨ Поддерживаемые функции</h2>
         <div class="feature-grid">
             <div class="card">
-                <div class="feature-icon">🔍</div>
+                <div class="feature-icon"><i class="ph ph-text-aa"></i></div>
                 <h3>Крупный текст</h3>
                 <p>Поддержка настроек Dynamic Type для увеличения размера шрифта.</p>
             </div>
             <div class="card">
-                <div class="feature-icon">🌙</div>
+                <div class="feature-icon"><i class="ph ph-moon"></i></div>
                 <h3>Темный режим</h3>
                 <p>Автоматическая адаптация интерфейса для снижения нагрузки на зрение.</p>
             </div>
             <div class="card">
-                <div class="feature-icon">🎯</div>
+                <div class="feature-icon"><i class="ph ph-speaker-high"></i></div>
                 <h3>VoiceOver</h3>
                 <p>Полная разметка всех элементов для пользователей VoiceOver.</p>
             </div>
             <div class="card">
-                <div class="feature-icon">⚡</div>
+                <div class="feature-icon"><i class="ph ph-hand-palm"></i></div>
                 <h3>Уменьшение движения</h3>
                 <p>Поддержка настройки Reduce Motion для отключения анимаций.</p>
             </div>
@@ -107,6 +116,7 @@
 
         <h2>📞 Обратная связь</h2>
         <div class="card" style="text-align: center;">
+            <div class="feature-icon"><i class="ph ph-envelope-open"></i></div>
             <h3>Нужна помощь?</h3>
             <p>Если у вас возникли трудности с использованием приложения, напишите нам.</p>
             <a href="mailto:accessibility@fliqer.app" class="btn btn-primary"
