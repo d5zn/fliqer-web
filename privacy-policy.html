@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Policy - Fliqer</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="alternate icon" href="favicon.svg">
+    <link rel="apple-touch-icon" href="favicon.svg">
     <style>
         * {
             margin: 0;
@@ -124,27 +127,35 @@
         
         /* Google Translate widget styling */
         #google_translate_element {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+            background: rgba(26, 26, 26, 0.95);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
             border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 10px;
-            padding: 5px;
-            overflow: hidden;
+            border-radius: 12px;
+            padding: 0;
+            overflow: visible;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
         }
         
         #google_translate_element .goog-te-gadget {
             color: white !important;
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif !important;
             font-size: 14px !important;
+            margin: 0 !important;
         }
         
         #google_translate_element .goog-te-gadget-simple {
             background-color: transparent !important;
             border: none !important;
-            padding: 8px 12px !important;
+            padding: 10px 15px !important;
             color: white !important;
             font-size: 14px !important;
+            cursor: pointer !important;
+            border-radius: 12px !important;
+        }
+        
+        #google_translate_element .goog-te-gadget-simple:hover {
+            background-color: rgba(255, 255, 255, 0.05) !important;
         }
         
         #google_translate_element .goog-te-gadget-simple .goog-te-menu-value {
@@ -155,8 +166,18 @@
             color: white !important;
         }
         
+        #google_translate_element .goog-te-gadget-simple .goog-te-menu-value span:first-child {
+            display: none !important;
+        }
+        
         #google_translate_element .goog-te-gadget-icon {
             display: none !important;
+        }
+        
+        /* Style dropdown arrow */
+        #google_translate_element .goog-te-gadget-simple .goog-te-menu-value span:last-child {
+            margin-left: 8px !important;
+            opacity: 0.7;
         }
         
         /* Hide Google branding */
@@ -177,11 +198,84 @@
             font-style: normal !important;
         }
         
-        /* Style the dropdown */
+        /* Style the dropdown menu */
         .goog-te-menu-frame {
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3) !important;
-            border-radius: 10px !important;
+            background: #1a1a1a !important;
+            border: 1px solid rgba(255, 255, 255, 0.2) !important;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6) !important;
+            border-radius: 12px !important;
             overflow: hidden !important;
+            margin-top: 5px !important;
+            backdrop-filter: blur(15px) !important;
+            -webkit-backdrop-filter: blur(15px) !important;
+        }
+        
+        .goog-te-menu-frame .goog-te-menu {
+            background: #1a1a1a !important;
+            color: white !important;
+        }
+        
+        .goog-te-menu-frame .goog-te-menu-item {
+            background: transparent !important;
+            color: white !important;
+            padding: 12px 20px !important;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif !important;
+            font-size: 14px !important;
+            transition: background-color 0.2s ease !important;
+        }
+        
+        .goog-te-menu-frame .goog-te-menu-item:hover {
+            background: rgba(255, 255, 255, 0.1) !important;
+            color: #FF9B04 !important;
+        }
+        
+        .goog-te-menu-frame .goog-te-menu-item-selected {
+            background: rgba(255, 155, 4, 0.15) !important;
+            color: #FF9B04 !important;
+        }
+        
+        .goog-te-menu-frame .goog-te-menu2 {
+            background: #1a1a1a !important;
+        }
+        
+        .goog-te-menu-frame .goog-te-menu2-item {
+            background: transparent !important;
+            color: white !important;
+            padding: 12px 20px !important;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+        }
+        
+        .goog-te-menu-frame .goog-te-menu2-item:hover {
+            background: rgba(255, 255, 255, 0.1) !important;
+            color: #FF9B04 !important;
+        }
+        
+        .goog-te-menu-frame .goog-te-menu2-item-selected {
+            background: rgba(255, 155, 4, 0.15) !important;
+            color: #FF9B04 !important;
+        }
+        
+        /* Remove the ">" prefix from menu items */
+        .goog-te-menu-frame .goog-te-menu-item:before,
+        .goog-te-menu-frame .goog-te-menu2-item:before {
+            content: none !important;
+        }
+        
+        /* Style the title in dropdown */
+        .goog-te-menu-frame .goog-te-menu-header {
+            display: none !important;
+        }
+        
+        /* Remove blue glow */
+        .goog-te-menu-frame,
+        .goog-te-menu-frame * {
+            outline: none !important;
+            box-shadow: none !important;
+        }
+        
+        .goog-te-menu-frame {
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6) !important;
         }
         
         @media (max-width: 600px) {
@@ -207,12 +301,18 @@
             }
             
             #google_translate_element {
-                padding: 3px;
+                padding: 0;
             }
             
             #google_translate_element .goog-te-gadget-simple {
-                padding: 6px 10px !important;
+                padding: 8px 12px !important;
                 font-size: 12px !important;
+            }
+            
+            .goog-te-menu-frame {
+                max-width: calc(100vw - 20px) !important;
+                left: 10px !important;
+                right: 10px !important;
             }
         }
     </style>
@@ -460,21 +560,55 @@
                 autoDisplay: false,
                 multilanguagePage: true
             }, 'google_translate_element');
+            
+            // Clean up after initialization
+            setTimeout(cleanupGoogleTranslate, 200);
         }
         
-        // Hide Google branding banner
-        function removeGoogleBanner() {
+        function cleanupGoogleTranslate() {
+            // Hide Google branding banner
             const banner = document.querySelector('.goog-te-banner-frame');
             if (banner) {
                 banner.style.display = 'none';
             }
+            
+            // Remove body top offset
             document.body.style.top = '0';
+            
+            // Clean up menu items - remove ">" prefix
+            const menuItems = document.querySelectorAll('.goog-te-menu-item, .goog-te-menu2-item');
+            menuItems.forEach(item => {
+                const text = item.textContent || item.innerText;
+                if (text.startsWith('>')) {
+                    item.textContent = text.substring(1).trim();
+                }
+            });
+            
+            // Remove title from dropdown
+            const menuHeader = document.querySelector('.goog-te-menu-header');
+            if (menuHeader) {
+                menuHeader.style.display = 'none';
+            }
+            
+            // Improve select text
+            const select = document.querySelector('#google_translate_element select');
+            if (select) {
+                select.style.color = 'white';
+                select.style.backgroundColor = 'transparent';
+            }
         }
         
-        // Run after page load
+        // Run cleanup on page load and periodically
         window.addEventListener('load', function() {
-            setTimeout(removeGoogleBanner, 100);
-            setInterval(removeGoogleBanner, 500);
+            cleanupGoogleTranslate();
+            setInterval(cleanupGoogleTranslate, 500);
+        });
+        
+        // Also cleanup when menu opens
+        document.addEventListener('click', function(e) {
+            if (e.target.closest('#google_translate_element')) {
+                setTimeout(cleanupGoogleTranslate, 100);
+            }
         });
     </script>
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
