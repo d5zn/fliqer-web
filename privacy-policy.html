@@ -92,7 +92,7 @@
             background: #111;
             border: 1px solid var(--color-border);
             border-radius: var(--radius-md);
-            width: 200px;
+            width: 220px;
             display: none;
             flex-direction: column;
             overflow: hidden;
@@ -156,56 +156,59 @@
 
     <header class="hero" style="padding-bottom: 40px; padding-top: 80px;">
         <div class="hero-tag">Privacy</div>
-        <h1 style="font-size: 3rem; margin-bottom: 16px;">Privacy Policy</h1>
-        <p class="description">Last Updated: December 19, 2025</p>
-        <a href="index.html" class="btn btn-secondary">← Back to Home</a>
+        <h1 id="hero-title" style="font-size: 3rem; margin-bottom: 16px;">Privacy Policy</h1>
+        <p id="hero-desc" class="description">Last Updated: December 19, 2025</p>
+        <a id="hero-back" href="index.html" class="btn btn-secondary">← Back to Home</a>
     </header>
 
     <div class="content-wrapper">
         <div class="highlight">
-            <strong>Your Privacy Matters</strong><br>
-            Fliqer is committed to protecting your privacy. We process video content locally on your device and never
-            upload your videos.
+            <strong id="highlight1-title">Your Privacy Matters</strong><br>
+            <span id="highlight1-text">Fliqer is committed to protecting your privacy. We process video content locally
+                on your device and never upload your videos.</span>
         </div>
 
-        <h2>1. Overview</h2>
-        <p>This Privacy Policy explains what information we collect, how we use it, and your rights.</p>
+        <h2 id="h1-overview">1. Overview</h2>
+        <p id="p1-overview">This Privacy Policy explains what information we collect, how we use it, and your rights.
+        </p>
 
-        <h2>2. Data Collection</h2>
-        <h3>Information You Provide</h3>
+        <h2 id="h2-collection">2. Data Collection</h2>
+        <h3 id="h3-provide">Information You Provide</h3>
         <ul>
-            <li><strong>Account Identifier:</strong> We use a pseudonymous identifier (`user_[UUID]@fliq.app`) for
-                account management. We do not collect your real email unless you contact support.</li>
-            <li><strong>Support Info:</strong> If you email us, we use your email only to reply.</li>
+            <li id="li-account"><strong>Account Identifier:</strong> We use a pseudonymous identifier
+                (`user_[UUID]@fliq.app`) for account management. We do not collect your real email unless you contact
+                support.</li>
+            <li id="li-support"><strong>Support Info:</strong> If you email us, we use your email only to reply.</li>
         </ul>
 
-        <h3>Information We Collect Automatically</h3>
+        <h3 id="h3-auto">Information We Collect Automatically</h3>
         <ul>
-            <li><strong>Analytics:</strong> Usage data (screen views, button taps) to improve the app. This is not
-                linked to your personal identity.</li>
-            <li><strong>Device Info:</strong> Device model and iOS version for debugging.</li>
-            <li><strong>Credits:</strong> We track your credit balance to manage subscriptions.</li>
+            <li id="li-analytics"><strong>Analytics:</strong> Usage data (screen views, button taps) to improve the app.
+                This is not linked to your personal identity.</li>
+            <li id="li-device"><strong>Device Info:</strong> Device model and iOS version for debugging.</li>
+            <li id="li-credits"><strong>Credits:</strong> We track your credit balance to manage subscriptions.</li>
         </ul>
 
         <div class="highlight">
-            <strong>What We DO NOT Collect:</strong><br>
-            We do not access, store, or upload your video content or extracted frames. All processing happens locally on
-            your iPhone.
+            <strong id="highlight2-title">What We DO NOT Collect:</strong><br>
+            <span id="highlight2-text">We do not access, store, or upload your video content or extracted frames. All
+                processing happens locally on your iPhone.</span>
         </div>
 
-        <h2>3. Data Usage</h2>
-        <p>We use data to:</p>
+        <h2 id="h2-usage">3. Data Usage</h2>
+        <p id="p3-usage">We use data to:</p>
         <ul>
-            <li>Provide app functionality</li>
-            <li>Manage your credits and subscriptions</li>
-            <li>Fix bugs and improve performance</li>
+            <li id="li-func">Provide app functionality</li>
+            <li id="li-manage">Manage your credits and subscriptions</li>
+            <li id="li-fix">Fix bugs and improve performance</li>
         </ul>
 
-        <h2>4. Third-Party Services</h2>
-        <p>We use Apple App Store for payments. We do not share data with advertisers or social networks.</p>
+        <h2 id="h2-third">4. Third-Party Services</h2>
+        <p id="p4-third">We use Apple App Store for payments. We do not share data with advertisers or social networks.
+        </p>
 
-        <h2>Contact Us</h2>
-        <p>If you have questions about this policy:</p>
+        <h2 id="h2-contact">Contact Us</h2>
+        <p id="p5-contact">If you have questions about this policy:</p>
         <p><a href="mailto:support@fliqer.app" style="color: var(--color-primary);">support@fliqer.app</a></p>
     </div>
 
@@ -216,8 +219,8 @@
             <a href="support.html">Support</a>
         </div>
         <div class="copyright">
-            <p>&copy; 2025 Egor Sazanov. All rights reserved.</p>
-            <p style="margin-top: 8px; font-size: 0.8em; opacity: 0.8;">Developed by <a
+            <p id="footer-rights">&copy; 2025 Egor Sazanov. All rights reserved.</p>
+            <p style="margin-top: 8px; font-size: 0.8em; opacity: 0.8;"><span id="footer-dev">Developed by</span> <a
                     href="https://www.addicted.design/" target="_blank"
                     style="color: inherit; text-decoration: underline;">addicted</a></p>
         </div>
@@ -228,79 +231,452 @@
     <script>
         const translations = {
             en: {
-                title: "Privacy Policy",
-                lastUpdated: "Last Updated: December 19, 2025",
-                back: "← Back to Home",
-                highlightTitle: "Your Privacy Matters",
-                highlightText: "Fliqer is committed to protecting your privacy. We process video content locally on your device and never upload your videos.",
-                h1: "1. Overview",
-                p1: "This Privacy Policy explains what information we collect, how we use it, and your rights.",
-                h2: "2. Data Collection",
-                h2_1: "Information You Provide",
-                li1: "<strong>Account Identifier:</strong> We use a pseudonymous identifier (`user_[UUID]@fliq.app`) for account management. We do not collect your real email unless you contact support.",
-                li2: "<strong>Support Info:</strong> If you email us, we use your email only to reply.",
-                h2_2: "Information We Collect Automatically",
-                li3: "<strong>Analytics:</strong> Usage data (screen views, button taps) to improve the app. This is not linked to your personal identity.",
-                li4: "<strong>Device Info:</strong> Device model and iOS version for debugging.",
-                li5: "<strong>Credits:</strong> We track your credit balance to manage subscriptions.",
-                highlight2Title: "What We DO NOT Collect:",
-                highlight2Text: "We do not access, store, or upload your video content or extracted frames. All processing happens locally on your iPhone.",
-                h3: "3. Data Usage",
-                p3: "We use data to:",
-                li6: "Provide app functionality",
-                li7: "Manage your credits and subscriptions",
-                li8: "Fix bugs and improve performance",
-                h4: "4. Third-Party Services",
-                p4: "We use Apple App Store for payments. We do not share data with advertisers or social networks.",
-                contact: "Contact Us",
-                contactText: "If you have questions about this policy:",
+                heroTitle: "Privacy Policy",
+                heroDesc: "Last Updated: December 19, 2025",
+                heroBack: "← Back to Home",
+                hl1Title: "Your Privacy Matters",
+                hl1Text: "Fliqer is committed to protecting your privacy. We process video content locally on your device and never upload your videos.",
+                h1Overview: "1. Overview",
+                p1Overview: "This Privacy Policy explains what information we collect, how we use it, and your rights.",
+                h2Collection: "2. Data Collection",
+                h3Provide: "Information You Provide",
+                liAccount: "<strong>Account Identifier:</strong> We use a pseudonymous identifier (`user_[UUID]@fliq.app`) for account management. We do not collect your real email unless you contact support.",
+                liSupport: "<strong>Support Info:</strong> If you email us, we use your email only to reply.",
+                h3Auto: "Information We Collect Automatically",
+                liAnalytics: "<strong>Analytics:</strong> Usage data (screen views, button taps) to improve the app. This is not linked to your personal identity.",
+                liDevice: "<strong>Device Info:</strong> Device model and iOS version for debugging.",
+                liCredits: "<strong>Credits:</strong> We track your credit balance to manage subscriptions.",
+                hl2Title: "What We DO NOT Collect:",
+                hl2Text: "We do not access, store, or upload your video content or extracted frames. All processing happens locally on your iPhone.",
+                h2Usage: "3. Data Usage",
+                p3Usage: "We use data to:",
+                liFunc: "Provide app functionality",
+                liManage: "Manage your credits and subscriptions",
+                liFix: "Fix bugs and improve performance",
+                h2Third: "4. Third-Party Services",
+                p4Third: "We use Apple App Store for payments. We do not share data with advertisers or social networks.",
+                h2Contact: "Contact Us",
+                p5Contact: "If you have questions about this policy:",
                 footerRights: "© 2025 Egor Sazanov. All rights reserved.",
                 footerDev: "Developed by"
             },
             ru: {
-                title: "Политика конфиденциальности",
-                lastUpdated: "Обновлено: 19 декабря 2025",
-                back: "← На главную",
-                highlightTitle: "Ваша приватность важна",
-                highlightText: "Fliqer обязуется защищать вашу конфиденциальность. Мы обрабатываем видео локально на вашем устройстве и никогда не загружаем их в облако.",
-                h1: "1. Обзор",
-                p1: "Эта Политика конфиденциальности объясняет, какую информацию мы собираем, как мы ее используем и каковы ваши права.",
-                h2: "2. Сбор данных",
-                h2_1: "Информация, которую вы предоставляете",
-                li1: "<strong>Идентификатор аккаунта:</strong> Мы используем псевдонимный идентификатор для управления подписками. Мы не собираем ваш реальный email.",
-                li2: "<strong>Поддержка:</strong> Если вы пишете нам, мы используем адрес только для ответа.",
-                h2_2: "Информация, собираемая автоматически",
-                li3: "<strong>Аналитика:</strong> Данные об использовании для улучшения приложения. Не связаны с личностью.",
-                li4: "<strong>Данные устройства:</strong> Модель и версия iOS для отладки.",
-                li5: "<strong>Кредиты:</strong> Мы отслеживаем баланс для управления подписками.",
-                highlight2Title: "Что мы НЕ собираем:",
-                highlight2Text: "Мы не получаем доступ и не загружаем ваши видео. Вся обработка происходит локально.",
-                h3: "3. Использование данных",
-                p3: "Мы используем данные для:",
-                li6: "Обеспечения работы приложения",
-                li7: "Управления подписками",
-                li8: "Исправления ошибок",
-                h4: "4. Сторонние сервисы",
-                p4: "Мы используем Apple App Store для платежей. Не передаем данные рекламодателям.",
-                contact: "Свяжитесь с нами",
-                contactText: "Если у вас есть вопросы о политике:",
-                footerRights: "© 2025 Egor Sazanov. Все права защищены.",
+                heroTitle: "Политика конфиденциальности",
+                heroDesc: "Обновлено: 19 декабря 2025",
+                heroBack: "← На главную",
+                hl1Title: "Ваша конфиденциальность важна",
+                hl1Text: "Fliqer обязуется защищать вашу конфиденциальность. Мы обрабатываем видео локально на вашем устройстве и никогда не загружаем их в облако.",
+                h1Overview: "1. Обзор",
+                p1Overview: "Эта Политика конфиденциальности объясняет, какую информацию мы собираем, как мы ее используем и каковы ваши права.",
+                h2Collection: "2. Сбор данных",
+                h3Provide: "Информация, которую вы предоставляете",
+                liAccount: "<strong>Идентификатор аккаунта:</strong> Мы используем псевдонимный идентификатор для управления подписками. Мы не собираем ваш реальный email, если вы не обращаетесь в поддержку.",
+                liSupport: "<strong>Поддержка:</strong> Если вы пишете нам на email, мы используем ваш адрес только для ответа.",
+                h3Auto: "Информация, собираемая автоматически",
+                liAnalytics: "<strong>Аналитика:</strong> Данные об использовании для улучшения приложения. Не связаны с вашей личностью.",
+                liDevice: "<strong>Данные устройства:</strong> Модель и версия iOS для отладки.",
+                liCredits: "<strong>Кредиты:</strong> Мы отслеживаем баланс кредитов для управления подписками.",
+                hl2Title: "Что мы НЕ собираем:",
+                hl2Text: "Мы не получаем доступ, не храним и не загружаем ваши видео или извлеченные кадры. Вся обработка происходит локально.",
+                h2Usage: "3. Использование данных",
+                p3Usage: "Мы используем данные для:",
+                liFunc: "Обеспечения работы приложения",
+                liManage: "Управления вашими подписками и кредитами",
+                liFix: "Исправления ошибок и улучшения производительности",
+                h2Third: "4. Сторонние сервисы",
+                p4Third: "Мы используем Apple App Store для обработки платежей. Мы не передаем данные рекламодателям.",
+                h2Contact: "Свяжитесь с нами",
+                p5Contact: "Если у вас есть вопросы о политике конфиденциальности:",
+                footerRights: "© 2025 Eгор Сазанов. Все права защищены.",
                 footerDev: "Разработка:"
+            },
+            ar: {
+                heroTitle: "سياسة الخصوصية",
+                heroDesc: "آخر تحديث: 19 ديسمبر 2025",
+                heroBack: "← العودة للصفحة الرئيسية",
+                hl1Title: "خصوصيتك تهمنا",
+                hl1Text: "تلتزم Fliqer بحماية خصوصيتك. نقوم بمعالجة محتوى الفيديو محليًا على جهازك ولا نقوم بتحميل مقاطع الفيديو الخاصة بك أبدًا.",
+                h1Overview: "1. نظرة عامة",
+                p1Overview: "تشرح سياسة الخصوصية هذه المعلومات التي نجمعها وكيف نستخدمها وحقوقك.",
+                h2Collection: "2. جمع البيانات",
+                h3Provide: "المعلومات التي تقدمها",
+                liAccount: "<strong>معرف الحساب:</strong> نستخدم معرفًا مستعارًا لإدارة الحساب. لا نجمع بريدك الإلكتروني الحقيقي ما لم تتصل بالدعم.",
+                liSupport: "<strong>معلومات الدعم:</strong> إذا أرسلت لنا بريدًا إلكترونيًا، فإننا نستخدم بريدك الإلكتروني للرد فقط.",
+                h3Auto: "المعلومات التي نجمعها تلقائيًا",
+                liAnalytics: "<strong>التحليلات:</strong> بيانات الاستخدام لتحسين التطبيق. هذا غير مرتبط بهويتك الشخصية.",
+                liDevice: "<strong>معلومات الجهاز:</strong> طراز الجهاز وإصدار iOS لتصحيح الأخطاء.",
+                liCredits: "<strong>الأرصدة:</strong> نتتبع رصيد الائتمان الخاص بك لإدارة الاشتراكات.",
+                hl2Title: "ما لا نجمعه:",
+                hl2Text: "نحن لا نصل إلى محتوى الفيديو الخاص بك أو الإطارات المستخرجة ولا نقوم بتخزينها أو تحميلها. تتم كل المعالجة محليًا على جهازك.",
+                h2Usage: "3. استخدام البيانات",
+                p3Usage: "نستخدم البيانات لـ:",
+                liFunc: "توفير وظائف التطبيق",
+                liManage: "إدارة أرصدتك واشتراكاتك",
+                liFix: "إصلاح الأخطاء وتحسين الأداء",
+                h2Third: "4. خدمات الطرف الثالث",
+                p4Third: "نستخدم متجر Apple App Store للمدفوعات. لا نشارك البيانات مع المعلنين أو الشبكات الاجتماعية.",
+                h2Contact: "اتصل بنا",
+                p5Contact: "إذا كان لديك أسئلة حول هذه السياسة:",
+                footerRights: "© 2025 Egor Sazanov. جميع الحقوق محفوظة.",
+                footerDev: "تطوير بواسطة"
+            },
+            zh: {
+                heroTitle: "隐私政策",
+                heroDesc: "最后更新：2025年12月19日",
+                heroBack: "← 返回首页",
+                hl1Title: "您的隐私很重要",
+                hl1Text: "Fliqer 致力于保护您的隐私。我们在您的设备上本地处理视频内容，绝不上传您的视频。",
+                h1Overview: "1. 概述",
+                p1Overview: "本隐私政策解释了我们收集的信息、使用方式以及您的权利。",
+                h2Collection: "2. 数据收集",
+                h3Provide: "您提供的信息",
+                liAccount: "<strong>账户标识符：</strong> 我们使用假名标识符进行账户管理。除非您联系支持，否则我们不会收集您的真实电子邮件。",
+                liSupport: "<strong>支持信息：</strong> 如果您给我们发电子邮件，我们仅使用您的电子邮件进行回复。",
+                h3Auto: "我们自动收集的信息",
+                liAnalytics: "<strong>分析：</strong> 用于改进应用程序的使用数据。这与您的个人身份无关。",
+                liDevice: "<strong>设备信息：</strong> 用于调试的设备型号和 iOS 版本。",
+                liCredits: "<strong>积分：</strong> 我们跟踪您的积分余额以管理订阅。",
+                hl2Title: "我们不收集的内容：",
+                hl2Text: "我们不访问、存储或上传您的视频内容或提取的帧。所有处理均在您的 iPhone 上本地进行。",
+                h2Usage: "3. 数据使用",
+                p3Usage: "我们使用数据来：",
+                liFunc: "提供应用程序功能",
+                liManage: "管理您的积分和订阅",
+                liFix: "修复错误并提高性能",
+                h2Third: "4. 第三方服务",
+                p4Third: "我们使用 Apple App Store 进行支付。我们不与广告商或社交网络共享数据。",
+                h2Contact: "联系我们",
+                p5Contact: "如果您对本政策有疑问：",
+                footerRights: "© 2025 Egor Sazanov. 保留所有权利。",
+                footerDev: "开发："
+            },
+            fr: {
+                heroTitle: "Politique de confidentialité",
+                heroDesc: "Dernière mise à jour : 19 décembre 2025",
+                heroBack: "← Retour à l'accueil",
+                hl1Title: "Votre vie privée compte",
+                hl1Text: "Fliqer s'engage à protéger votre vie privée. Nous traitons le contenu vidéo localement sur votre appareil et ne téléchargeons jamais vos vidéos.",
+                h1Overview: "1. Aperçu",
+                p1Overview: "Cette politique de confidentialité explique quelles informations nous recueillons, comment nous les utilisons et vos droits.",
+                h2Collection: "2. Collecte de données",
+                h3Provide: "Informations que vous fournissez",
+                liAccount: "<strong>Identifiant de compte :</strong> Nous utilisons un identifiant pseudonyme pour la gestion du compte. Nous ne recueillons pas votre véritable e-mail sauf si vous contactez le support.",
+                liSupport: "<strong>Info support :</strong> Si vous nous envoyez un e-mail, nous l'utilisons uniquement pour répondre.",
+                h3Auto: "Informations collectées automatiquement",
+                liAnalytics: "<strong>Analytique :</strong> Données d'utilisation pour améliorer l'application. Ce n'est pas lié à votre identité personnelle.",
+                liDevice: "<strong>Info appareil :</strong> Modèle de l'appareil et version iOS pour le débogage.",
+                liCredits: "<strong>Crédits :</strong> Nous suivons votre solde de crédits pour gérer les abonnements.",
+                hl2Title: "Ce que nous NE collectons PAS :",
+                hl2Text: "Nous n'accédons pas, ne stockons pas et ne téléchargeons pas votre contenu vidéo. Tout le traitement se fait localement sur votre iPhone.",
+                h2Usage: "3. Utilisation des données",
+                p3Usage: "Nous utilisons les données pour :",
+                liFunc: "Fournir les fonctionnalités de l'application",
+                liManage: "Gérer vos crédits et abonnements",
+                liFix: "Corriger les bugs et améliorer les performances",
+                h2Third: "4. Services tiers",
+                p4Third: "Nous utilisons l'App Store d'Apple pour les paiements. Nous ne partageons pas de données avec des annonceurs.",
+                h2Contact: "Contactez-nous",
+                p5Contact: "Si vous avez des questions sur cette politique :",
+                footerRights: "© 2025 Egor Sazanov. Tous droits réservés.",
+                footerDev: "Développé par"
+            },
+            de: {
+                heroTitle: "Datenschutzrichtlinie",
+                heroDesc: "Zuletzt aktualisiert: 19. Dezember 2025",
+                heroBack: "← Zurück zur Startseite",
+                hl1Title: "Ihre Privatsphäre ist wichtig",
+                hl1Text: "Fliqer verpflichtet sich, Ihre Privatsphäre zu schützen. Wir verarbeiten Videoinhalte lokal auf Ihrem Gerät und laden Ihre Videos nie hoch.",
+                h1Overview: "1. Übersicht",
+                p1Overview: "Diese Datenschutzrichtlinie erklärt, welche Informationen wir sammeln und wie wir sie verwenden.",
+                h2Collection: "2. Datensammlung",
+                h3Provide: "Informationen, die Sie bereitstellen",
+                liAccount: "<strong>Kontokennung:</strong> Wir verwenden eine pseudonyme Kennung für die Kontoverwaltung.",
+                liSupport: "<strong>Support-Info:</strong> Wenn Sie uns eine E-Mail senden, verwenden wir diese nur zur Antwort.",
+                h3Auto: "Automatisch gesammelte Informationen",
+                liAnalytics: "<strong>Analytik:</strong> Nutzungsdaten zur Verbesserung der App.",
+                liDevice: "<strong>Geräteinfo:</strong> Gerätemodell und iOS-Version für Debugging.",
+                liCredits: "<strong>Guthaben:</strong> Wir verfolgen Ihr Guthaben zur Verwaltung von Abonnements.",
+                hl2Title: "Was wir NICHT sammeln:",
+                hl2Text: "Wir greifen nicht auf Ihre Videoinhalte zu. Die gesamte Verarbeitung erfolgt lokal auf Ihrem iPhone.",
+                h2Usage: "3. Datennutzung",
+                p3Usage: "Wir verwenden Daten für:",
+                liFunc: "Bereitstellung von App-Funktionen",
+                liManage: "Verwaltung Ihrer Kredite und Abonnements",
+                liFix: "Fehlerbehebung und Leistungsverbesserung",
+                h2Third: "4. Dienste von Drittanbietern",
+                p4Third: "Wir nutzen den Apple App Store für Zahlungen. Wir teilen keine Daten mit Werbetreibenden.",
+                h2Contact: "Kontaktieren Sie uns",
+                p5Contact: "Wenn Sie Fragen zu dieser Richtlinie haben:",
+                footerRights: "© 2025 Egor Sazanov. Alle Rechte vorbehalten.",
+                footerDev: "Entwickelt von"
+            },
+            ja: {
+                heroTitle: "プライバシーポリシー",
+                heroDesc: "最終更新日：2025年12月19日",
+                heroBack: "← ホームに戻る",
+                hl1Title: "プライバシーは重要です",
+                hl1Text: "Fliqerはお客様のプライバシー保護に取り組んでいます。動画コンテンツは端末内でローカルに処理され、アップロードされることはありません。",
+                h1Overview: "1. 概要",
+                p1Overview: "本プライバシーポリシーでは、収集する情報とその使用方法について説明します。",
+                h2Collection: "2. データ収集",
+                h3Provide: "提供される情報",
+                liAccount: "<strong>アカウントID:</strong> アカウント管理には仮名のIDを使用します。",
+                liSupport: "<strong>サポート情報:</strong> お問い合わせいただいたメールアドレスは返信のみに使用します。",
+                h3Auto: "自動的に収集される情報",
+                liAnalytics: "<strong>分析:</strong> アプリ改善のための使用データ。個人は特定されません。",
+                liDevice: "<strong>端末情報:</strong> デバッグ用の端末モデルおよびiOSバージョン。",
+                liCredits: "<strong>クレジット:</strong> サブスクリプション管理のためにクレジット残高を追跡します。",
+                hl2Title: "収集しない情報:",
+                hl2Text: "動画コンテンツにアクセス、保存、アップロードすることはありません。すべての処理はiPhone上でローカルに行われます。",
+                h2Usage: "3. データ使用",
+                p3Usage: "データは以下のために使用されます：",
+                liFunc: "アプリ機能の提供",
+                liManage: "クレジットとサブスクリプションの管理",
+                liFix: "バグ修正とパフォーマンス向上",
+                h2Third: "4. サードパーティサービス",
+                p4Third: "支払いにApple App Storeを使用します。データを広告主と共有することはありません。",
+                h2Contact: "お問い合わせ",
+                p5Contact: "本ポリシーに関するご質問はこちら：",
+                footerRights: "© 2025 Egor Sazanov. All rights reserved.",
+                footerDev: "開発："
+            },
+            ko: {
+                heroTitle: "개인정보 처리방침",
+                heroDesc: "최종 업데이트: 2025년 12월 19일",
+                heroBack: "← 홈으로 돌아가기",
+                hl1Title: "당신의 개인정보는 소중합니다",
+                hl1Text: "Fliqer는 사용자의 개인정보를 보호하기 위해 최선을 다합니다. 모든 비디오 콘텐츠는 기기에서 로컬로 처리되며 절대 업로드되지 않습니다.",
+                h1Overview: "1. 개요",
+                p1Overview: "이 개인정보 처리방침은 우리가 수집하는 정보와 그 사용 방법을 설명합니다.",
+                h2Collection: "2. 데이터 수집",
+                h3Provide: "제공하는 정보",
+                liAccount: "<strong>계정 식별자:</strong> 계정 관리를 위해 가명 식별자를 사용합니다.",
+                liSupport: "<strong>지원 정보:</strong> 이메일을 보내주시면 답변 용도로만 사용합니다.",
+                h3Auto: "자동으로 수집되는 정보",
+                liAnalytics: "<strong>분석:</strong> 앱 개선을 위한 사용 데이터. 개인 식별 정보와 연결되지 않습니다.",
+                liDevice: "<strong>기기 정보:</strong> 디버깅을 위한 기기 모델 및 iOS 버전.",
+                liCredits: "<strong>크레딧:</strong> 구독 관리를 위해 크레딧 잔액을 추적합니다.",
+                hl2Title: "수집하지 않는 정보:",
+                hl2Text: "우리는 사용자의 비디오 콘텐츠에 접근하거나 저장, 업로드하지 않습니다. 모든 처리는 iPhone에서 로컬로 이루어집니다.",
+                h2Usage: "3. 데이터 사용",
+                p3Usage: "데이터는 다음 용도로 사용됩니다:",
+                liFunc: "앱 기능 제공",
+                liManage: "크레딧 및 구독 관리",
+                liFix: "버그 수정 및 성능 개선",
+                h2Third: "4. 제3자 서비스",
+                p4Third: "결제에 Apple App Store를 사용합니다. 광고주와 데이터를 공유하지 않습니다.",
+                h2Contact: "문의하기",
+                p5Contact: "이 정책에 대해 질문이 있으시면:",
+                footerRights: "© 2025 Egor Sazanov. All rights reserved.",
+                footerDev: "개발:"
+            },
+            pt: {
+                heroTitle: "Política de Privacidade",
+                heroDesc: "Última atualização: 19 de dezembro de 2025",
+                heroBack: "← Voltar ao Início",
+                hl1Title: "Sua privacidade importa",
+                hl1Text: "O Fliqer está comprometido em proteger sua privacidade. Processamos conteúdo de vídeo localmente no seu dispositivo e nunca enviamos seus vídeos.",
+                h1Overview: "1. Visão Geral",
+                p1Overview: "Esta Política de Privacidade explica quais informações coletamos e como as usamos.",
+                h2Collection: "2. Coleta de Dados",
+                h3Provide: "Informações que você fornece",
+                liAccount: "<strong>Identificador da Conta:</strong> Usamos um identificador pseudônimo para gerenciamento da conta.",
+                liSupport: "<strong>Info de Suporte:</strong> Se você nos enviar um e-mail, usamos seu endereço apenas para responder.",
+                h3Auto: "Informações Coletadas Automaticamente",
+                liAnalytics: "<strong>Análises:</strong> Dados de uso para melhorar o aplicativo.",
+                liDevice: "<strong>Info do Dispositivo:</strong> Modelo do dispositivo e versão do iOS para depuração.",
+                liCredits: "<strong>Créditos:</strong> Rastreamos seu saldo de créditos para gerenciar assinaturas.",
+                hl2Title: "O que NÃO coletamos:",
+                hl2Text: "Não acessamos, armazenamos ou enviamos seu conteúdo de vídeo. Todo o processamento ocorre localmente no seu iPhone.",
+                h2Usage: "3. Uso de Dados",
+                p3Usage: "Usamos dados para:",
+                liFunc: "Fornecer funcionalidades do app",
+                liManage: "Gerenciar seus créditos e assinaturas",
+                liFix: "Corrigir bugs e melhorar o desempenho",
+                h2Third: "4. Serviços de Terceiros",
+                p4Third: "Usamos a Apple App Store para pagamentos. Não compartilhamos dados com anunciantes.",
+                h2Contact: "Contate-nos",
+                p5Contact: "Se tiver dúvidas sobre esta política:",
+                footerRights: "© 2025 Egor Sazanov. Todos os direitos reservados.",
+                footerDev: "Desenvolvido por"
+            },
+            es: {
+                heroTitle: "Política de Privacidad",
+                heroDesc: "Última actualización: 19 de diciembre de 2025",
+                heroBack: "← Volver al Inicio",
+                hl1Title: "Tu privacidad importa",
+                hl1Text: "Fliqer se compromete a proteger tu privacidad. Procesamos el contenido de video localmente en tu dispositivo y nunca subimos tus videos.",
+                h1Overview: "1. Resumen",
+                p1Overview: "Esta Política de Privacidad explica qué información recopilamos y cómo la usamos.",
+                h2Collection: "2. Recopilación de Datos",
+                h3Provide: "Información que proporcionas",
+                liAccount: "<strong>Identificador de Cuenta:</strong> Usamos un identificador seudónimo para la gestión de la cuenta.",
+                liSupport: "<strong>Info de Soporte:</strong> Si nos envías un correo, solo lo usamos para responder.",
+                h3Auto: "Información Recopilada Automáticamente",
+                liAnalytics: "<strong>Analítica:</strong> Datos de uso para mejorar la aplicación.",
+                liDevice: "<strong>Info del Dispositivo:</strong> Modelo del dispositivo y versión de iOS para depuración.",
+                liCredits: "<strong>Créditos:</strong> Rastreamos tu saldo de créditos para gestionar suscripciones.",
+                hl2Title: "Lo que NO recopilamos:",
+                hl2Text: "No accedemos, almacenamos ni subimos tu contenido de video. Todo el procesamiento ocurre localmente en tu iPhone.",
+                h2Usage: "3. Uso de Datos",
+                p3Usage: "Usamos datos para:",
+                liFunc: "Proporcionar funcionalidades de la app",
+                liManage: "Gestionar tus créditos y suscripciones",
+                liFix: "Corregir errores y mejorar el rendimiento",
+                h2Third: "4. Servicios de Terceros",
+                p4Third: "Usamos Apple App Store para pagos. No compartimos datos con anunciantes.",
+                h2Contact: "Contáctanos",
+                p5Contact: "Si tienes preguntas sobre esta política:",
+                footerRights: "© 2025 Egor Sazanov. Todos los derechos reservados.",
+                footerDev: "Desarrollado por"
+            },
+            th: {
+                heroTitle: "นโยบายความเป็นส่วนตัว",
+                heroDesc: "อัปเดตล่าสุด: 19 ธันวาคม 2025",
+                heroBack: "← กลับสู่หน้าหลัก",
+                hl1Title: "ความเป็นส่วนตัวของคุณสำคัญ",
+                hl1Text: "Fliqer มุ่งมั่นที่จะปกป้องความเป็นส่วนตัวของคุณ เราประมวลผลวิดีโอบนอุปกรณ์ของคุณและไม่เคยอัปโหลดวิดีโอของคุณ",
+                h1Overview: "1. ภาพรวม",
+                p1Overview: "นโยบายความเป็นส่วนตัวนี้อธิบายข้อมูลที่เรารวบรวมและวิธีการใช้งาน",
+                h2Collection: "2. การรวบรวมข้อมูล",
+                h3Provide: "ข้อมูลที่คุณให้",
+                liAccount: "<strong>ตัวระบุบัญชี:</strong> เราใช้ตัวระบุนามแฝงสำหรับการจัดการบัญชี",
+                liSupport: "<strong>ข้อมูลสนับสนุน:</strong> หากคุณส่งอีเมลถึงเรา เราจะใช้อีเมลของคุณเพื่อตอบกลับเท่านั้น",
+                h3Auto: "ข้อมูลที่เรารวบรวมโดยอัตโนมัติ",
+                liAnalytics: "<strong>การวิเคราะห์:</strong> ข้อมูลการใช้งานเพื่อปรับปรุงแอป",
+                liDevice: "<strong>ข้อมูลอุปกรณ์:</strong> รุ่นอุปกรณ์และเวอร์ชัน iOS สำหรับการแก้ไขข้อบกพร่อง",
+                liCredits: "<strong>เครดิต:</strong> เราติดตามยอดเครดิตของคุณเพื่อจัดการการสมัครสมาชิก",
+                hl2Title: "สิ่งที่เราไม่รวบรวม:",
+                hl2Text: "เราไม่เข้าถึง จัดเก็บ หรืออัปโหลดวิดีโอของคุณ การประมวลผลทั้งหมดเกิดขึ้นบน iPhone ของคุณ",
+                h2Usage: "3. การใช้ข้อมูล",
+                p3Usage: "เราใช้ข้อมูลเพื่อ:",
+                liFunc: "ให้บริการฟีเจอร์ของแอป",
+                liManage: "จัดการเครดิตและการสมัครสมาชิกของคุณ",
+                liFix: "แก้ไขข้อบกพร่องและปรับปรุงประสิทธิภาพ",
+                h2Third: "4. บริการของบุคคลที่สาม",
+                p4Third: "เราใช้ Apple App Store สำหรับการชำระเงิน เราไม่แชร์ข้อมูลกับผู้โฆษณา",
+                h2Contact: "ติดต่อเรา",
+                p5Contact: "หากคุณมีคำถามเกี่ยวกับนโยบายนี้:",
+                footerRights: "© 2025 Egor Sazanov. สงวนลิขสิทธิ์",
+                footerDev: "พัฒนาโดย"
+            },
+            uk: {
+                heroTitle: "Політика конфіденційності",
+                heroDesc: "Оновлено: 19 грудня 2025",
+                heroBack: "← На головну",
+                hl1Title: "Ваша конфіденційність важлива",
+                hl1Text: "Fliqer зобов'язується захищати вашу конфіденційність. Ми обробляємо відео локально на вашому пристрої і ніколи не завантажуємо їх.",
+                h1Overview: "1. Огляд",
+                p1Overview: "Ця Політика конфіденційності пояснює, яку інформацію ми збираємо та як ми її використовуємо.",
+                h2Collection: "2. Збір даних",
+                h3Provide: "Інформація, яку ви надаєте",
+                liAccount: "<strong>Ідентифікатор облікового запису:</strong> Ми використовуємо псевдонімний ідентифікатор для керування аккаунтом.",
+                liSupport: "<strong>Підтримка:</strong> Якщо ви пишете нам, ми використовуємо email лише для відповіді.",
+                h3Auto: "Інформація, яку ми збираємо автоматично",
+                liAnalytics: "<strong>Аналітика:</strong> Дані про використання для покращення додатку.",
+                liDevice: "<strong>Інформація про пристрій:</strong> Модель пристрою та версія iOS для налагодження.",
+                liCredits: "<strong>Кредити:</strong> Ми відстежуємо баланс кредитів для керування підписками.",
+                hl2Title: "Що ми НЕ збираємо:",
+                hl2Text: "Ми не отримуємо доступ, не зберігаємо та не завантажуємо ваші відео. Вся обробка відбувається локально.",
+                h2Usage: "3. Використання даних",
+                p3Usage: "Ми використовуємо дані для:",
+                liFunc: "Забезпечення роботи додатку",
+                liManage: "Керування вашими кредитами та підписками",
+                liFix: "Виправлення помилок та покращення продуктивності",
+                h2Third: "4. Сторонні сервіси",
+                p4Third: "Ми використовуємо Apple App Store для платежів. Ми не передаємо дані рекламодавцям.",
+                h2Contact: "Зв'яжіться з нами",
+                p5Contact: "Якщо у вас є питання про цю політику:",
+                footerRights: "© 2025 Egor Sazanov. Всі права захищені.",
+                footerDev: "Розроблено"
+            },
+            vi: {
+                heroTitle: "Chính sách bảo mật",
+                heroDesc: "Cập nhật lần cuối: 19 tháng 12, 2025",
+                heroBack: "← Quay lại trang chủ",
+                hl1Title: "Quyền riêng tư của bạn là quan trọng",
+                hl1Text: "Fliqer cam kết bảo vệ quyền riêng tư của bạn. Chúng tôi xử lý nội dung video cục bộ trên thiết bị của bạn và không bao giờ tải lên video của bạn.",
+                h1Overview: "1. Tổng quan",
+                p1Overview: "Chính sách bảo mật này giải thích thông tin chúng tôi thu thập và cách chúng tôi sử dụng nó.",
+                h2Collection: "2. Thu thập dữ liệu",
+                h3Provide: "Thông tin bạn cung cấp",
+                liAccount: "<strong>Định danh tài khoản:</strong> Chúng tôi sử dụng định danh giả danh để quản lý tài khoản.",
+                liSupport: "<strong>Thông tin hỗ trợ:</strong> Nếu bạn gửi email cho chúng tôi, chúng tôi chỉ sử dụng nó để trả lời.",
+                h3Auto: "Thông tin chúng tôi thu thập tự động",
+                liAnalytics: "<strong>Phân tích:</strong> Dữ liệu sử dụng để cải thiện ứng dụng.",
+                liDevice: "<strong>Thông tin thiết bị:</strong> Mẫu thiết bị và phiên bản iOS để gỡ lỗi.",
+                liCredits: "<strong>Tín dụng:</strong> Chúng tôi theo dõi số dư tín dụng để quản lý đăng ký.",
+                hl2Title: "Những gì chúng tôi KHÔNG thu thập:",
+                hl2Text: "Chúng tôi không truy cập, lưu trữ hoặc tải lên nội dung video của bạn. Mọi xử lý đều diễn ra cục bộ trên iPhone của bạn.",
+                h2Usage: "3. Sử dụng dữ liệu",
+                p3Usage: "Chúng tôi sử dụng dữ liệu để:",
+                liFunc: "Cung cấp chức năng ứng dụng",
+                liManage: "Quản lý tín dụng và đăng ký của bạn",
+                liFix: "Sửa lỗi và cải thiện hiệu suất",
+                h2Third: "4. Dịch vụ bên thứ ba",
+                p4Third: "Chúng tôi sử dụng Apple App Store để thanh toán. Chúng tôi không chia sẻ dữ liệu với các nhà quảng cáo.",
+                h2Contact: "Liên hệ chúng tôi",
+                p5Contact: "Nếu bạn có câu hỏi về chính sách này:",
+                footerRights: "© 2025 Egor Sazanov. Đã đăng ký bản quyền.",
+                footerDev: "Được phát triển bởi"
             }
         };
 
-        // Fallback for missing keys
-        const langKeys = Object.keys(translations.en);
-        ['ar', 'zh', 'fr', 'de', 'ja', 'ko', 'pt', 'es', 'th', 'uk', 'vi'].forEach(lang => {
-            if (!translations[lang]) translations[lang] = {};
-            langKeys.forEach(key => {
-                if (!translations[lang][key]) translations[lang][key] = translations.en[key];
-            });
-        });
+        function setLanguage(lang) {
+            const data = translations[lang] || translations.en;
 
-        // Manual Placeholders for effect
-        translations.uk = { ...translations.en, title: "Політика конфіденційності", back: "← На головну", highlightTitle: "Ваша конфіденційність важлива" };
-        translations.de = { ...translations.en, title: "Datenschutzrichtlinie", back: "← Zurück", highlightTitle: "Ihre Privatsphäre ist wichtig" };
+            // RTL support
+            document.body.dir = lang === 'ar' ? 'rtl' : 'ltr';
+
+            // Safe update helpers
+            const setText = (id, text) => {
+                const el = document.getElementById(id);
+                if (el) el.textContent = text;
+            };
+
+            const setHTML = (id, html) => {
+                const el = document.getElementById(id);
+                if (el) el.innerHTML = html;
+            };
+
+            setText('hero-title', data.heroTitle);
+            setText('hero-desc', data.heroDesc);
+            setText('hero-back', data.heroBack);
+
+            setText('highlight1-title', data.hl1Title);
+            setText('highlight1-text', data.hl1Text);
+
+            setText('h1-overview', data.h1Overview);
+            setText('p1-overview', data.p1Overview);
+
+            setText('h2-collection', data.h2Collection);
+            setText('h3-provide', data.h3Provide);
+            setHTML('li-account', data.liAccount);
+            setHTML('li-support', data.liSupport);
+
+            setText('h3-auto', data.h3Auto);
+            setHTML('li-analytics', data.liAnalytics);
+            setHTML('li-device', data.liDevice);
+            setHTML('li-credits', data.liCredits);
+
+            setText('highlight2-title', data.hl2Title);
+            setText('highlight2-text', data.hl2Text);
+
+            setText('h2-usage', data.h2Usage);
+            setText('p3-usage', data.p3Usage);
+            setText('li-func', data.liFunc);
+            setText('li-manage', data.liManage);
+            setText('li-fix', data.liFix);
+
+            setText('h2-third', data.h2Third);
+            setText('p4-third', data.p4Third);
+
+            setText('h2-contact', data.h2Contact);
+            setText('p5-contact', data.p5Contact);
+
+            setText('footer-rights', data.footerRights);
+            setText('footer-dev', data.footerDev);
+        }
 
         document.addEventListener('DOMContentLoaded', () => {
             const langBtn = document.getElementById('langBtn');
@@ -330,34 +706,6 @@
                 });
             });
         });
-
-        function setLanguage(lang) {
-            const data = translations[lang] || translations.en;
-
-            document.body.dir = lang === 'ar' ? 'rtl' : 'ltr';
-
-            // Safe update helpers
-            const setText = (selector, text) => {
-                const el = document.querySelector(selector);
-                if (el) el.textContent = text;
-            };
-
-            const setHTML = (selector, html) => {
-                const el = document.querySelector(selector);
-                if (el) el.innerHTML = html;
-            };
-
-            setText('.hero h1', data.title);
-            setText('.hero .description', data.lastUpdated);
-            setText('.hero .btn-secondary', data.back);
-
-            setHTML('.highlight', `<strong>${data.highlightTitle}</strong><br>${data.highlightText}`);
-
-            setText('h2:nth-of-type(1)', data.h1);
-            setText('h2:nth-of-type(1) + p', data.p1);
-
-            // Further updates would go here in full implementation
-        }
     </script>
 </body>
 
