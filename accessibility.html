@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Универсальный доступ - Fliqer</title>
+    <title>Accessibility - Fliqer</title>
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="alternate icon" href="favicon.svg">
     <link rel="apple-touch-icon" href="favicon.svg">
@@ -67,6 +67,75 @@
             color: var(--color-primary);
             margin-bottom: 16px;
         }
+
+        /* Language Switcher Styles */
+        .language-dropdown {
+            position: fixed;
+            top: 24px;
+            right: 24px;
+            z-index: 1000;
+        }
+
+        .lang-btn {
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--color-border);
+            color: var(--color-text-muted);
+            padding: 8px 16px;
+            border-radius: var(--radius-full);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+
+        .lang-btn:hover {
+            color: var(--color-text);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .lang-menu {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            margin-top: 8px;
+            background: #111;
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-md);
+            width: 220px;
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .lang-menu.active {
+            display: flex;
+            animation: fadeUp 0.2s ease;
+        }
+
+        .lang-option {
+            padding: 10px 16px;
+            color: var(--color-text-muted);
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: background 0.2s;
+        }
+
+        .lang-option:hover {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--color-text);
+        }
+
+        .lang-option.active {
+            color: var(--color-primary);
+            background: rgba(255, 155, 4, 0.1);
+        }
     </style>
 </head>
 
@@ -74,51 +143,76 @@
     <div class="bg-gradient"></div>
     <div class="noise-overlay"></div>
 
+    <!-- Language Switcher Dropdown -->
+    <div class="language-dropdown">
+        <button class="lang-btn" id="langBtn">
+            <i class="ph-bold ph-globe"></i>
+            <span id="currentLang">English</span>
+            <i class="ph-bold ph-caret-down"></i>
+        </button>
+        <div class="lang-menu" id="langMenu">
+            <div class="lang-option active" data-lang="en">English</div>
+            <div class="lang-option" data-lang="ar">Arabic (العربية)</div>
+            <div class="lang-option" data-lang="zh">Chinese (简体中文)</div>
+            <div class="lang-option" data-lang="fr">French (Français)</div>
+            <div class="lang-option" data-lang="de">German (Deutsch)</div>
+            <div class="lang-option" data-lang="ja">Japanese (日本語)</div>
+            <div class="lang-option" data-lang="ko">Korean (한국어)</div>
+            <div class="lang-option" data-lang="pt">Portuguese (Português)</div>
+            <div class="lang-option" data-lang="ru">Russian (Русский)</div>
+            <div class="lang-option" data-lang="es">Spanish (Español)</div>
+            <div class="lang-option" data-lang="th">Thai (ไทย)</div>
+            <div class="lang-option" data-lang="uk">Ukrainian (Українська)</div>
+            <div class="lang-option" data-lang="vi">Vietnamese (Tiếng Việt)</div>
+        </div>
+    </div>
+
     <header class="hero" style="padding-bottom: 40px; padding-top: 80px;">
-        <div class="hero-tag">Accessibility</div>
-        <h1 style="font-size: 3rem; margin-bottom: 16px;">Универсальный доступ</h1>
-        <p class="description">Fliqer доступен для всех пользователей</p>
-        <a href="index.html" class="btn btn-secondary">← На главную</a>
+        <div class="hero-tag" id="hero-tag">Accessibility</div>
+        <h1 style="font-size: 3rem; margin-bottom: 16px;" id="hero-title">Accessibility</h1>
+        <p class="description" id="hero-desc">Fliqer is accessible to everyone</p>
+        <a href="index.html" class="btn btn-secondary" id="hero-back">← Back to Home</a>
     </header>
 
     <div class="content-wrapper">
         <div class="info-box" style="text-align: center;">
             <div style="font-size: 2rem; margin-bottom: 16px; color: var(--color-primary);"><i class="ph ph-globe"></i>
             </div>
-            <h3>Приверженность доступности</h3>
-            <p style="margin-bottom: 0;">Мы стремимся сделать Fliqer максимально доступным для всех пользователей,
-                независимо от их возможностей.</p>
+            <h3 id="commit-title">Commitment to Accessibility</h3>
+            <p style="margin-bottom: 0;" id="commit-text">We strive to make Fliqer accessible to all users, regardless
+                of
+                their abilities.</p>
         </div>
 
-        <h2>✨ Поддерживаемые функции</h2>
+        <h2 id="features-title">✨ Supported Features</h2>
         <div class="feature-grid">
             <div class="card">
                 <div class="feature-icon"><i class="ph ph-text-aa"></i></div>
-                <h3>Крупный текст</h3>
-                <p>Поддержка настроек Dynamic Type для увеличения размера шрифта.</p>
+                <h3 id="feat-text-title">Large Text</h3>
+                <p id="feat-text-desc">Support for Dynamic Type settings to increase font size.</p>
             </div>
             <div class="card">
                 <div class="feature-icon"><i class="ph ph-moon"></i></div>
-                <h3>Темный режим</h3>
-                <p>Автоматическая адаптация интерфейса для снижения нагрузки на зрение.</p>
+                <h3 id="feat-dark-title">Dark Mode</h3>
+                <p id="feat-dark-desc">Automatic interface adaptation to reduce eye strain.</p>
             </div>
             <div class="card">
                 <div class="feature-icon"><i class="ph ph-speaker-high"></i></div>
-                <h3>VoiceOver</h3>
-                <p>Полная разметка всех элементов для пользователей VoiceOver.</p>
+                <h3 id="feat-voice-title">VoiceOver</h3>
+                <p id="feat-voice-desc">Full markup of all elements for VoiceOver users.</p>
             </div>
             <div class="card">
                 <div class="feature-icon"><i class="ph ph-hand-palm"></i></div>
-                <h3>Уменьшение движения</h3>
-                <p>Поддержка настройки Reduce Motion для отключения анимаций.</p>
+                <h3 id="feat-motion-title">Reduce Motion</h3>
+                <p id="feat-motion-desc">Support for Reduce Motion setting to disable animations.</p>
             </div>
         </div>
 
-        <h2>📞 Обратная связь</h2>
+        <h2 id="feedback-title">📞 Feedback</h2>
         <div class="card" style="text-align: center;">
             <div class="feature-icon"><i class="ph ph-envelope-open"></i></div>
-            <h3>Нужна помощь?</h3>
-            <p>Если у вас возникли трудности с использованием приложения, напишите нам.</p>
+            <h3 id="help-title">Need Help?</h3>
+            <p id="help-text">If you have any difficulties using the app, please email us.</p>
             <a href="mailto:accessibility@fliqer.app" class="btn btn-primary"
                 style="margin-top: 16px;">accessibility@fliqer.app</a>
         </div>
@@ -131,14 +225,381 @@
             <a href="support.html">Support</a>
         </div>
         <div class="copyright">
-            <p>&copy; 2025 Egor Sazanov. All rights reserved.</p>
-            <p style="margin-top: 8px; font-size: 0.8em; opacity: 0.8;">Developed by <a
+            <p id="footer-rights">&copy; 2025 Egor Sazanov. All rights reserved.</p>
+            <p style="margin-top: 8px; font-size: 0.8em; opacity: 0.8;"><span id="footer-dev">Developed by</span> <a
                     href="https://www.addicted.design/" target="_blank"
                     style="color: inherit; text-decoration: underline;">addicted</a></p>
         </div>
     </footer>
 
     <a href="https://www.addicted.design/" class="float-btn-addicted" target="_blank">addicted</a>
+
+    <script>
+        const translations = {
+            en: {
+                heroTag: "Accessibility",
+                heroTitle: "Accessibility",
+                heroDesc: "Fliqer is accessible to everyone",
+                heroBack: "← Back to Home",
+                commitTitle: "Commitment to Accessibility",
+                commitText: "We strive to make Fliqer accessible to all users, regardless of their abilities.",
+                featuresTitle: "✨ Supported Features",
+                featTextTitle: "Large Text",
+                featTextDesc: "Support for Dynamic Type settings to increase font size.",
+                featDarkTitle: "Dark Mode",
+                featDarkDesc: "Automatic interface adaptation to reduce eye strain.",
+                featVoiceTitle: "VoiceOver",
+                featVoiceDesc: "Full markup of all elements for VoiceOver users.",
+                featMotionTitle: "Reduce Motion",
+                featMotionDesc: "Support for Reduce Motion setting to disable animations.",
+                feedbackTitle: "📞 Feedback",
+                helpTitle: "Need Help?",
+                helpText: "If you have any difficulties using the app, please email us.",
+                footerRights: "© 2025 Egor Sazanov. All rights reserved.",
+                footerDev: "Developed by"
+            },
+            ru: {
+                heroTag: "Универсальный доступ",
+                heroTitle: "Универсальный доступ",
+                heroDesc: "Fliqer доступен для всех пользователей",
+                heroBack: "← На главную",
+                commitTitle: "Приверженность доступности",
+                commitText: "Мы стремимся сделать Fliqer максимально доступным для всех пользователей, независимо от их возможностей.",
+                featuresTitle: "✨ Поддерживаемые функции",
+                featTextTitle: "Крупный текст",
+                featTextDesc: "Поддержка настроек Dynamic Type для увеличения размера шрифта.",
+                featDarkTitle: "Темный режим",
+                featDarkDesc: "Автоматическая адаптация интерфейса для снижения нагрузки на зрение.",
+                featVoiceTitle: "VoiceOver",
+                featVoiceDesc: "Полная разметка всех элементов для пользователей VoiceOver.",
+                featMotionTitle: "Уменьшение движения",
+                featMotionDesc: "Поддержка настройки Reduce Motion для отключения анимаций.",
+                feedbackTitle: "📞 Обратная связь",
+                helpTitle: "Нужна помощь?",
+                helpText: "Если у вас возникли трудности с использованием приложения, напишите нам.",
+                footerRights: "© 2025 Eгор Сазанов. Все права защищены.",
+                footerDev: "Разработка:"
+            },
+            ar: {
+                heroTag: "إمكانية الوصول",
+                heroTitle: "إمكانية الوصول",
+                heroDesc: "Fliqer متاح للجميع",
+                heroBack: "← العودة للصفحة الرئيسية",
+                commitTitle: "الالتزام بإمكانية الوصول",
+                commitText: "نسعى جاهدين لجعل Fliqer في متناول جميع المستخدمين، بغض النظر عن قدراتهم.",
+                featuresTitle: "✨ الميزات المدعومة",
+                featTextTitle: "نص كبير",
+                featTextDesc: "دعم إعدادات الكتابة الديناميكية لزيادة حجم الخط.",
+                featDarkTitle: "الوضع الداكن",
+                featDarkDesc: "تكييف تلقائي للواجهة لتقليل إجهاد العين.",
+                featVoiceTitle: "VoiceOver",
+                featVoiceDesc: "ترميز كامل لجميع العناصر لمستخدمي VoiceOver.",
+                featMotionTitle: "تقليل الحركة",
+                featMotionDesc: "دعم إعداد تقليل الحركة لتعطيل الرسوم المتحركة.",
+                feedbackTitle: "📞 ملاحظات",
+                helpTitle: "هل تحتاج إلى مساعدة؟",
+                helpText: "إذا واجهت أي صعوبات في استخدام التطبيق، يرجى مراسلتنا عبر البريد الإلكتروني.",
+                footerRights: "© 2025 Egor Sazanov. جميع الحقوق محفوظة.",
+                footerDev: "تطوير بواسطة"
+            },
+            zh: {
+                heroTag: "辅助功能",
+                heroTitle: "辅助功能",
+                heroDesc: "Fliqer 适合所有人使用",
+                heroBack: "← 返回首页",
+                commitTitle: "致力于无障碍访问",
+                commitText: "我们致力于让所有用户都能使用 Fliqer，无论其能力如何。",
+                featuresTitle: "✨ 支持的功能",
+                featTextTitle: "大号文本",
+                featTextDesc: "支持动态类型设置以增加字体大小。",
+                featDarkTitle: "深色模式",
+                featDarkDesc: "自动界面调整以减少眼睛疲劳。",
+                featVoiceTitle: "旁白",
+                featVoiceDesc: "为 VoiceOver 用户提供所有元素的完整标记。",
+                featMotionTitle: "减弱动态效果",
+                featMotionDesc: "支持“减弱动态效果”设置以禁用动画。",
+                feedbackTitle: "📞 反馈",
+                helpTitle: "需要帮助？",
+                helpText: "如果您在使用应用程序时遇到任何困难，请给我们发电子邮件。",
+                footerRights: "© 2025 Egor Sazanov. 保留所有权利。",
+                footerDev: "开发："
+            },
+            fr: {
+                heroTag: "Accessibilité",
+                heroTitle: "Accessibilité",
+                heroDesc: "Fliqer est accessible à tous",
+                heroBack: "← Retour à l'accueil",
+                commitTitle: "Engagement envers l'accessibilité",
+                commitText: "Nous nous efforçons de rendre Fliqer accessible à tous les utilisateurs, quelles que soient leurs capacités.",
+                featuresTitle: "✨ Fonctionnalités prises en charge",
+                featTextTitle: "Grand texte",
+                featTextDesc: "Prise en charge des paramètres de type dynamique pour augmenter la taille de la police.",
+                featDarkTitle: "Mode sombre",
+                featDarkDesc: "Adaptation automatique de l'interface pour réduire la fatigue oculaire.",
+                featVoiceTitle: "VoiceOver",
+                featVoiceDesc: "Balisage complet de tous les éléments pour les utilisateurs de VoiceOver.",
+                featMotionTitle: "Réduire les animations",
+                featMotionDesc: "Prise en charge du paramètre Réduire les animations pour désactiver les animations.",
+                feedbackTitle: "📞 Commentaires",
+                helpTitle: "Besoin d'aide ?",
+                helpText: "Si vous rencontrez des difficultés à utiliser l'application, veuillez nous envoyer un e-mail.",
+                footerRights: "© 2025 Egor Sazanov. Tous droits réservés.",
+                footerDev: "Développé par"
+            },
+            de: {
+                heroTag: "Barrierefreiheit",
+                heroTitle: "Barrierefreiheit",
+                heroDesc: "Fliqer ist für alle zugänglich",
+                heroBack: "← Zurück zur Startseite",
+                commitTitle: "Engagement für Barrierefreiheit",
+                commitText: "Wir bemühen uns, Fliqer für alle Benutzer zugänglich zu machen, unabhängig von ihren Fähigkeiten.",
+                featuresTitle: "✨ Unterstützte Funktionen",
+                featTextTitle: "Großer Text",
+                featTextDesc: "Unterstützung für dynamische Schrifteinstellungen zur Vergrößerung der Schriftgröße.",
+                featDarkTitle: "Dunkelmodus",
+                featDarkDesc: "Automatische Anpassung der Benutzeroberfläche zur Reduzierung der Augenbelastung.",
+                featVoiceTitle: "VoiceOver",
+                featVoiceDesc: "Vollständige Auszeichnung aller Elemente für VoiceOver-Benutzer.",
+                featMotionTitle: "Bewegung reduzieren",
+                featMotionDesc: "Unterstützung der Einstellung „Bewegung reduzieren“ zum Deaktivieren von Animationen.",
+                feedbackTitle: "📞 Feedback",
+                helpTitle: "Brauchen Sie Hilfe?",
+                helpText: "Wenn Sie Schwierigkeiten bei der Nutzung der App haben, senden Sie uns bitte eine E-Mail.",
+                footerRights: "© 2025 Egor Sazanov. Alle Rechte vorbehalten.",
+                footerDev: "Entwickelt von"
+            },
+            ja: {
+                heroTag: "アクセシビリティ",
+                heroTitle: "アクセシビリティ",
+                heroDesc: "Fliqerは誰でも利用可能です",
+                heroBack: "← ホームに戻る",
+                commitTitle: "アクセシビリティへの取り組み",
+                commitText: "私たちは、能力に関係なく、すべてのユーザーがFliqerを利用できるように努めています。",
+                featuresTitle: "✨ サポートされている機能",
+                featTextTitle: "大きな文字",
+                featTextDesc: "フォントサイズを大きくするためのDynamic Type設定のサポート。",
+                featDarkTitle: "ダークモード",
+                featDarkDesc: "目の疲れを軽減するためのインターフェースの自動調整。",
+                featVoiceTitle: "VoiceOver",
+                featVoiceDesc: "VoiceOverユーザー向けのすべての要素の完全なマークアップ。",
+                featMotionTitle: "視差効果を減らす",
+                featMotionDesc: "アニメーションを無効にする「視差効果を減らす」設定のサポート。",
+                feedbackTitle: "📞 フィードバック",
+                helpTitle: "ヘルプが必要ですか？",
+                helpText: "アプリの使用に問題がある場合は、メールでお問い合わせください。",
+                footerRights: "© 2025 Egor Sazanov. All rights reserved.",
+                footerDev: "開発："
+            },
+            ko: {
+                heroTag: "접근성",
+                heroTitle: "접근성",
+                heroDesc: "Fliqer는 누구나 사용할 수 있습니다",
+                heroBack: "← 홈으로 돌아가기",
+                commitTitle: "접근성에 대한 약속",
+                commitText: "우리는 능력에 관계없이 모든 사용자가 Fliqer를 사용할 수 있도록 노력하고 있습니다.",
+                featuresTitle: "✨ 지원되는 기능",
+                featTextTitle: "큰 텍스트",
+                featTextDesc: "글꼴 크기를 늘리기 위한 Dynamic Type 설정 지원.",
+                featDarkTitle: "다크 모드",
+                featDarkDesc: "눈의 피로를 줄이기 위한 인터페이스 자동 조정.",
+                featVoiceTitle: "VoiceOver",
+                featVoiceDesc: "VoiceOver 사용자를 위한 모든 요소의 전체 마크업.",
+                featMotionTitle: "동작 줄이기",
+                featMotionDesc: "애니메이션을 비활성화하는 '동작 줄이기' 설정 지원.",
+                feedbackTitle: "📞 피드백",
+                helpTitle: "도움이 필요하신가요?",
+                helpText: "앱 사용에 어려움이 있는 경우 이메일을 보내주세요.",
+                footerRights: "© 2025 Egor Sazanov. All rights reserved.",
+                footerDev: "개발:"
+            },
+            pt: {
+                heroTag: "Acessibilidade",
+                heroTitle: "Acessibilidade",
+                heroDesc: "O Fliqer é acessível a todos",
+                heroBack: "← Voltar ao Início",
+                commitTitle: "Compromisso com a Acessibilidade",
+                commitText: "Nós nos esforçamos para tornar o Fliqer acessível a todos os usuários, independentemente de suas habilidades.",
+                featuresTitle: "✨ Recursos Suportados",
+                featTextTitle: "Texto Grande",
+                featTextDesc: "Suporte para configurações de Tipo Dinâmico para aumentar o tamanho da fonte.",
+                featDarkTitle: "Modo Escuro",
+                featDarkDesc: "Adaptação automática da interface para reduzir o cansaço visual.",
+                featVoiceTitle: "VoiceOver",
+                featVoiceDesc: "Marcação completa de todos os elementos para usuários do VoiceOver.",
+                featMotionTitle: "Reduzir Movimento",
+                featMotionDesc: "Suporte para a configuração Reduzir Movimento para desativar animações.",
+                feedbackTitle: "📞 Feedback",
+                helpTitle: "Precisa de ajuda?",
+                helpText: "Se você tiver dificuldades em usar o aplicativo, envie-nos um e-mail.",
+                footerRights: "© 2025 Egor Sazanov. Todos os direitos reservados.",
+                footerDev: "Desenvolvido por"
+            },
+            es: {
+                heroTag: "Accesibilidad",
+                heroTitle: "Accesibilidad",
+                heroDesc: "Fliqer es accesible para todos",
+                heroBack: "← Volver al Inicio",
+                commitTitle: "Compromiso con la Accesibilidad",
+                commitText: "Nos esforzamos por hacer que Fliqer sea accesible para todos los usuarios, independientemente de sus capacidades.",
+                featuresTitle: "✨ Funciones Soportadas",
+                featTextTitle: "Texto Grande",
+                featTextDesc: "Soporte para configuraciones de Tipo Dinámico para aumentar el tamaño de la fuente.",
+                featDarkTitle: "Modo Oscuro",
+                featDarkDesc: "Adaptación automática de la interfaz para reducir la fatiga visual.",
+                featVoiceTitle: "VoiceOver",
+                featVoiceDesc: "Marcado completo de todos los elementos para usuarios de VoiceOver.",
+                featMotionTitle: "Reducir Movimento",
+                featMotionDesc: "Soporte para la configuración Reducir Movimiento para desactivar animaciones.",
+                feedbackTitle: "📞 Comentarios",
+                helpTitle: "¿Necesitas ayuda?",
+                helpText: "Si tienes dificultades para usar la aplicación, envíanos un correo electrónico.",
+                footerRights: "© 2025 Egor Sazanov. Todos los derechos reservados.",
+                footerDev: "Desarrollado por"
+            },
+            th: {
+                heroTag: "การเข้าถึง",
+                heroTitle: "การเข้าถึง",
+                heroDesc: "Fliqer เข้าถึงได้สำหรับทุกคน",
+                heroBack: "← กลับสู่หน้าหลัก",
+                commitTitle: "ความมุ่งมั่นในการเข้าถึง",
+                commitText: "เราพยายามที่จะทำให้ Fliqer เข้าถึงได้สำหรับผู้ใช้ทุกคนโดยไม่คำนึงถึงความสามารถของพวกเขา",
+                featuresTitle: "✨ ฟีเจอร์ที่รองรับ",
+                featTextTitle: "ข้อความขนาดใหญ่",
+                featTextDesc: "รองรับการตั้งค่า Dynamic Type เพื่อเพิ่มขนาดตัวอักษร",
+                featDarkTitle: "โหมดมืด",
+                featDarkDesc: "การปรับอินเทอร์เฟซอัตโนมัติเพื่อลดความเมื่อยล้าของดวงตา",
+                featVoiceTitle: "VoiceOver",
+                featVoiceDesc: "มาร์กอัปเต็มรูปแบบขององค์ประกอบทั้งหมดสำหรับผู้ใช้ VoiceOver",
+                featMotionTitle: "ลดการเคลื่อนไหว",
+                featMotionDesc: "รองรับการตั้งค่าลดการเคลื่อนไหวเพื่อปิดใช้งานแอนิเมชั่น",
+                feedbackTitle: "📞 ข้อเสนอแนะ",
+                helpTitle: "ต้องการความช่วยเหลือหรือไม่?",
+                helpText: "หากคุณมีความยากลำบากในการใช้แอป โปรดส่งอีเมลถึงเรา",
+                footerRights: "© 2025 Egor Sazanov. สงวนลิขสิทธิ์",
+                footerDev: "พัฒนาโดย"
+            },
+            uk: {
+                heroTag: "Универсальный доступ",
+                heroTitle: "Универсальный доступ",
+                heroDesc: "Fliqer доступний для всіх",
+                heroBack: "← На головну",
+                commitTitle: "Відданість доступності",
+                commitText: "Ми прагнемо зробити Fliqer доступним для всіх користувачів, незалежно від їх можливостей.",
+                featuresTitle: "✨ Підтримувані функції",
+                featTextTitle: "Великий текст",
+                featTextDesc: "Підтримка налаштувань Dynamic Type для збільшення розміру шрифту.",
+                featDarkTitle: "Темний режим",
+                featDarkDesc: "Автоматична адаптація інтерфейсу для зменшення навантаження на очі.",
+                featVoiceTitle: "VoiceOver",
+                featVoiceDesc: "Повна розмітка всіх елементів для користувачів VoiceOver.",
+                featMotionTitle: "Зменшення руху",
+                featMotionDesc: "Підтримка налаштування \"Зменшення руху\" для вимкнення анімацій.",
+                feedbackTitle: "📞 Зворотний зв'язок",
+                helpTitle: "Потрібна допомога?",
+                helpText: "Якщо у вас виникли труднощі з використанням програми, напишіть нам.",
+                footerRights: "© 2025 Egor Sazanov. Всі права захищені.",
+                footerDev: "Розроблено"
+            },
+            vi: {
+                heroTag: "Khả năng truy cập",
+                heroTitle: "Khả năng truy cập",
+                heroDesc: "Fliqer có thể truy cập được cho mọi người",
+                heroBack: "← Quay lại trang chủ",
+                commitTitle: "Cam kết về khả năng truy cập",
+                commitText: "Chúng tôi cố gắng làm cho Fliqer có thể truy cập được cho tất cả người dùng, bất kể khả năng của họ.",
+                featuresTitle: "✨ Các tính năng được hỗ trợ",
+                featTextTitle: "Văn bản lớn",
+                featTextDesc: "Hỗ trợ cài đặt Dynamic Type để tăng kích thước phông chữ.",
+                featDarkTitle: "Chế độ tối",
+                featDarkDesc: "Tự động điều chỉnh giao diện để giảm mỏi mắt.",
+                featVoiceTitle: "VoiceOver",
+                featVoiceDesc: "Đánh dấu đầy đủ tất cả các yếu tố cho người dùng VoiceOver.",
+                featMotionTitle: "Giảm chuyển động",
+                featMotionDesc: "Hỗ trợ cài đặt Giảm chuyển động để tắt hoạt ảnh.",
+                feedbackTitle: "📞 Phản hồi",
+                helpTitle: "Cần giúp đỡ?",
+                helpText: "Nếu bạn gặp khó khăn khi sử dụng ứng dụng, vui lòng gửi email cho chúng tôi.",
+                footerRights: "© 2025 Egor Sazanov. Đã đăng ký bản quyền.",
+                footerDev: "Được phát triển bởi"
+            },
+        };
+
+        function setLanguage(lang) {
+            const data = translations[lang] || translations.en;
+
+            // RTL support
+            document.body.dir = lang === 'ar' ? 'rtl' : 'ltr';
+
+            // Safe update helpers
+            const setText = (id, text) => {
+                const el = document.getElementById(id);
+                if (el) el.textContent = text;
+            };
+
+            const setHTML = (id, html) => {
+                const el = document.getElementById(id);
+                if (el) el.innerHTML = html;
+            };
+
+            setText('hero-tag', data.heroTag);
+            setText('hero-title', data.heroTitle);
+            setText('hero-desc', data.heroDesc);
+            setText('hero-back', data.heroBack);
+
+            setText('commit-title', data.commitTitle);
+            setText('commit-text', data.commitText);
+
+            setText('features-title', data.featuresTitle);
+
+            setText('feat-text-title', data.featTextTitle);
+            setText('feat-text-desc', data.featTextDesc);
+
+            setText('feat-dark-title', data.featDarkTitle);
+            setText('feat-dark-desc', data.featDarkDesc);
+
+            setText('feat-voice-title', data.featVoiceTitle);
+            setText('feat-voice-desc', data.featVoiceDesc);
+
+            setText('feat-motion-title', data.featMotionTitle);
+            setText('feat-motion-desc', data.featMotionDesc);
+
+            setText('feedback-title', data.feedbackTitle);
+            setText('help-title', data.helpTitle);
+            setText('help-text', data.helpText);
+
+            setText('footer-rights', data.footerRights);
+            setText('footer-dev', data.footerDev);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const langBtn = document.getElementById('langBtn');
+            const langMenu = document.getElementById('langMenu');
+            const currentLangSpan = document.getElementById('currentLang');
+            const langOptions = document.querySelectorAll('.lang-option');
+
+            if (langBtn) {
+                langBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    langMenu.classList.toggle('active');
+                });
+            }
+
+            document.addEventListener('click', () => {
+                if (langMenu) langMenu.classList.remove('active');
+            });
+
+            langOptions.forEach(option => {
+                option.addEventListener('click', () => {
+                    const lang = option.getAttribute('data-lang');
+                    setLanguage(lang);
+
+                    langOptions.forEach(o => o.classList.remove('active'));
+                    option.classList.add('active');
+                    currentLangSpan.textContent = option.textContent.split('(')[0].trim();
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>
