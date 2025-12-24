@@ -188,7 +188,7 @@
     <header class="hero" style="padding-bottom: 40px; padding-top: 80px;">
         <div id="hero-tag" class="hero-tag">Legal</div>
         <h1 id="hero-title" style="font-size: 3rem; margin-bottom: 16px;">Terms of Service</h1>
-        <p id="hero-desc" class="description">Last Updated: January 15, 2026</p>
+        <p id="hero-desc" class="description">Last Updated: December 24, 2024</p>
         <a id="hero-back" href="index.html" class="btn btn-secondary">← Back to Home</a>
     </header>
 
@@ -219,6 +219,7 @@
         <p id="p2-desc-2"><strong>Important:</strong> All video processing and frame extraction happens locally on your device. Your videos and extracted frames never leave your iPhone.</p>
 
         <h2 id="h3-credits">3. Credits System</h2>
+        <h3 id="h3-subscriptions">Subscriptions</h3>
         <table>
             <tr>
                 <th id="th-plan">Plan</th>
@@ -241,6 +242,26 @@
                 <td id="td-pro-a-p">$29.99/yr</td>
             </tr>
         </table>
+
+        <h3 id="h3-addons">Add-on Packs</h3>
+        <table>
+            <tr>
+                <th id="th-addon-pack">Pack</th>
+                <th id="th-addon-credits">Credits</th>
+                <th id="th-addon-price">Price</th>
+            </tr>
+            <tr>
+                <td id="td-addon-s">Small Pack</td>
+                <td id="td-addon-s-c">150</td>
+                <td id="td-addon-s-p">$1.99</td>
+            </tr>
+            <tr>
+                <td id="td-addon-l">Large Pack</td>
+                <td id="td-addon-l-c">500</td>
+                <td id="td-addon-l-p">$4.99</td>
+            </tr>
+        </table>
+        <p id="p3-addons"><strong>Note:</strong> Add-on credits never expire and can be used anytime.</p>
 
         <h2 id="h4-ip">9. Intellectual Property</h2>
         <p id="p4-ip">All rights, title, and interest in Fliqer remain the exclusive property of Egor Sazanov.</p>
@@ -275,16 +296,20 @@
     <script>
         const translations = {
             en: {
-                heroTag: "Legal", heroTitle: "Terms of Service", heroDesc: "Last Updated: January 15, 2026", heroBack: "← Back to Home",
+                heroTag: "Legal", heroTitle: "Terms of Service", heroDesc: "Last Updated: December 24, 2024", heroBack: "← Back to Home",
                 hlTitle: "Agreement to Terms", hlText: "By downloading, installing, or using Fliqer, you agree to be bound by these Terms of Service. If you do not agree, do not use the app.",
                 h1Accept: "1. Acceptance of Terms", p1Accept: "These Terms of Service ('Terms') govern your use of the Fliqer mobile application ('App') developed by Egor Sazanov ('we,' 'us,' or 'our'). By accessing or using the App, you agree to these Terms and our Privacy Policy.",
                 h2Desc: "2. Description of Service", p2Desc: "Fliqer is a professional iOS application that allows users to:",
                 liBrowse: "Browse videos from their photo library", liExtract: "Extract individual frames from videos with high precision", liAi: "Apply AI enhancements to extracted frames (normal enhancement, blur fix, noise clean)", liSave: "Save extracted frames in multiple formats (JPG, PNG, HEIC)", liLocation: "Choose save location (dedicated Fliqer album or directly to Recents)", liManage: "Manage frame extraction credits and subscriptions", liSync: "Sync credits and account across devices using Apple Sign In (optional)",
                 p2Desc2: "<strong>Important:</strong> All video processing and frame extraction happens locally on your device. Your videos and extracted frames never leave your iPhone.",
-                h3Credits: "3. Credits System", thPlan: "Plan", thCredits: "Credits", thPrice: "Price",
+                h3Credits: "3. Credits System", h3Subscriptions: "Subscriptions", thPlan: "Plan", thCredits: "Credits", thPrice: "Price",
                 tdBase: "Base", tdBaseC: "30/month", tdBaseP: "Free",
                 tdProM: "Pro Monthly", tdProMC: "300/month", tdProMP: "$2.99/mo",
                 tdProA: "Pro Annual", tdProAC: "5000/year", tdProAP: "$29.99/yr",
+                h3Addons: "Add-on Packs", thAddonPack: "Pack", thAddonCredits: "Credits", thAddonPrice: "Price",
+                tdAddonS: "Small Pack", tdAddonSC: "150", tdAddonSP: "$1.99",
+                tdAddonL: "Large Pack", tdAddonLC: "500", tdAddonLP: "$4.99",
+                p3Addons: "<strong>Note:</strong> Add-on credits never expire and can be used anytime.",
                 h4Ip: "9. Intellectual Property", p4Ip: "All rights, title, and interest in Fliqer remain the exclusive property of Egor Sazanov.",
                 h5Liability: "12. Limitation of Liability", warnTitle: "IMPORTANT:", warnText: "Fliqer is provided 'AS IS' without warranties of any kind. We are not responsible for data loss or other technical issues.",
                 h6Contact: "Contact", p6Contact: "For questions about these Terms:",
@@ -292,16 +317,20 @@
                 footerRights: "© 2025 Egor Sazanov. All rights reserved.", footerDev: "Developed by"
             },
             ru: {
-                heroTag: "Юридическая информация", heroTitle: "Условия использования", heroDesc: "Обновлено: 15 января 2026", heroBack: "← На главную",
+                heroTag: "Юридическая информация", heroTitle: "Условия использования", heroDesc: "Обновлено: 24 декабря 2024", heroBack: "← На главную",
                 hlTitle: "Согласие с условиями", hlText: "Загружая, устанавливая или используя Fliqer, вы соглашаетесь с этими Условиями использования. Если вы не согласны, не используйте приложение.",
                 h1Accept: "1. Принятие условий", p1Accept: "Эти Условия использования ('Условия') регулируют использование мобильного приложения Fliqer ('Приложение'), разработанного Егором Сазановым. Используя Приложение, вы соглашаетесь с этими Условиями и нашей Политикой конфиденциальности.",
                 h2Desc: "2. Описание сервиса", p2Desc: "Fliqer — это профессиональное iOS приложение, которое позволяет пользователям:",
                 liBrowse: "Просматривать видео из фотопленки", liExtract: "Извлекать кадры из видео с высокой точностью", liAi: "Применять AI улучшения к извлеченным кадрам (обычное улучшение, исправление размытия, очистка шума)", liSave: "Сохранять кадры в разных форматах (JPG, PNG, HEIC)", liLocation: "Выбирать место сохранения (альбом Fliqer или напрямую в Недавние)", liManage: "Управлять кредитами на извлечение и подписками", liSync: "Синхронизировать кредиты и аккаунт между устройствами через Apple Sign In (опционально)",
                 p2Desc2: "<strong>Важно:</strong> Вся обработка видео и извлечение кадров происходит локально на вашем устройстве. Ваши видео и извлеченные кадры никогда не покидают ваш iPhone.",
-                h3Credits: "3. Система кредитов", thPlan: "План", thCredits: "Кредиты", thPrice: "Цена",
+                h3Credits: "3. Система кредитов", h3Subscriptions: "Подписки", thPlan: "План", thCredits: "Кредиты", thPrice: "Цена",
                 tdBase: "Базовый", tdBaseC: "30/мес", tdBaseP: "Бесплатно",
                 tdProM: "Pro Месяц", tdProMC: "300/мес", tdProMP: "$2.99/мес",
                 tdProA: "Pro Год", tdProAC: "5000/год", tdProAP: "$29.99/год",
+                h3Addons: "Дополнительные пакеты", thAddonPack: "Пакет", thAddonCredits: "Кредиты", thAddonPrice: "Цена",
+                tdAddonS: "Малый пакет", tdAddonSC: "150", tdAddonSP: "$1.99",
+                tdAddonL: "Большой пакет", tdAddonLC: "500", tdAddonLP: "$4.99",
+                p3Addons: "<strong>Примечание:</strong> Кредиты из дополнительных пакетов никогда не истекают и могут быть использованы в любое время.",
                 h4Ip: "9. Интеллектуальная собственность", p4Ip: "Все права на Fliqer остаются исключительной собственностью Егора Сазанова.",
                 h5Liability: "12. Ограничение ответственности", warnTitle: "ВАЖНО:", warnText: "Fliqer предоставляется 'КАК ЕСТЬ' без каких-либо гарантий. Мы не несем ответственности за потерю данных.",
                 h6Contact: "Контакты", p6Contact: "По вопросам об этих условиях:",
@@ -309,7 +338,7 @@
                 footerRights: "© 2025 Егор Сазанов. Все права защищены.", footerDev: "Разработка:"
             },
             ar: {
-                heroTag: "قانوني", heroTitle: "شروط الخدمة", heroDesc: "تحديث: 19 ديسمبر 2025", heroBack: "← العودة للرئيسية",
+                heroTag: "قانوني", heroTitle: "شروط الخدمة", heroDesc: "تحديث: 24 ديسمبر 2024", heroBack: "← العودة للرئيسية",
                 hlTitle: "الموافقة على الشروط", hlText: "بتحميل أو استخدام Fliqer، أنت توافق على هذه الشروط.",
                 h1Accept: "1. قبول الشروط", p1Accept: "تحكم هذه الشروط استخدامك لتطبيق Fliqer.",
                 h2Desc: "2. وصف الخدمة", p2Desc: "Fliqer هو تطبيق iOS احترافي يتيح للمستخدمين:",
@@ -325,7 +354,7 @@
                 footerRights: "© 2025 Egor Sazanov. الحقوق محفوظة.", footerDev: "تطوير بواسطة"
             },
             zh: {
-                heroTag: "法律", heroTitle: "服务条款", heroDesc: "更新于：2025年12月19日", heroBack: "← 返回首页",
+                heroTag: "法律", heroTitle: "服务条款", heroDesc: "更新于：2024年12月24日", heroBack: "← 返回首页",
                 hlTitle: "同意条款", hlText: "下载或使用 Fliqer 即表示您同意这些服务条款。",
                 h1Accept: "1. 接受条款", p1Accept: "这些条款管辖您对 Fliqer 应用程序的使用。",
                 h2Desc: "2. 服务描述", p2Desc: "Fliqer 是一款专业的 iOS 应用，允许用户：",
@@ -425,6 +454,7 @@
             setHTML('p2-desc-2', data.p2Desc2);
 
             setText('h3-credits', data.h3Credits);
+            setText('h3-subscriptions', data.h3Subscriptions);
             setText('th-plan', data.thPlan);
             setText('th-credits', data.thCredits);
             setText('th-price', data.thPrice);
@@ -432,6 +462,14 @@
             setText('td-base', data.tdBase); setText('td-base-c', data.tdBaseC); setText('td-base-p', data.tdBaseP);
             setText('td-pro-m', data.tdProM); setText('td-pro-m-c', data.tdProMC); setText('td-pro-m-p', data.tdProMP);
             setText('td-pro-a', data.tdProA); setText('td-pro-a-c', data.tdProAC); setText('td-pro-a-p', data.tdProAP);
+
+            setText('h3-addons', data.h3Addons);
+            setText('th-addon-pack', data.thAddonPack);
+            setText('th-addon-credits', data.thAddonCredits);
+            setText('th-addon-price', data.thAddonPrice);
+            setText('td-addon-s', data.tdAddonS); setText('td-addon-s-c', data.tdAddonSC); setText('td-addon-s-p', data.tdAddonSP);
+            setText('td-addon-l', data.tdAddonL); setText('td-addon-l-c', data.tdAddonLC); setText('td-addon-l-p', data.tdAddonLP);
+            setHTML('p3-addons', data.p3Addons);
 
             setText('h4-ip', data.h4Ip);
             setText('p4-ip', data.p4Ip);
