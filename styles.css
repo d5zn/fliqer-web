@@ -2,15 +2,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700;800&display=swap');
 
 :root {
-    --color-bg: #050505;
-    --color-bg-secondary: #0A0A0A;
+    --color-bg: #000000;
+    --color-bg-secondary: #1E1E1E;
     --color-primary: #FF9B04;
-    --color-primary-dark: #FA4D06;
+    --color-primary-dark: #D5520D;
     --color-text: #ffffff;
-    --color-text-muted: #9CA3AF;
-    --color-border: rgba(255, 255, 255, 0.08);
+    --color-text-muted: #7C7C7C;
+    --color-border: #3C3C3C;
     --color-glass: rgba(255, 255, 255, 0.03);
-    --color-glass-strong: rgba(20, 20, 20, 0.6);
+    --color-glass-strong: rgba(30, 30, 30, 0.6);
 
     --font-heading: 'Outfit', sans-serif;
     --font-body: 'Inter', sans-serif;
