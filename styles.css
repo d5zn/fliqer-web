@@ -2134,7 +2134,22 @@ nav>* {
     }
 }
 
-/* --- Frame Grabber section --- */
+/* --- Frame Grabber section (right after hero, peeks into it) --- */
+.frame-grabber-section {
+    position: relative;
+    z-index: 2;
+    /* Pull up so ~1/4 of the card peeks into the hero */
+    margin-top: -14vh;
+    padding-top: calc(8rem + 2vh);
+}
+
+@media (max-width: 768px) {
+    .frame-grabber-section {
+        margin-top: -10vh;
+        padding-top: calc(6rem + 2vh);
+    }
+}
+
 .frame-grabber-section .container {
     max-width: 720px;
 }

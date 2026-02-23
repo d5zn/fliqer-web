@@ -4,10 +4,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frame Grabber &amp; Video to Image — Extract Frames from Video | Fliqer</title>
     <meta name="description"
-        content="Fliqer - Professional video frame extraction app for iOS. Extract high-quality frames from your videos with precision and ease.">
-    <meta name="keywords" content="video frame extraction, iOS app, video to image, frame capture, video editor">
-    <title>Fliqer - Professional Video Frame Extraction for iOS</title>
+        content="Free frame grabber: extract frames from video, grab frame, video to image. Extract single frame or video sequence in full resolution. Works in browser and iOS app. No upload — process locally.">
+    <meta name="keywords" content="frame grabber, grab frame, video to image, extract frame, video sequence, extract frames from video, frame extraction, video frame capture, save frame from video, screenshot from video">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://fliqer.app/">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://fliqer.app/">
+    <meta property="og:title" content="Frame Grabber — Video to Image &amp; Extract Frame | Fliqer">
+    <meta property="og:description" content="Extract frames from video: frame grabber, grab frame, video to image. Free online tool + iOS app. Full resolution, no upload.">
+    <meta property="og:image" content="https://fliqer.app/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:site_name" content="Fliqer">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Frame Grabber — Video to Image &amp; Extract Frame | Fliqer">
+    <meta name="twitter:description" content="Extract frames from video: frame grabber, grab frame, video to image. Free online + iOS app. Full resolution, no upload.">
+    <meta name="twitter:image" content="https://fliqer.app/og-image.png">
 
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="alternate icon" href="favicon.svg">
@@ -27,6 +46,31 @@
         "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/",
         "simplex-noise": "https://unpkg.com/simplex-noise@4.0.1/dist/esm/simplex-noise.js"
       }
+    }
+    </script>
+
+    <!-- Structured Data (JSON-LD) for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebApplication",
+          "name": "Fliqer Frame Grabber",
+          "description": "Frame grabber and video to image tool. Extract frames from video, grab frame at any timestamp, export video sequence as images. Full resolution, works in browser and iOS.",
+          "url": "https://fliqer.app/",
+          "applicationCategory": "MultimediaApplication",
+          "operatingSystem": "iOS, Web",
+          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+          "featureList": ["Frame grabber", "Grab frame from video", "Video to image", "Extract frame", "Video sequence extraction", "Full resolution export", "Local processing"]
+        },
+        {
+          "@type": "Organization",
+          "name": "Fliqer",
+          "url": "https://fliqer.app/",
+          "sameAs": []
+        }
+      ]
     }
     </script>
 </head>
@@ -89,9 +133,8 @@
                     style="display: inline-flex; align-items: center; justify-content: center; padding: 6px 14px; border-radius: 999px; width: fit-content; margin-inline: auto;">
                     <span><i class="ph ph-sparkle"></i> New v2.0 Available</span>
                 </div>
-                <h1>Extract Perfect Frames<br>From Your Videos</h1>
-                <p class="subtitle">Professional grade frame extraction for iOS. Capture full-resolution moments with
-                    pixel-perfect precision and zero quality loss.</p>
+                <h1>Frame Grabber: Extract Frames<br>From Video — Video to Image</h1>
+                <p class="subtitle">Grab frame or extract a full video sequence. Professional frame extraction for iOS and web — full resolution, pixel-perfect, no upload. Video to image in one tap.</p>
                 <div class="cta-group">
                     <a href="https://apps.apple.com/tr/app/fliqer-frame-grabber/id6753172557" class="btn btn-primary"
                         id="hero-btn" target="_blank" rel="noopener noreferrer">
@@ -103,7 +146,87 @@
             </div>
         </section>
 
-        <!-- 2. Features Section (Using Addicted Services layout) -->
+        <!-- 2. Frame Grabber Demo (peeks into hero) -->
+        <section class="section frame-grabber-section" id="frame-grabber">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Try Frame Grabber — Video to Image</h2>
+                    <p>Drop a video and extract frame or grab a video sequence right in your browser. Everything runs locally — nothing is uploaded.</p>
+                </div>
+                <div class="glass-card frame-grabber-card">
+                    <div id="fg-drop-zone" class="fg-drop-zone">
+                        <input type="file" id="fg-file-input" accept="video/*" hidden>
+                        <div class="fg-drop-content" id="fg-drop-content">
+                            <i class="ph ph-cloud-arrow-up" style="font-size: 48px; color: var(--accent-color); margin-bottom: 12px;"></i>
+                            <p class="fg-drop-text">Drop a video here or click to choose</p>
+                            <p class="fg-drop-sub">MP4, WebM, MOV — works in browser</p>
+                        </div>
+                    </div>
+                    <div id="fg-player-wrap" class="fg-player-wrap" hidden>
+                        <div class="fg-video-container">
+                            <video id="fg-video" playsinline muted></video>
+                            <canvas id="fg-canvas" hidden></canvas>
+                        </div>
+                        <div class="fg-timeline-wrap">
+                            <input type="range" id="fg-timeline" class="fg-timeline" min="0" max="100" value="0" step="any">
+                            <div class="fg-time-labels">
+                                <span id="fg-current-time">0:00</span>
+                                <span id="fg-duration">0:00</span>
+                            </div>
+                        </div>
+                        <div class="fg-controls">
+                            <div class="fg-control-group">
+                                <span class="fg-label">Step</span>
+                                <select id="fg-frame-step" class="fg-select" aria-label="Frame step">
+                                    <option value="1">1 fr</option>
+                                    <option value="3" selected>3 fr</option>
+                                    <option value="5">5 fr</option>
+                                    <option value="10">10 fr</option>
+                                    <option value="30">30 fr</option>
+                                </select>
+                            </div>
+                            <div class="fg-buttons">
+                                <button type="button" id="fg-skip-back" class="fg-btn fg-btn-icon" title="Previous frames (←)" aria-label="Step back">
+                                    <i class="ph ph-skip-back"></i>
+                                </button>
+                                <button type="button" id="fg-play-pause" class="fg-btn fg-btn-play" title="Play / Pause (Space)" aria-label="Play Pause">
+                                    <i class="ph ph-play" id="fg-play-icon"></i>
+                                </button>
+                                <button type="button" id="fg-capture" class="fg-btn fg-btn-capture" title="Capture frame (C)" aria-label="Capture frame">
+                                    <i class="ph ph-camera"></i>
+                                </button>
+                                <button type="button" id="fg-skip-fwd" class="fg-btn fg-btn-icon" title="Next frames (→)" aria-label="Step forward">
+                                    <i class="ph ph-skip-forward"></i>
+                                </button>
+                            </div>
+                            <div class="fg-control-group">
+                                <span class="fg-label">Export</span>
+                                <select id="fg-format" class="fg-select" aria-label="Export format">
+                                    <option value="png">PNG</option>
+                                    <option value="jpeg">JPEG</option>
+                                </select>
+                            </div>
+                            <div class="fg-control-group">
+                                <span class="fg-label">Speed</span>
+                                <select id="fg-speed" class="fg-select" aria-label="Playback speed">
+                                    <option value="0.25">0.25×</option>
+                                    <option value="0.5">0.5×</option>
+                                    <option value="0.75">0.75×</option>
+                                    <option value="1" selected>1×</option>
+                                    <option value="1.25">1.25×</option>
+                                    <option value="1.5">1.5×</option>
+                                    <option value="1.75">1.75×</option>
+                                    <option value="2">2×</option>
+                                </select>
+                            </div>
+                        </div>
+                        <p class="fg-hint"><kbd>←</kbd> <kbd>→</kbd> step · <kbd>Space</kbd> play/pause · <kbd>C</kbd> capture</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Features Section (Using Addicted Services layout) -->
         <section class="section services" id="features">
             <div class="container">
                 <div class="section-header">
@@ -178,79 +301,6 @@
                     <div class="glass-card process-card">
                         <h3>03. Extract & Save</h3>
                         <p>Tap extract and instantly save the high-res image to your photos.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 3.5 Frame Grabber Demo (local in-browser player) -->
-        <section class="section frame-grabber-section" id="frame-grabber">
-            <div class="container">
-                <div class="section-header">
-                    <h2>Try Frame Grabber</h2>
-                    <p>Drop a video and grab frames right in your browser. Everything runs locally — nothing is uploaded.</p>
-                </div>
-                <div class="glass-card frame-grabber-card">
-                    <div id="fg-drop-zone" class="fg-drop-zone">
-                        <input type="file" id="fg-file-input" accept="video/*" hidden>
-                        <div class="fg-drop-content" id="fg-drop-content">
-                            <i class="ph ph-cloud-arrow-up" style="font-size: 48px; color: var(--accent-color); margin-bottom: 12px;"></i>
-                            <p class="fg-drop-text">Drop a video here or click to choose</p>
-                            <p class="fg-drop-sub">MP4, WebM, MOV — works in browser</p>
-                        </div>
-                    </div>
-                    <div id="fg-player-wrap" class="fg-player-wrap" hidden>
-                        <div class="fg-video-container">
-                            <video id="fg-video" playsinline muted></video>
-                            <canvas id="fg-canvas" hidden></canvas>
-                        </div>
-                        <div class="fg-timeline-wrap">
-                            <input type="range" id="fg-timeline" class="fg-timeline" min="0" max="100" value="0" step="any">
-                            <div class="fg-time-labels">
-                                <span id="fg-current-time">0:00</span>
-                                <span id="fg-duration">0:00</span>
-                            </div>
-                        </div>
-                        <div class="fg-controls">
-                            <div class="fg-control-group">
-                                <span class="fg-label">Step</span>
-                                <select id="fg-frame-step" class="fg-select" aria-label="Frame step">
-                                    <option value="1">1 fr</option>
-                                    <option value="3" selected>3 fr</option>
-                                    <option value="5">5 fr</option>
-                                    <option value="10">10 fr</option>
-                                    <option value="30">30 fr</option>
-                                </select>
-                            </div>
-                            <div class="fg-buttons">
-                                <button type="button" id="fg-skip-back" class="fg-btn fg-btn-icon" title="Previous frames (←)" aria-label="Step back">
-                                    <i class="ph ph-skip-back"></i>
-                                </button>
-                                <button type="button" id="fg-play-pause" class="fg-btn fg-btn-play" title="Play / Pause (Space)" aria-label="Play Pause">
-                                    <i class="ph ph-play" id="fg-play-icon"></i>
-                                </button>
-                                <button type="button" id="fg-capture" class="fg-btn fg-btn-capture" title="Capture frame (C)" aria-label="Capture frame">
-                                    <i class="ph ph-camera"></i>
-                                </button>
-                                <button type="button" id="fg-skip-fwd" class="fg-btn fg-btn-icon" title="Next frames (→)" aria-label="Step forward">
-                                    <i class="ph ph-skip-forward"></i>
-                                </button>
-                            </div>
-                            <div class="fg-control-group">
-                                <span class="fg-label">Speed</span>
-                                <select id="fg-speed" class="fg-select" aria-label="Playback speed">
-                                    <option value="0.25">0.25×</option>
-                                    <option value="0.5">0.5×</option>
-                                    <option value="0.75">0.75×</option>
-                                    <option value="1" selected>1×</option>
-                                    <option value="1.25">1.25×</option>
-                                    <option value="1.5">1.5×</option>
-                                    <option value="1.75">1.75×</option>
-                                    <option value="2">2×</option>
-                                </select>
-                            </div>
-                        </div>
-                        <p class="fg-hint"><kbd>←</kbd> <kbd>→</kbd> step · <kbd>Space</kbd> play/pause · <kbd>C</kbd> capture</p>
                     </div>
                 </div>
             </div>

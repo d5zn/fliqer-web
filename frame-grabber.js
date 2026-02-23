@@ -22,6 +22,7 @@ const skipFwdBtn = document.getElementById('fg-skip-fwd');
 const playPauseBtn = document.getElementById('fg-play-pause');
 const playIcon = document.getElementById('fg-play-icon');
 const captureBtn = document.getElementById('fg-capture');
+const formatSelect = document.getElementById('fg-format');
 
 let videoFPS = DEFAULT_FPS;
 
@@ -122,15 +123,21 @@ function captureFrame() {
     canvas.height = h;
     const ctx = canvas.getContext('2d');
     ctx.drawImage(video, 0, 0);
+  const fmt = formatSelect.value || 'png';
+  const isJpeg = fmt === 'jpeg';
+  const mime = isJpeg ? 'image/jpeg' : 'image/png';
+  const ext = isJpeg ? 'jpg' : 'png';
+  const quality = isJpeg ? 0.92 : undefined;
+
   canvas.toBlob((blob) => {
     if (!blob) return;
-    const name = `fliqer_frame_${formatTime(video.currentTime).replace(':', '')}.png`;
+    const name = `fliqer_frame_${formatTime(video.currentTime).replace(':', '')}.${ext}`;
     const a = document.createElement('a');
     a.href = URL.createObjectURL(blob);
     a.download = name;
     a.click();
     URL.revokeObjectURL(a.href);
-  }, 'image/png');
+  }, mime, quality);
 }
 
 // --- Playback speed ---
