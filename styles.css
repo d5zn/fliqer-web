@@ -2251,7 +2251,16 @@ nav>* {
     border: 2px dashed rgba(255, 255, 255, 0.2);
     margin: 24px;
     border-radius: var(--radius-md);
-    transition: border-color 0.2s, background-color 0.2s, box-shadow 0.2s;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    overflow: hidden;
+}
+
+/* Full-size layer so the image fills the whole black area, not the outline */
+.fg-drop-area-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    border-radius: inherit;
     background-image: url('viewplaceholder.png');
     background-size: cover;
     background-position: center;
@@ -2261,8 +2270,12 @@ nav>* {
 .fg-video-drop-area:hover,
 .fg-video-drop-area.fg-dragover {
     border-color: var(--accent-color);
-    background-color: rgba(26, 26, 26, 0.85);
     box-shadow: inset 0 0 0 1px rgba(255, 155, 4, 0.15);
+}
+
+.fg-video-drop-area:hover .fg-drop-area-bg,
+.fg-video-drop-area.fg-dragover .fg-drop-area-bg {
+    opacity: 0.92;
 }
 
 .fg-video-drop-area .fg-video-container {
