@@ -2133,3 +2133,218 @@ nav>* {
         /* Adjust overlap */
     }
 }
+
+/* --- Frame Grabber section --- */
+.frame-grabber-section .container {
+    max-width: 720px;
+}
+
+.frame-grabber-card {
+    padding: 0;
+    overflow: hidden;
+}
+
+.fg-drop-zone {
+    min-height: 280px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: 2px dashed rgba(255, 255, 255, 0.2);
+    margin: 24px;
+    border-radius: var(--radius-md);
+    transition: border-color 0.2s, background 0.2s;
+}
+
+.fg-drop-zone.fg-hidden {
+    display: none;
+}
+
+.fg-drop-zone:hover,
+.fg-drop-zone.fg-dragover {
+    border-color: var(--accent-color);
+    background: rgba(255, 155, 4, 0.06);
+}
+
+.fg-drop-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 24px;
+}
+
+.fg-drop-text {
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+}
+
+.fg-drop-sub {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.fg-player-wrap {
+    padding: 20px 24px 24px;
+}
+
+.fg-video-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16/9;
+    background: #000;
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    margin-bottom: 12px;
+}
+
+.fg-video-container video {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+.fg-timeline-wrap {
+    margin-bottom: 16px;
+}
+
+.fg-timeline {
+    width: 100%;
+    height: 6px;
+    -webkit-appearance: none;
+    appearance: none;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 3px;
+    outline: none;
+}
+
+.fg-timeline::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--accent-color);
+    cursor: pointer;
+    transition: transform 0.15s;
+}
+
+.fg-timeline::-webkit-slider-thumb:hover {
+    transform: scale(1.15);
+}
+
+.fg-timeline::-moz-range-thumb {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--accent-color);
+    cursor: pointer;
+    border: none;
+}
+
+.fg-time-labels {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 4px;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+.fg-controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 16px 24px;
+    margin-bottom: 12px;
+}
+
+.fg-control-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.fg-label {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.fg-select {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius-sm);
+    color: var(--text-primary);
+    padding: 6px 10px;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.fg-buttons {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.fg-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-primary);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+}
+
+.fg-btn:hover {
+    background: rgba(255, 255, 255, 0.18);
+}
+
+.fg-btn:active {
+    transform: scale(0.96);
+}
+
+.fg-btn-icon {
+    width: 44px;
+    height: 44px;
+    font-size: 1.25rem;
+}
+
+.fg-btn-play {
+    width: 56px;
+    height: 56px;
+    font-size: 1.5rem;
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.fg-btn-capture {
+    width: 56px;
+    height: 56px;
+    font-size: 1.35rem;
+    background: var(--accent-color);
+    color: #000;
+}
+
+.fg-btn-capture:hover {
+    background: var(--accent-hover);
+    color: #000;
+}
+
+.fg-hint {
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+.fg-hint kbd {
+    display: inline-block;
+    padding: 2px 6px;
+    margin: 0 2px;
+    font-size: 0.75em;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    font-family: inherit;
+}

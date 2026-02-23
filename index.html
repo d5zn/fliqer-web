@@ -55,6 +55,7 @@
         <a href="#" class="logo">Fliqer</a>
 
         <div class="nav-links">
+            <a href="#frame-grabber">Try it</a>
             <a href="#features">Features</a>
             <a href="#how">How it Works</a>
             <a href="#pricing">Pricing</a>
@@ -70,6 +71,7 @@
     <!-- Mobile Menu -->
     <div class="nav-menu">
         <div class="nav-links">
+            <a href="#frame-grabber">Try it</a>
             <a href="#features">Features</a>
             <a href="#how">How it Works</a>
             <a href="#pricing">Pricing</a>
@@ -176,6 +178,79 @@
                     <div class="glass-card process-card">
                         <h3>03. Extract & Save</h3>
                         <p>Tap extract and instantly save the high-res image to your photos.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3.5 Frame Grabber Demo (local in-browser player) -->
+        <section class="section frame-grabber-section" id="frame-grabber">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Try Frame Grabber</h2>
+                    <p>Drop a video and grab frames right in your browser. Everything runs locally — nothing is uploaded.</p>
+                </div>
+                <div class="glass-card frame-grabber-card">
+                    <div id="fg-drop-zone" class="fg-drop-zone">
+                        <input type="file" id="fg-file-input" accept="video/*" hidden>
+                        <div class="fg-drop-content" id="fg-drop-content">
+                            <i class="ph ph-cloud-arrow-up" style="font-size: 48px; color: var(--accent-color); margin-bottom: 12px;"></i>
+                            <p class="fg-drop-text">Drop a video here or click to choose</p>
+                            <p class="fg-drop-sub">MP4, WebM, MOV — works in browser</p>
+                        </div>
+                    </div>
+                    <div id="fg-player-wrap" class="fg-player-wrap" hidden>
+                        <div class="fg-video-container">
+                            <video id="fg-video" playsinline muted></video>
+                            <canvas id="fg-canvas" hidden></canvas>
+                        </div>
+                        <div class="fg-timeline-wrap">
+                            <input type="range" id="fg-timeline" class="fg-timeline" min="0" max="100" value="0" step="any">
+                            <div class="fg-time-labels">
+                                <span id="fg-current-time">0:00</span>
+                                <span id="fg-duration">0:00</span>
+                            </div>
+                        </div>
+                        <div class="fg-controls">
+                            <div class="fg-control-group">
+                                <span class="fg-label">Step</span>
+                                <select id="fg-frame-step" class="fg-select" aria-label="Frame step">
+                                    <option value="1">1 fr</option>
+                                    <option value="3" selected>3 fr</option>
+                                    <option value="5">5 fr</option>
+                                    <option value="10">10 fr</option>
+                                    <option value="30">30 fr</option>
+                                </select>
+                            </div>
+                            <div class="fg-buttons">
+                                <button type="button" id="fg-skip-back" class="fg-btn fg-btn-icon" title="Previous frames (←)" aria-label="Step back">
+                                    <i class="ph ph-skip-back"></i>
+                                </button>
+                                <button type="button" id="fg-play-pause" class="fg-btn fg-btn-play" title="Play / Pause (Space)" aria-label="Play Pause">
+                                    <i class="ph ph-play" id="fg-play-icon"></i>
+                                </button>
+                                <button type="button" id="fg-capture" class="fg-btn fg-btn-capture" title="Capture frame (C)" aria-label="Capture frame">
+                                    <i class="ph ph-camera"></i>
+                                </button>
+                                <button type="button" id="fg-skip-fwd" class="fg-btn fg-btn-icon" title="Next frames (→)" aria-label="Step forward">
+                                    <i class="ph ph-skip-forward"></i>
+                                </button>
+                            </div>
+                            <div class="fg-control-group">
+                                <span class="fg-label">Speed</span>
+                                <select id="fg-speed" class="fg-select" aria-label="Playback speed">
+                                    <option value="0.25">0.25×</option>
+                                    <option value="0.5">0.5×</option>
+                                    <option value="0.75">0.75×</option>
+                                    <option value="1" selected>1×</option>
+                                    <option value="1.25">1.25×</option>
+                                    <option value="1.5">1.5×</option>
+                                    <option value="1.75">1.75×</option>
+                                    <option value="2">2×</option>
+                                </select>
+                            </div>
+                        </div>
+                        <p class="fg-hint"><kbd>←</kbd> <kbd>→</kbd> step · <kbd>Space</kbd> play/pause · <kbd>C</kbd> capture</p>
                     </div>
                 </div>
             </div>
@@ -334,6 +409,7 @@
         style="position: fixed; bottom: 24px; right: 24px; background-color: #000; color: #fff; padding: 12px 24px; border-radius: 9999px; font-family: 'SF Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-style: italic; font-weight: 858; text-decoration: none; border: 1px solid rgba(255, 255, 255, 0.15); z-index: 1000;">addicted</a>
 
     <script type="module" src="script.js"></script>
+    <script type="module" src="frame-grabber.js"></script>
 </body>
 
 </html>
