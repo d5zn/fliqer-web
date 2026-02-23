@@ -758,30 +758,53 @@ window.addEventListener('resize', () => {
 });
 
 // --- Mobile Menu Toggle ---
-const burgerBtn = document.querySelector('.burger-menu');
-const navMenu = document.querySelector('.nav-menu');
+function initMobileMenu() {
+    const burgerBtn = document.querySelector('.burger-menu');
+    const navMenu = document.querySelector('.nav-menu');
+    if (!burgerBtn || !navMenu) return;
 
-if (burgerBtn && navMenu) {
-    burgerBtn.addEventListener('click', () => {
+    const backdrop = document.createElement('div');
+    backdrop.className = 'nav-menu-backdrop';
+    backdrop.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(backdrop);
+
+    function closeMenu() {
+        burgerBtn.classList.remove('active');
+        navMenu.classList.remove('active');
+        backdrop.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    function toggleMenu() {
         burgerBtn.classList.toggle('active');
         navMenu.classList.toggle('active');
+        backdrop.classList.toggle('active', navMenu.classList.contains('active'));
+        document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
+    }
 
-        // Prevent scrolling when menu is open
-        if (navMenu.classList.contains('active')) {
-            document.body.style.overflow = 'hidden';
-        } else {
-            document.body.style.overflow = '';
-        }
+    burgerBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        toggleMenu();
     });
+    burgerBtn.addEventListener('touchstart', (e) => {
+        e.preventDefault();
+        toggleMenu();
+    }, { passive: false });
 
-    // Close menu when clicking a link
+    backdrop.addEventListener('click', closeMenu);
+    backdrop.addEventListener('touchstart', (e) => {
+        e.preventDefault();
+        closeMenu();
+    }, { passive: false });
+
     navMenu.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-            burgerBtn.classList.remove('active');
-            navMenu.classList.remove('active');
-            document.body.style.overflow = '';
-        });
+        link.addEventListener('click', closeMenu);
     });
+}
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initMobileMenu);
+} else {
+    initMobileMenu();
 }
 // --- Drum Pad Sounds (Web Audio API) ---
 // Можно отключить звуки / интерактивность в блоке услуг, выставив этот флаг в false

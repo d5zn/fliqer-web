@@ -191,6 +191,10 @@ nav>.nav-links {
     transform: translateY(-4px) rotate(-45deg);
 }
 
+.nav-menu-backdrop {
+    display: none;
+}
+
 .nav-links {
     display: flex;
     gap: 32px;
@@ -1476,6 +1480,27 @@ nav>* {
 
     .burger-menu {
         display: flex;
+        min-width: 44px;
+        min-height: 44px;
+        padding: 10px;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+    }
+
+    .nav-menu-backdrop {
+        display: block;
+        position: fixed;
+        inset: 0;
+        z-index: 97;
+        background: rgba(0, 0, 0, 0.4);
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+    .nav-menu-backdrop.active {
+        pointer-events: all;
+        opacity: 1;
     }
 
     .nav-dialog-btn {
@@ -2225,6 +2250,30 @@ nav>* {
 
 .fg-drop-placeholder.fg-hidden {
     display: none;
+}
+
+@media (max-width: 768px) {
+    .frame-grabber-section .fg-video-drop-area {
+        aspect-ratio: 9 / 16;
+        min-height: 280px;
+    }
+    .frame-grabber-section .fg-video-drop-area .fg-video-container {
+        aspect-ratio: 9 / 16;
+    }
+    #fg-load-video {
+        display: none;
+    }
+    .frame-grabber-section .fg-controls {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 16px;
+    }
+    .frame-grabber-section .fg-controls .fg-buttons {
+        width: 100%;
+        order: -1;
+        justify-content: center;
+        margin-bottom: 8px;
+    }
 }
 
 @media (min-width: 1025px) {
