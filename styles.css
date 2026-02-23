@@ -2251,13 +2251,18 @@ nav>* {
     border: 2px dashed rgba(255, 255, 255, 0.2);
     margin: 24px;
     border-radius: var(--radius-md);
-    transition: border-color 0.2s, background 0.2s;
+    transition: border-color 0.2s, background-color 0.2s, box-shadow 0.2s;
+    background-image: url('viewplaceholder.png');
+    background-size: cover;
+    background-position: center;
+    background-color: #1a1a1a;
 }
 
 .fg-video-drop-area:hover,
 .fg-video-drop-area.fg-dragover {
     border-color: var(--accent-color);
-    background: rgba(255, 155, 4, 0.06);
+    background-color: rgba(26, 26, 26, 0.85);
+    box-shadow: inset 0 0 0 1px rgba(255, 155, 4, 0.15);
 }
 
 .fg-video-drop-area .fg-video-container {
@@ -2282,6 +2287,17 @@ nav>* {
     pointer-events: none;
     position: relative;
     z-index: 2;
+    inset: 0;
+}
+
+.fg-drop-placeholder-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 32px;
+    border-radius: var(--radius-md);
+    background: rgba(0, 0, 0, 0.5);
 }
 
 .fg-drop-placeholder.fg-hidden {

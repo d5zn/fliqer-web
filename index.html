@@ -221,9 +221,11 @@
                         <div id="fg-video-drop-area" class="fg-video-drop-area">
                             <input type="file" id="fg-file-input" accept="video/*" hidden>
                             <div id="fg-drop-placeholder" class="fg-drop-placeholder">
-                                <i class="ph ph-cloud-arrow-up" style="font-size: 48px; color: var(--accent-color); margin-bottom: 12px;"></i>
-                                <p class="fg-drop-text">Drop a video here or click to choose</p>
-                                <p class="fg-drop-sub">MP4, WebM, MOV — works in browser</p>
+                                <div class="fg-drop-placeholder-inner">
+                                    <i class="ph ph-cloud-arrow-up" style="font-size: 48px; color: var(--accent-color); margin-bottom: 12px;"></i>
+                                    <p class="fg-drop-text">Drop a video here or click to choose</p>
+                                    <p class="fg-drop-sub">MP4, WebM, MOV — works in browser</p>
+                                </div>
                             </div>
                             <div class="fg-video-container">
                                 <video id="fg-video" playsinline muted></video>
