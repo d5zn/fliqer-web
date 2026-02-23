@@ -2178,6 +2178,19 @@ nav>* {
     transition: border-color 0.2s, background 0.2s;
 }
 
+@media (min-width: 1025px) {
+    .frame-grabber-section .container {
+        max-width: 1012px;
+    }
+    .fg-drop-zone {
+        width: 964px;
+        height: 542px;
+        min-height: 542px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
 .fg-drop-zone.fg-hidden {
     display: none;
 }
