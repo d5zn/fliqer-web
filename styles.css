@@ -2285,10 +2285,18 @@ nav>* {
     border-radius: inherit;
     aspect-ratio: auto;
     z-index: 1;
+    background: transparent;
+}
+
+/* Когда видео не загружено — не перекрывать фоновую картинку */
+.fg-video-drop-area:not(.has-video) .fg-video-container video {
+    opacity: 0;
+    pointer-events: none;
 }
 
 .fg-video-drop-area .fg-video-container video {
     border-radius: inherit;
+    transition: opacity 0.2s;
 }
 
 .fg-drop-placeholder {
@@ -2513,13 +2521,16 @@ nav>* {
     width: 56px;
     height: 56px;
     font-size: 1.35rem;
-    background: var(--accent-color);
-    color: #000;
+    background: linear-gradient(90deg, #FF9B04, #FA4D06);
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(255, 155, 4, 0.3);
 }
 
 .fg-btn-capture:hover {
-    background: var(--accent-hover);
-    color: #000;
+    opacity: 0.9;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 155, 4, 0.5);
+    color: #fff;
 }
 
 .fg-btn-load {
