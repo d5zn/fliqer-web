@@ -179,56 +179,52 @@
                             </div>
                         </div>
                         <div class="fg-controls">
-                            <div class="fg-controls-row fg-controls-row-buttons">
-                                <div class="fg-buttons">
-                                    <button type="button" id="fg-skip-back" class="fg-btn fg-btn-icon" title="Step back (←)" aria-label="Step back">
-                                        <i class="ph ph-skip-back"></i>
-                                    </button>
-                                    <button type="button" id="fg-play-pause" class="fg-btn fg-btn-play" title="Play / Pause (Space)" aria-label="Play Pause">
-                                        <i class="ph ph-play" id="fg-play-icon"></i>
-                                    </button>
-                                    <button type="button" id="fg-capture" class="fg-btn fg-btn-capture" title="Capture frame (C)" aria-label="Capture frame">
-                                        <i class="ph ph-camera"></i>
-                                    </button>
-                                    <button type="button" id="fg-skip-fwd" class="fg-btn fg-btn-icon" title="Step forward (→)" aria-label="Step forward">
-                                        <i class="ph ph-skip-forward"></i>
-                                    </button>
-                                </div>
+                            <button type="button" id="fg-load-video" class="fg-btn fg-btn-load" aria-label="Load video">
+                                <i class="ph ph-cloud-arrow-up" style="margin-right: 6px;"></i>Load video
+                            </button>
+                            <div class="fg-control-group">
+                                <span class="fg-label">Step</span>
+                                <select id="fg-frame-step" class="fg-select" aria-label="Frame step">
+                                    <option value="1">1 fr</option>
+                                    <option value="3" selected>3 fr</option>
+                                    <option value="5">5 fr</option>
+                                    <option value="10">10 fr</option>
+                                    <option value="30">30 fr</option>
+                                </select>
                             </div>
-                            <div class="fg-controls-row fg-controls-row-options">
-                                <div class="fg-control-group">
-                                    <span class="fg-label">Step</span>
-                                    <select id="fg-frame-step" class="fg-select" aria-label="Frame step">
-                                        <option value="1">1 fr</option>
-                                        <option value="3" selected>3 fr</option>
-                                        <option value="5">5 fr</option>
-                                        <option value="10">10 fr</option>
-                                        <option value="30">30 fr</option>
-                                    </select>
-                                </div>
-                                <div class="fg-control-group">
-                                    <span class="fg-label">Export</span>
-                                    <select id="fg-format" class="fg-select" aria-label="Export format">
-                                        <option value="png">PNG</option>
-                                        <option value="jpeg">JPEG</option>
-                                    </select>
-                                </div>
-                                <div class="fg-control-group">
-                                    <span class="fg-label">Speed</span>
-                                    <select id="fg-speed" class="fg-select" aria-label="Playback speed">
-                                        <option value="0.25">0.25×</option>
-                                        <option value="0.5">0.5×</option>
-                                        <option value="0.75">0.75×</option>
-                                        <option value="1" selected>1×</option>
-                                        <option value="1.25">1.25×</option>
-                                        <option value="1.5">1.5×</option>
-                                        <option value="1.75">1.75×</option>
-                                        <option value="2">2×</option>
-                                    </select>
-                                </div>
-                                <button type="button" id="fg-load-video" class="fg-btn fg-btn-load" aria-label="Загрузить видео">
-                                    <i class="ph ph-cloud-arrow-up" style="margin-right: 6px;"></i>Загрузить видео
+                            <div class="fg-buttons">
+                                <button type="button" id="fg-skip-back" class="fg-btn fg-btn-icon" title="Step back (←)" aria-label="Step back">
+                                    <i class="ph ph-skip-back"></i>
                                 </button>
+                                <button type="button" id="fg-play-pause" class="fg-btn fg-btn-play" title="Play / Pause (Space)" aria-label="Play Pause">
+                                    <i class="ph ph-play" id="fg-play-icon"></i>
+                                </button>
+                                <button type="button" id="fg-capture" class="fg-btn fg-btn-capture" title="Capture frame (C)" aria-label="Capture frame">
+                                    <i class="ph ph-camera"></i>
+                                </button>
+                                <button type="button" id="fg-skip-fwd" class="fg-btn fg-btn-icon" title="Step forward (→)" aria-label="Step forward">
+                                    <i class="ph ph-skip-forward"></i>
+                                </button>
+                            </div>
+                            <div class="fg-control-group">
+                                <span class="fg-label">Speed</span>
+                                <select id="fg-speed" class="fg-select" aria-label="Playback speed">
+                                    <option value="0.25">0.25×</option>
+                                    <option value="0.5">0.5×</option>
+                                    <option value="0.75">0.75×</option>
+                                    <option value="1" selected>1×</option>
+                                    <option value="1.25">1.25×</option>
+                                    <option value="1.5">1.5×</option>
+                                    <option value="1.75">1.75×</option>
+                                    <option value="2">2×</option>
+                                </select>
+                            </div>
+                            <div class="fg-control-group">
+                                <span class="fg-label">Export</span>
+                                <select id="fg-format" class="fg-select" aria-label="Export format">
+                                    <option value="png">PNG</option>
+                                    <option value="jpeg">JPEG</option>
+                                </select>
                             </div>
                         </div>
                     </div>

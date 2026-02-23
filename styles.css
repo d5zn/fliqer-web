@@ -2178,9 +2178,10 @@ nav>* {
     overflow: hidden;
 }
 
-/* Video area = drop zone; always visible */
+/* Video area = drop zone; always visible, 16:9 */
 .fg-video-drop-area {
     position: relative;
+    aspect-ratio: 16 / 9;
     min-height: 280px;
     display: flex;
     align-items: center;
@@ -2204,6 +2205,7 @@ nav>* {
     margin: 0;
     border-radius: inherit;
     aspect-ratio: auto;
+    z-index: 1;
 }
 
 .fg-video-drop-area .fg-video-container video {
@@ -2217,6 +2219,8 @@ nav>* {
     justify-content: center;
     padding: 24px;
     pointer-events: none;
+    position: relative;
+    z-index: 2;
 }
 
 .fg-drop-placeholder.fg-hidden {
@@ -2225,8 +2229,8 @@ nav>* {
 
 @media (min-width: 1025px) {
     .frame-grabber-section {
-        /* Pull up so half of the drop container (271px of 542px) is visible on hero */
-        margin-top: -271px;
+        /* Pull up so more of the drop container is visible on hero */
+        margin-top: -391px;
     }
     .frame-grabber-section .container {
         max-width: 1012px;
@@ -2235,6 +2239,7 @@ nav>* {
         width: 964px;
         height: 542px;
         min-height: 542px;
+        aspect-ratio: 16 / 9;
         margin-left: auto;
         margin-right: auto;
     }
@@ -2244,11 +2249,13 @@ nav>* {
     font-size: 1.1rem;
     color: var(--text-primary);
     margin-bottom: 4px;
+    text-align: center;
 }
 
 .fg-drop-sub {
     font-size: 0.9rem;
     color: var(--text-secondary);
+    text-align: center;
 }
 
 .fg-player-wrap {
@@ -2320,21 +2327,12 @@ nav>* {
 
 .fg-controls {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 16px;
-    margin-bottom: 12px;
-}
-
-.fg-controls-row {
-    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
     gap: 24px;
-}
-
-.fg-controls-row-options {
-    flex-wrap: wrap;
+    margin-bottom: 12px;
 }
 
 .fg-control-group {
