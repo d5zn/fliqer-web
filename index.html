@@ -59,16 +59,22 @@
           "name": "Fliqer Frame Grabber",
           "description": "Frame grabber and video to image tool. Extract frames from video, grab frame at any timestamp, export video sequence as images. Full resolution, works in browser and iOS.",
           "url": "https://fliqer.app/",
-          "applicationCategory": "MultimediaApplication",
-          "operatingSystem": "iOS, Web",
-          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+          "applicationCategory": "https://schema.org/MultimediaApplication",
+          "operatingSystem": "iOS, Web Browser",
+          "isAccessibleForFree": true,
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD",
+            "availability": "https://schema.org/InStock",
+            "priceValidUntil": "2030-12-31"
+          },
           "featureList": ["Frame grabber", "Grab frame from video", "Video to image", "Extract frame", "Video sequence extraction", "Full resolution export", "Local processing"]
         },
         {
           "@type": "Organization",
           "name": "Fliqer",
-          "url": "https://fliqer.app/",
-          "sameAs": []
+          "url": "https://fliqer.app/"
         }
       ]
     }
@@ -222,6 +228,11 @@
                         </div>
                         <p class="fg-hint"><kbd>←</kbd> <kbd>→</kbd> step · <kbd>Space</kbd> play/pause · <kbd>C</kbd> capture</p>
                     </div>
+                </div>
+                <div class="frame-grabber-about" style="max-width: 640px; margin: 32px auto 0; text-align: center; color: var(--color-text-muted); line-height: 1.7;">
+                    <p>A <strong>frame grabber</strong> turns video into still images: you choose a moment and <strong>extract frame</strong> in full resolution. With Fliqer you can <strong>grab frame</strong> at any timestamp — perfect for screenshots, references, or saving a single shot as <strong>video to image</strong>.</p>
+                    <p>Need more than one frame? Extract a full <strong>video sequence</strong> as a set of images. Use the step control above to capture every few frames; ideal for storyboards, motion analysis, or archiving key moments from a clip.</p>
+                    <p>Use the tool here in your browser or the Fliqer app on iOS; both process everything locally so your videos stay private.</p>
                 </div>
             </div>
         </section>

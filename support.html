@@ -257,6 +257,16 @@
                 your feedback!</p>
         </div>
 
+        <div class="faq-item">
+            <h3 id="faq7-q">How do I grab a frame from a video?</h3>
+            <p id="faq7-a">In Fliqer, open a video, scrub to the moment you want, and tap the capture button to save that frame. On the website, use the Frame Grabber above: drop a video, move the timeline to the desired time, and click the capture button. The image is saved in full resolution (PNG or JPEG). You can grab frame at any timestamp — no upload, everything runs locally.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3 id="faq8-q">How to get video sequence as images?</h3>
+            <p id="faq8-a">To get a video sequence as images, use the step control: set the frame step (e.g. every 3 or 5 frames), move through the video with the timeline or step buttons, and capture each frame. On the web tool, pick a step value and use the capture button as you advance; on the iOS app, use the app’s sequence export. You’ll get a set of images for the whole clip or the range you need — ideal for storyboards, motion analysis, or archiving.</p>
+        </div>
+
         <div class="info-box">
             <i class="ph ph-lightbulb" style="font-size: 1.5em; color: var(--color-primary); flex-shrink: 0;"></i>
             <div>
@@ -298,6 +308,8 @@
                 faq4Q: "What are AI enhancements?", faq4A: "Fliqer offers AI-powered enhancements for extracted frames: Normal (balanced enhancement), Blur Fix (reduces motion blur), and Noise Clean (removes digital noise). All enhancements are processed locally on your device using CoreML.",
                 faq5Q: "Can I sync my credits across devices?", faq5A: "Yes! If you sign in with Apple Sign In, your credits and account will sync across all your iOS devices. This is optional - you can use Fliqer without signing in.",
                 faq6Q: "What if I find a bug?", faq6A: "Please email us at support@fliqer.app with your device model and iOS version. We appreciate your feedback!",
+                faq7Q: "How do I grab a frame from a video?", faq7A: "In Fliqer, open a video, scrub to the moment you want, and tap the capture button to save that frame. On the website, use the Frame Grabber above: drop a video, move the timeline to the desired time, and click the capture button. The image is saved in full resolution (PNG or JPEG). You can grab frame at any timestamp — no upload, everything runs locally.",
+                faq8Q: "How to get video sequence as images?", faq8A: "To get a video sequence as images, use the step control: set the frame step (e.g. every 3 or 5 frames), move through the video with the timeline or step buttons, and capture each frame. On the web tool, pick a step value and use the capture button as you advance; on the iOS app, use the app's sequence export. You'll get a set of images for the whole clip or the range you need — ideal for storyboards, motion analysis, or archiving.",
                 tipTitle: "Pro Tip:", tipText: "You can organize your extractions automatically by enabling the 'Save to Fliqer Album' option in settings.",
                 navPrivacy: "Privacy Policy", navTerms: "Terms of Service", navSupport: "Support",
                 footerRights: "© 2025 Egor Sazanov. All rights reserved.", footerDev: "Developed by"
@@ -316,6 +328,8 @@
                 faq4Q: "Что такое AI улучшения?", faq4A: "Fliqer предлагает AI улучшения кадров: Обычное (сбалансированное), Исправление размытия, Очистка шума. Все улучшения обрабатываются локально на устройстве через CoreML.",
                 faq5Q: "Можно синхронизировать кредиты между устройствами?", faq5A: "Да! При входе через Apple Sign In кредиты и аккаунт синхронизируются между всеми iOS устройствами. Это опционально - можно использовать без входа.",
                 faq6Q: "Нашли баг?", faq6A: "Напишите на support@fliqer.app с моделью устройства. Спасибо!",
+                faq7Q: "Как извлечь кадр из видео?", faq7A: "В Fliqer откройте видео, перемотайте на нужный момент и нажмите кнопку захвата — кадр сохранится. На сайте используйте Frame Grabber выше: загрузите видео, поставьте ползунок на нужное время и нажмите захват. Изображение сохраняется в полном разрешении (PNG или JPEG). Захват кадра в любой момент — без загрузки, всё работает локально.",
+                faq8Q: "Как получить последовательность кадров из видео?", faq8A: "Чтобы получить видео как набор кадров: задайте шаг (например, каждый 3-й или 5-й кадр), перематывайте видео и нажимайте захват. В веб-инструменте выберите шаг и нажимайте захват по мере перемотки; в приложении iOS используйте экспорт последовательности. Получите набор изображений для всего ролика или нужного отрезка — удобно для раскадровки, анализа движения или архива.",
                 tipTitle: "Совет:", tipText: "Включите 'Сохранять в альбом Fliqer' в настройках для порядка.",
                 navPrivacy: "Политика конфиденциальности", navTerms: "Условия использования", navSupport: "Поддержка",
                 footerRights: "© 2025 Егор Сазанов. Все права защищены.", footerDev: "Разработка:"
@@ -428,6 +442,8 @@
             setText('faq4-q', data.faq4Q); setText('faq4-a', data.faq4A);
             setText('faq5-q', data.faq5Q); setText('faq5-a', data.faq5A);
             setText('faq6-q', data.faq6Q); setText('faq6-a', data.faq6A);
+            setText('faq7-q', data.faq7Q); setText('faq7-a', data.faq7A);
+            setText('faq8-q', data.faq8Q); setText('faq8-a', data.faq8A);
 
             setText('tip-title', data.tipTitle);
             setText('tip-text', data.tipText);
