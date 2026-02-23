@@ -432,6 +432,17 @@ nav>.nav-links {
     z-index: 2;
 }
 
+.hero-content h1.hero-title {
+    font-size: clamp(calc(3rem - 10pt), calc(6vw - 10pt), calc(5rem - 10pt));
+    white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+    .hero-content h1.hero-title {
+        white-space: normal;
+    }
+}
+
 .badge {
     display: inline-block;
     padding: 6px 12px !important;
