@@ -430,6 +430,7 @@ nav>.nav-links {
 .hero-content {
     max-width: 800px;
     z-index: 2;
+    transform: translateY(-176px);
 }
 
 .hero-content h1.hero-title {
@@ -2177,7 +2178,9 @@ nav>* {
     overflow: hidden;
 }
 
-.fg-drop-zone {
+/* Video area = drop zone; always visible */
+.fg-video-drop-area {
+    position: relative;
     min-height: 280px;
     display: flex;
     align-items: center;
@@ -2189,34 +2192,52 @@ nav>* {
     transition: border-color 0.2s, background 0.2s;
 }
 
+.fg-video-drop-area:hover,
+.fg-video-drop-area.fg-dragover {
+    border-color: var(--accent-color);
+    background: rgba(255, 155, 4, 0.06);
+}
+
+.fg-video-drop-area .fg-video-container {
+    position: absolute;
+    inset: 0;
+    margin: 0;
+    border-radius: inherit;
+    aspect-ratio: auto;
+}
+
+.fg-video-drop-area .fg-video-container video {
+    border-radius: inherit;
+}
+
+.fg-drop-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    pointer-events: none;
+}
+
+.fg-drop-placeholder.fg-hidden {
+    display: none;
+}
+
 @media (min-width: 1025px) {
+    .frame-grabber-section {
+        /* Pull up so half of the drop container (271px of 542px) is visible on hero */
+        margin-top: -271px;
+    }
     .frame-grabber-section .container {
         max-width: 1012px;
     }
-    .fg-drop-zone {
+    .fg-video-drop-area {
         width: 964px;
         height: 542px;
         min-height: 542px;
         margin-left: auto;
         margin-right: auto;
     }
-}
-
-.fg-drop-zone.fg-hidden {
-    display: none;
-}
-
-.fg-drop-zone:hover,
-.fg-drop-zone.fg-dragover {
-    border-color: var(--accent-color);
-    background: rgba(255, 155, 4, 0.06);
-}
-
-.fg-drop-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 24px;
 }
 
 .fg-drop-text {
@@ -2299,11 +2320,21 @@ nav>* {
 
 .fg-controls {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 12px;
+}
+
+.fg-controls-row {
+    display: flex;
     align-items: center;
     justify-content: center;
-    gap: 16px 24px;
-    margin-bottom: 12px;
+    gap: 24px;
+}
+
+.fg-controls-row-options {
+    flex-wrap: wrap;
 }
 
 .fg-control-group {
@@ -2377,6 +2408,18 @@ nav>* {
 .fg-btn-capture:hover {
     background: var(--accent-hover);
     color: #000;
+}
+
+.fg-btn-load {
+    border-radius: var(--radius-sm);
+    width: auto;
+    height: 36px;
+    padding: 0 16px;
+    font-size: 0.9rem;
+}
+
+.fg-btn-load:hover {
+    background: rgba(255, 255, 255, 0.18);
 }
 
 .fg-hint {

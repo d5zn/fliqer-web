@@ -6,10 +6,11 @@
 
 const DEFAULT_FPS = 30;
 
-const dropZone = document.getElementById('fg-drop-zone');
+const videoDropArea = document.getElementById('fg-video-drop-area');
 const fileInput = document.getElementById('fg-file-input');
-const dropContent = document.getElementById('fg-drop-content');
+const dropPlaceholder = document.getElementById('fg-drop-placeholder');
 const playerWrap = document.getElementById('fg-player-wrap');
+const loadVideoBtn = document.getElementById('fg-load-video');
 const video = document.getElementById('fg-video');
 const canvas = document.getElementById('fg-canvas');
 const timeline = document.getElementById('fg-timeline');
@@ -33,28 +34,30 @@ function handleFile(file) {
     currentVideoFileName = file.name || '';
     const url = URL.createObjectURL(file);
     video.src = url;
-    dropZone.classList.add('fg-hidden');
-    playerWrap.hidden = false;
+    dropPlaceholder.classList.add('fg-hidden');
+    videoDropArea.classList.add('has-video');
     video.load();
 }
 
-dropZone.addEventListener('click', () => fileInput.click());
+videoDropArea.addEventListener('click', () => fileInput.click());
 fileInput.addEventListener('change', () => {
     const file = fileInput.files[0];
     handleFile(file);
 });
 
-dropZone.addEventListener('dragover', (e) => {
+videoDropArea.addEventListener('dragover', (e) => {
     e.preventDefault();
-    dropZone.classList.add('fg-dragover');
+    videoDropArea.classList.add('fg-dragover');
 });
-dropZone.addEventListener('dragleave', () => dropZone.classList.remove('fg-dragover'));
-dropZone.addEventListener('drop', (e) => {
+videoDropArea.addEventListener('dragleave', () => videoDropArea.classList.remove('fg-dragover'));
+videoDropArea.addEventListener('drop', (e) => {
     e.preventDefault();
-    dropZone.classList.remove('fg-dragover');
+    videoDropArea.classList.remove('fg-dragover');
     const file = e.dataTransfer.files[0];
     handleFile(file);
 });
+
+if (loadVideoBtn) loadVideoBtn.addEventListener('click', () => fileInput.click());
 
 // --- Helpers ---
 function formatTime(seconds) {
@@ -330,7 +333,7 @@ timeline.addEventListener('input', onTimelineInput);
 
 // --- Hotkeys ---
 document.addEventListener('keydown', (e) => {
-    if (playerWrap.hidden) return;
+    if (!video.src) return;
     const tag = e.target.tagName.toLowerCase();
     if (tag === 'input' || tag === 'textarea' || tag === 'select') return;
     switch (e.code) {
