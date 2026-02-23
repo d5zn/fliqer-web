@@ -25,10 +25,12 @@ const captureBtn = document.getElementById('fg-capture');
 const formatSelect = document.getElementById('fg-format');
 
 let videoFPS = DEFAULT_FPS;
+let currentVideoFileName = '';
 
 // --- File selection & drag-drop ---
 function handleFile(file) {
     if (!file || !file.type.startsWith('video/')) return;
+    currentVideoFileName = file.name || '';
     const url = URL.createObjectURL(file);
     video.src = url;
     dropZone.classList.add('fg-hidden');
@@ -113,7 +115,97 @@ function togglePlayPause() {
   }
 }
 
-// --- Capture frame to PNG (local download) ---
+// --- Video metadata for export ---
+function getVideoMetadata() {
+    const dur = getDuration();
+    const meta = {
+        source: currentVideoFileName || undefined,
+        captureTime: video.currentTime,
+        duration: dur,
+        fps: videoFPS,
+        width: video.videoWidth,
+        height: video.videoHeight,
+        exportedAt: new Date().toISOString(),
+    };
+    return meta;
+}
+
+// --- PNG: add tEXt chunks (keyword + text) and return new buffer ---
+function crc32(data) {
+    const U = new Uint8Array(data);
+    let c = 0xffffffff;
+    const T = new Uint32Array(256);
+    for (let n = 0; n < 256; n++) {
+        let t = n;
+        for (let k = 0; k < 8; k++) t = (t & 1) ? 0xedb88320 ^ (t >>> 1) : t >>> 1;
+        T[n] = t >>> 0;
+    }
+    for (let i = 0; i < U.length; i++) c = T[(c ^ U[i]) & 0xff] ^ (c >>> 8);
+    return (c ^ 0xffffffff) >>> 0;
+}
+
+function addPngTextChunks(pngArrayBuffer, textEntries) {
+    const view = new DataView(pngArrayBuffer);
+    const chunks = [];
+    let offset = 8;
+    while (offset < view.byteLength) {
+        const length = view.getUint32(offset, false);
+        const type = String.fromCharCode(
+            view.getUint8(offset + 4), view.getUint8(offset + 5),
+            view.getUint8(offset + 6), view.getUint8(offset + 7)
+        );
+        const dataStart = offset + 8;
+        const dataEnd = dataStart + length;
+        const data = pngArrayBuffer.slice(dataStart, dataEnd);
+        const crcOffset = dataEnd;
+        const origCrc = view.getUint32(crcOffset, false);
+        chunks.push({ type, length, data, crc: origCrc });
+        if (type === 'IEND') break;
+        offset = crcOffset + 4;
+    }
+    const result = [];
+    result.push(new Uint8Array([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a]));
+    for (let i = 0; i < chunks.length; i++) {
+        const c = chunks[i];
+        if (c.type === 'IEND' && textEntries.length > 0) {
+            for (const { key, value } of textEntries) {
+                const keyBytes = new TextEncoder().encode(key.slice(0, 79));
+                const valueBytes = new TextEncoder().encode(value);
+                const data = new Uint8Array(keyBytes.length + 1 + valueBytes.length);
+                data.set(keyBytes, 0);
+                data.set(valueBytes, keyBytes.length + 1);
+                const typeAndData = new Uint8Array(4 + data.length);
+                typeAndData.set([0x74, 0x45, 0x58, 0x74], 0);
+                typeAndData.set(data, 4);
+                const lenBuf = new ArrayBuffer(4);
+                new DataView(lenBuf).setUint32(0, data.length, false);
+                result.push(new Uint8Array(lenBuf));
+                result.push(typeAndData);
+                const crcBuf = new ArrayBuffer(4);
+                new DataView(crcBuf).setUint32(0, crc32(typeAndData), false);
+                result.push(new Uint8Array(crcBuf));
+            }
+        }
+        const lenBuf = new ArrayBuffer(4);
+        new DataView(lenBuf).setUint32(0, c.length, false);
+        result.push(new Uint8Array(lenBuf));
+        result.push(new Uint8Array([c.type.charCodeAt(0), c.type.charCodeAt(1), c.type.charCodeAt(2), c.type.charCodeAt(3)]));
+        result.push(new Uint8Array(c.data));
+        const crcBuf = new ArrayBuffer(4);
+        new DataView(crcBuf).setUint32(0, c.crc, false);
+        result.push(new Uint8Array(crcBuf));
+    }
+    const totalLen = result.reduce((s, u) => s + u.length, 0);
+    const out = new Uint8Array(totalLen);
+    let pos = 0;
+    for (const u of result) {
+        out.set(u, pos);
+        pos += u.length;
+    }
+    return out.buffer;
+}
+
+// --- Capture frame to PNG/JPEG (local download) with video metadata ---
 function captureFrame() {
     if (video.readyState < 2) return;
     const w = video.videoWidth;
@@ -123,21 +215,80 @@ function captureFrame() {
     canvas.height = h;
     const ctx = canvas.getContext('2d');
     ctx.drawImage(video, 0, 0);
-  const fmt = formatSelect.value || 'png';
-  const isJpeg = fmt === 'jpeg';
-  const mime = isJpeg ? 'image/jpeg' : 'image/png';
-  const ext = isJpeg ? 'jpg' : 'png';
-  const quality = isJpeg ? 0.92 : undefined;
+    const fmt = formatSelect.value || 'png';
+    const isJpeg = fmt === 'jpeg';
+    const mime = isJpeg ? 'image/jpeg' : 'image/png';
+    const ext = isJpeg ? 'jpg' : 'png';
+    const quality = isJpeg ? 0.92 : undefined;
+    const meta = getVideoMetadata();
 
-  canvas.toBlob((blob) => {
-    if (!blob) return;
-    const name = `fliqer_frame_${formatTime(video.currentTime).replace(':', '')}.${ext}`;
-    const a = document.createElement('a');
-    a.href = URL.createObjectURL(blob);
-    a.download = name;
-    a.click();
-    URL.revokeObjectURL(a.href);
-  }, mime, quality);
+    canvas.toBlob((blob) => {
+        if (!blob) return;
+        const name = `fliqer_frame_${formatTime(video.currentTime).replace(':', '')}.${ext}`;
+
+        if (isJpeg && typeof piexif !== 'undefined') {
+            const dataUrl = canvas.toDataURL('image/jpeg', quality);
+            try {
+                const zeroth = {};
+                zeroth[piexif.ImageIFD.ImageDescription] = `Frame at ${formatTime(meta.captureTime)} from video${meta.source ? `: ${meta.source}` : ''}. Duration: ${formatTime(meta.duration)}. Exported by Fliqer.`;
+                zeroth[piexif.ImageIFD.Software] = 'Fliqer Frame Grabber';
+                const exif = {};
+                exif[piexif.ExifIFD.UserComment] = JSON.stringify(meta);
+                const exifObj = { '0th': zeroth, Exif: exif, GPS: {}, Interop: {}, '1st': {}, thumbnail: null };
+                const exifBytes = piexif.dump(exifObj);
+                const newDataUrl = piexif.insert(exifBytes, dataUrl);
+                const bin = atob(newDataUrl.split(',')[1]);
+                const arr = new Uint8Array(bin.length);
+                for (let i = 0; i < bin.length; i++) arr[i] = bin.charCodeAt(i);
+                const outBlob = new Blob([arr], { type: mime });
+                const a = document.createElement('a');
+                a.href = URL.createObjectURL(outBlob);
+                a.download = name;
+                a.click();
+                URL.revokeObjectURL(a.href);
+                return;
+            } catch (e) {
+                console.warn('EXIF metadata failed, saving without metadata', e);
+            }
+        }
+
+        if (!isJpeg) {
+            blob.arrayBuffer().then((ab) => {
+                const textEntries = [
+                    { key: 'Source', value: meta.source || '(unknown)' },
+                    { key: 'CaptureTime', value: String(meta.captureTime) },
+                    { key: 'Duration', value: String(meta.duration) },
+                    { key: 'FPS', value: String(meta.fps) },
+                    { key: 'Dimensions', value: `${meta.width}x${meta.height}` },
+                    { key: 'ExportedAt', value: meta.exportedAt },
+                    { key: 'VideoMetadata', value: JSON.stringify(meta) },
+                ];
+                try {
+                    const newAb = addPngTextChunks(ab, textEntries);
+                    const outBlob = new Blob([newAb], { type: mime });
+                    const a = document.createElement('a');
+                    a.href = URL.createObjectURL(outBlob);
+                    a.download = name;
+                    a.click();
+                    URL.revokeObjectURL(a.href);
+                } catch (e) {
+                    console.warn('PNG metadata failed, saving without metadata', e);
+                    const a = document.createElement('a');
+                    a.href = URL.createObjectURL(blob);
+                    a.download = name;
+                    a.click();
+                    URL.revokeObjectURL(a.href);
+                }
+            });
+            return;
+        }
+
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = name;
+        a.click();
+        URL.revokeObjectURL(a.href);
+    }, mime, quality);
 }
 
 // --- Playback speed ---
