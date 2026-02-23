@@ -2203,6 +2203,34 @@ nav>* {
     overflow: hidden;
 }
 
+/* Try Online label and arrow above player */
+.fg-try-online {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.fg-try-online-label {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.7);
+    letter-spacing: 0.02em;
+}
+
+.fg-try-online-arrow {
+    width: 24px;
+    height: 24px;
+    color: rgba(255, 255, 255, 0.7);
+    animation: fg-arrow-bounce 2s ease-in-out infinite;
+}
+
+@keyframes fg-arrow-bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(4px); }
+}
+
 /* Video area = drop zone; always visible, 16:9 */
 .fg-video-drop-area {
     position: relative;
