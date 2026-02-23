@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <title>Addicted - Digital Product Studio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/src/style.css">
+</head>
+
+<body>
+    <!-- SVG Gradient Definition -->
+    <svg style="width:0;height:0;position:absolute;" aria-hidden="true" focusable="false">
+        <linearGradient id="icon-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#FF9B04;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#FA4D06;stop-opacity:1" />
+        </linearGradient>
+    </svg>
+
+    <!-- Background Elements -->
+    <canvas id="webgl-canvas"></canvas>
+    <div class="noise-overlay"></div>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <!-- Burger (visible only on mobile) -->
+        <button class="burger-menu" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+        </button>
+
+        <a href="#" class="logo">addicted</a>
+
+        <!-- Mobile / compact: icon button opens Work with us modal -->
+        <button class="nav-dialog-btn nav-cta" aria-label="Work with us">
+            <!-- Paper plane icon -->
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                <path d="M4 20L20 12L4 4L4 11L14 12L4 13L4 20Z" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+        </button>
+
+        <div class="nav-links">
+            <a href="#last-case" data-i18n="nav.cases">Cases</a>
+            <a href="#services" data-i18n="nav.service">Service</a>
+            <a href="/agency" data-i18n="nav.agency">Agency</a>
+            <a href="#contact" data-i18n="nav.contact">Contact</a>
+        </div>
+
+        <div class="nav-menu-desktop">
+            <div class="lang-switcher">
+                <button type="button" class="lang-btn active" data-lang="en">EN</button>
+                <div class="lang-divider"></div>
+                <button type="button" class="lang-btn" data-lang="ru">RU</button>
+            </div>
+            <a href="#contact" class="btn nav-cta" data-i18n="nav.cta">Work with us</a>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu (outside nav for backdrop-filter to work) -->
+    <div class="nav-menu">
+        <div class="nav-links">
+            <a href="#last-case" data-i18n="nav.cases">Cases</a>
+            <a href="#services" data-i18n="nav.service">Service</a>
+            <a href="/agency" data-i18n="nav.agency">Agency</a>
+            <a href="#contact" data-i18n="nav.contact">Contact</a>
+        </div>
+        <div class="lang-switcher mobile-lang-switcher">
+            <button type="button" class="lang-btn active" data-lang="en">EN</button>
+            <div class="lang-divider"></div>
+            <button type="button" class="lang-btn" data-lang="ru">RU</button>
+        </div>
+        <a href="#contact" class="btn nav-cta" data-i18n="nav.cta">Work with us</a>
+    </div>
+
+    <div class="wrapper">
+        <!-- 1. Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <div class="badge glass-card"><span data-i18n="hero.badge">Creative Design & Develop Agency</span></div>
+                <h1 data-i18n="hero.title">We breathe life into<br>digital products</h1>
+                <p class="subtitle" data-i18n="hero.subtitle">We build immersive web experiences and scalable design
+                    systems for ambitious brands</p>
+                <div class="cta-group">
+                    <a href="#contact" class="btn btn-primary" id="hero-btn" data-i18n="hero.cta_start">Start a
+                        project</a>
+                    <a href="#products" class="btn btn-white" data-i18n="hero.cta_view">View our work</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 1.5 Last Case Video -->
+        <section class="section last-case" id="last-case">
+            <div class="container">
+                <div class="last-case-try-online">
+                    <span class="last-case-try-online-label">Try Online</span>
+                    <svg class="last-case-try-online-arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <path d="M12 5v14M5 12l7 7 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <div class="last-case-video-wrap">
+                    <iframe width="700" height="394" src="https://www.youtube.com/embed/wKR67k9Nxog?si=1AurzvjNlsaVfYzW"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <div class="section-header last-case-header">
+                    <h2 class="last-case-title">An AI spot that reached TV and <span style="white-space: nowrap;">cinema
+                            screens</span></h2>
+                    <p class="last-case-caption">From storyboard to final master: how we built a synced generation
+                        workflow and shipped in days without losing control over tone and visuals</p>
+                    <a href="https://adddsgn.medium.com/an-ai-spot-that-made-it-to-tv-and-cinema-screens-0b67af90478a"
+                        target="_blank" rel="noopener noreferrer" class="btn btn-white last-case-cta"
+                        style="margin-top: 1rem;">Full story on Medium</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. Digital Products -->
+        <section class="section products" id="products">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Our Products</h2>
+                    <p>We build products that reflect our philosophy: seamless UX, emotional clarity, and technology
+                        that feels alive</p>
+                </div>
+                <div class="products-grid">
+                    <!-- Product 1: Fliqer -->
+                    <div class="glass-card product-card">
+                        <img src="/assets/fliqer.png" alt="Fliqer" class="product-logo">
+                        <div class="product-info">
+                            <h3>Fliqer</h3>
+                            <p>Professional iOS app<br>for video-to-photo</p>
+                            <a href="https://apps.apple.com/tr/app/fliqer-frame-grabber/id6753172557" target="_blank"
+                                rel="noopener noreferrer" class="btn-link">View App &rarr;</a>
+                        </div>
+                    </div>
+                    <!-- Product 2: Route -->
+                    <div class="glass-card product-card">
+                        <img src="/assets/rout.png" alt="Route" class="product-logo">
+                        <div class="product-info">
+                            <h3>Route</h3>
+                            <p>Web tool for STRAVA<br>powered data visuals</p>
+                            <a href="https://route.addicted.design/" target="_blank" rel="noopener noreferrer"
+                                class="btn-link">View App &rarr;</a>
+                        </div>
+                    </div>
+                    <!-- Product 3: Breath (New) -->
+                    <div class="glass-card product-card">
+                        <img src="/assets/breath.png" alt="Breath" class="product-logo">
+                        <div class="product-info">
+                            <h3>Breath</h3>
+                            <p>Minimal iOS breathing timer</p>
+                            <a href="https://apps.apple.com/us/app/breath-exercises-metronome/id6757784127"
+                                target="_blank" rel="noopener noreferrer" class="btn-link">View App &rarr;</a>
+                        </div>
+                    </div>
+                    <!-- Product 4: Peso -->
+                    <div class="glass-card product-card">
+                        <img src="/assets/peso.png" alt="Peso" class="product-logo">
+                        <div class="product-info">
+                            <div class="product-title-row">
+                                <h3>Peso</h3>
+                            </div>
+                            <p>RealityKit-based app<br>for personal finance</p>
+                            <a href="#" class="btn-link">Coming Soon</a>
+                        </div>
+                    </div>
+                    <!-- Product 5: Challenge Bot -->
+                    <div class="glass-card product-card">
+                        <img src="/assets/igbot.png" alt="Challenge Bot" class="product-logo">
+                        <div class="product-info">
+                            <h3>Challenge Bot</h3>
+                            <p>Telegram bot for<br>brand challenges</p>
+                            <a href="https://t.me/ig_boost_bot" target="_blank" rel="noopener noreferrer"
+                                class="btn-link">Try Bot &rarr;</a>
+                        </div>
+                    </div>
+                    <!-- Product 6: Cadnce (New) -->
+                    <div class="glass-card product-card">
+                        <img src="/assets/cadnce.png" alt="Cadnce" class="product-logo">
+                        <div class="product-info">
+                            <h3>Cadnce</h3>
+                            <p>Pomodoro & habit tracking iOS app</p>
+                            <a href="#" class="btn-link">Coming Soon</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Services Block -->
+        <section class="section services" id="services">
+            <div class="container">
+                <div class="section-header">
+                    <h2>We Shape <br class="mobile-break">for You</h2>
+                    <p>Helping brands and businesses stand out from competitors and elevate their user experience</p>
+                </div>
+                <div class="services-grid">
+                    <div class="glass-card service-card">
+                        <div class="service-icon-wrapper">
+                            <span class="key-hint">Q</span>
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4 4h6v6H4V4zm10 0h6v6h-6V4zM4 14h6v6H4v-6zm10 0h6v6h-6v-6z"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                        <h3>UX/UI Design</h3>
+                        <p>Applications, services, and promo landing pages</p>
+                    </div>
+                    <div class="glass-card service-card">
+                        <div class="service-icon-wrapper">
+                            <span class="key-hint">W</span>
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16 18l6-6-6-6M8 6l-6 6 6 6" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                        <h3>Development</h3>
+                        <p>iOS apps, web services, and bots for massengers</p>
+                    </div>
+                    <div class="glass-card service-card">
+                        <div class="service-icon-wrapper">
+                            <span class="key-hint">E</span>
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M23 7l-7 5 7 5V7zM14 5v14H3V5h11z" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                        <h3>Content Marketing</h3>
+                        <p>Photo materials and video clips for advertising</p>
+                    </div>
+                    <div class="glass-card service-card">
+                        <div class="service-icon-wrapper">
+                            <span class="key-hint">A</span>
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                        <h3>Branding</h3>
+                        <p>Strategy, logo design, and brand guidelines</p>
+                    </div>
+                    <div class="glass-card service-card">
+                        <div class="service-icon-wrapper">
+                            <span class="key-hint">S</span>
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 15a3 3 0 100-6 3 3 0 000 6z" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                                <path
+                                    d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                        <h3>Automation</h3>
+                        <p>Workflows and system integrations in products</p>
+                    </div>
+                    <div class="glass-card service-card">
+                        <div class="service-icon-wrapper">
+                            <span class="key-hint">D</span>
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                        <h3>Consulting</h3>
+                        <p>Gamification, emotional design and AI tools</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4.5 Reviews / Testimonials -->
+        <section class="section reviews" id="reviews">
+            <div class="container">
+                <div class="section-header">
+                    <h2>What They Say</h2>
+                    <p>Hear from the partners we've helped succeed</p>
+                </div>
+                <div class="reviews-container">
+                    <!-- Card 1 -->
+                    <div class="glass-card review-card">
+                        <p class="review-text">"Our product walkthrough used to be a static video. With Nova, it became
+                            an interactive 3D scene we can iterate on like any other design file."</p>
+                        <div class="review-author">
+                            <div class="avatar" style="background-image: url('https://i.pravatar.cc/150?u=1')"></div>
+                            <div>
+                                <strong>Priya Nair</strong>
+                                <span>Product Lead, Lumenly</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="glass-card review-card">
+                        <p class="review-text">"Nova has completely changed how we prototype 3D marketing pages. Our
+                            team can now try three concepts in the time it used to take to ship one."</p>
+                        <div class="review-author">
+                            <div class="avatar" style="background-image: url('https://i.pravatar.cc/150?u=2')"></div>
+                            <div>
+                                <strong>Alex Chen</strong>
+                                <span>Lead Designer, Orbit Labs</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Card 3 -->
+                    <div class="glass-card review-card">
+                        <p class="review-text">"The real-time collaboration feels like a modern canvas tool, but for
+                            spatial interfaces. Engineering gets clean components they can drop into code."</p>
+                        <div class="review-author">
+                            <div class="avatar" style="background-image: url('https://i.pravatar.cc/150?u=3')"></div>
+                            <div>
+                                <strong>Jordan Miles</strong>
+                                <span>VP Engineering, Vectorframe</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Process Block -->
+        <section class="section process" id="process">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Modular Process</h2>
+                    <p>We can guide your product from idea to launch or join at any stage.<br>Each module ends with a
+                        tangible deliverable you can immediately use</p>
+                </div>
+                <div class="process-list">
+                    <div class="glass-card process-card">
+                        <h3>01. Concept</h3>
+                        <p>We define the core idea, goals, and key user flows — forming a clear direction and mood base
+                        </p>
+                    </div>
+                    <div class="glass-card process-card">
+                        <h3>02. Design</h3>
+                        <p>We create the visual language and final layouts — interfaces, compositions, and motion —
+                            ready for build</p>
+                    </div>
+                    <div class="glass-card process-card">
+                        <h3>03. Development</h3>
+                        <p>We deliver a stable, high-performance product — web, mobile, or standalone — prepared for
+                            testing and launch</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3.5 Advantages Block -->
+        <section class="section advantages" id="advantages">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Our Advantages</h2>
+                    <p>Why leading companies choose us to build their digital future</p>
+                </div>
+                <div class="advantages-grid">
+                    <div class="glass-card advantage-card">
+                        <h3>Closer to Your Users</h3>
+                        <p>We help brands create clearer, more meaningful user connections</p>
+                    </div>
+                    <div class="glass-card advantage-card">
+                        <h3>Engineered for Speed</h3>
+                        <p>Modern tools let us deliver fast without compromising quality</p>
+                    </div>
+                    <div class="glass-card advantage-card">
+                        <h3>Fresh by Design</h3>
+                        <p>We explore bold ideas to craft products that feel new and distinctive</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <section class="section application-form" id="application-form">
+            <div class="container footer-signature">
+                <h2 class="footer-brand">addicted</h2>
+                <a href="#" class="footer-email footer-cta">Let's work together</a>
+            </div>
+        </section>
+
+        <footer class="footer" id="contact">
+            <div class="container">
+                <div class="footer-links">
+                    <div class="col">
+                        <h4>Legal</h4>
+                        <a href="/privacy">Privacy</a>
+                        <a href="/terms">Terms</a>
+                    </div>
+                    <div class="col">
+                        <h4>Connect</h4>
+                        <a href="mailto:my@addicted.design"
+                            style="display: block; margin-bottom: 0.8rem; color: var(--text-secondary); text-decoration: none; transition: color 0.2s;"
+                            onmouseover="this.style.color='var(--text-primary)'"
+                            onmouseout="this.style.color='var(--text-secondary)'">my@addicted.design</a>
+                        <div class="social-links">
+                            <a href="https://linkedin.com/company/adddsgn" target="_blank" rel="noopener noreferrer"
+                                class="social-icon" aria-label="LinkedIn">
+                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                                </svg>
+                            </a>
+                            <a href="https://adddsgn.medium.com/" target="_blank" rel="noopener noreferrer"
+                                class="social-icon" aria-label="Medium">
+                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z" />
+                                </svg>
+                            </a>
+                            <a href="https://www.instagram.com/adddsgn" target="_blank" rel="noopener noreferrer"
+                                class="social-icon" aria-label="Instagram">
+                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="copyright">
+                    &copy; 2026 Addicted Studio. All rights reserved.
+                </div>
+            </div>
+        </footer>
+    </div>
+    <svg style="display: none;">
+        <defs>
+            <filter id="wavyFilter" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse">
+                <feTurbulence type="fractalNoise" baseFrequency="0.01" numOctaves="1" result="noise" />
+                <feFlood flood-color="#808080" result="neutral" />
+                <feFlood flood-color="white" flood-opacity="1" result="whiteBoard" />
+                <feDiffuseLighting in="whiteBoard" lighting-color="white" surfaceScale="0" diffuseConstant="1"
+                    result="light">
+                    <fePointLight x="0" y="0" z="80" />
+                </feDiffuseLighting>
+                <feColorMatrix in="light" type="luminanceToAlpha" result="lightAlpha" />
+                <feComposite in="noise" in2="lightAlpha" operator="in" result="maskedNoise" />
+                <feComposite in="maskedNoise" in2="neutral" operator="over" result="displacementMapSource" />
+                <feDisplacementMap in="SourceGraphic" in2="displacementMapSource" scale="0" xChannelSelector="R"
+                    yChannelSelector="G" />
+            </filter>
+        </defs>
+    </svg>
+    <!-- Popup Form -->
+    <div id="popup-overlay" class="popup-overlay">
+        <div class="popup-content glass-form">
+            <button id="popup-close" class="popup-close" aria-label="Close">&times;</button>
+            <div class="popup-header">
+                <h2>Work with us</h2>
+                <p>Tell us about your project</p>
+            </div>
+
+            <form id="project-form">
+                <!-- Project Type -->
+                <div class="form-group">
+                    <div class="select-wrapper">
+                        <select id="project-type" name="project-type" required>
+                            <option value="" disabled selected></option>
+                            <option value="ux-ui-design">UX/UI Design</option>
+                            <option value="development">Development</option>
+                            <option value="content-marketing">Content Marketing</option>
+                            <option value="branding">Branding</option>
+                            <option value="automation">Automation</option>
+                            <option value="consulting">Consulting</option>
+                            <option value="other">Other</option>
+                        </select>
+                        <label for="project-type">Project Type</label>
+                        <svg class="select-arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- Company Name -->
+                <div class="form-group">
+                    <input type="text" id="company-name" name="company-name" placeholder=" " required>
+                    <label for="company-name">Company Name</label>
+                </div>
+
+                <!-- Email -->
+                <div class="form-group">
+                    <input type="email" id="email" name="email" placeholder=" " required>
+                    <label for="email">Email</label>
+                </div>
+
+                <!-- Message -->
+                <div class="form-group">
+                    <textarea id="message" name="message" rows="3" placeholder=" " required></textarea>
+                    <label for="message">Message</label>
+                </div>
+
+                <!-- Attachment -->
+                <div class="form-group">
+                    <div id="popup-drop-zone" class="drop-zone">
+                        <div class="drop-icon">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M21 15V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V15M17 8L12 3M12 3L7 8M12 3V15"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                        <div class="drop-text">
+                            <span class="drop-zone-text">Drag & drop files</span>
+                            <span class="drop-zone-sub">or click to browse</span>
+                        </div>
+                        <input type="file" id="popup-file" name="attachment" hidden>
+                    </div>
+                    <!-- Кнопка для мобилки (скрыта на десктопе) -->
+                    <button type="button" class="mobile-file-button" id="mobile-file-button"
+                        onclick="document.getElementById('popup-file').click()">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M21 15V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V15M17 8L12 3M12 3L7 8M12 3V15"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        <span>Attach file</span>
+                    </button>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary full-width">Send Request</button>
+                    <a href="/brief" target="_blank" rel="noopener noreferrer" class="btn btn-secondary full-width"
+                        style="margin-top: 12px;">Fill Full Brief</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>
