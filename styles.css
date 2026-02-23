@@ -879,6 +879,13 @@ nav>* {
     color: var(--text-primary);
 }
 
+.process-card h3.process-card-gradient {
+    background: linear-gradient(90deg, #FF9B04, #FA4D06);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
 .process-card p {
     font-size: 0.95rem;
     color: var(--text-secondary);
