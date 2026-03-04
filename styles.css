@@ -437,6 +437,44 @@ nav>.nav-links {
     transform: translateY(-176px);
 }
 
+.hero-download-screens {
+    margin-top: 32px;
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+}
+
+.hero-download-screens img {
+    border-radius: 24px;
+    max-height: 420px;
+    width: auto;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 900px) {
+    .hero-download-screens {
+        gap: 12px;
+    }
+
+    .hero-download-screens img {
+        max-height: 360px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-download-screens {
+        margin-top: 24px;
+        padding-bottom: 8px;
+        overflow-x: auto;
+        justify-content: flex-start;
+    }
+
+    .hero-download-screens img {
+        max-height: 320px;
+        flex: 0 0 auto;
+    }
+}
+
 .hero-content h1.hero-title {
     font-size: clamp(calc(3rem - 10pt), calc(6vw - 10pt), calc(5rem - 10pt));
     white-space: nowrap;
