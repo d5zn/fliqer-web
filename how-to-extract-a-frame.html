@@ -13,6 +13,17 @@
     <link rel="stylesheet" href="styles.css">
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <style>
+        html {
+            scroll-snap-type: none;
+        }
+
+        .hero {
+            min-height: auto;
+            scroll-snap-align: none;
+            padding-top: 80px;
+            padding-bottom: 32px;
+        }
+
         .content-wrapper {
             max-width: 800px;
             margin: 0 auto;
@@ -63,21 +74,8 @@
             color: var(--color-text);
         }
 
-        .meta-screens {
-            display: flex;
-            justify-content: center;
-            gap: 16px;
-            margin-top: 24px;
-            flex-wrap: wrap;
-        }
-
-        .meta-screens img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 24px;
-            box-shadow: 0 16px 32px rgba(0, 0, 0, 0.6);
-        }
-
+        .download-screens,
+        .meta-screens,
         .workflow-screens {
             display: flex;
             justify-content: center;
@@ -86,6 +84,8 @@
             flex-wrap: wrap;
         }
 
+        .download-screens img,
+        .meta-screens img,
         .workflow-screens img {
             max-width: 100%;
             height: auto;
@@ -150,6 +150,11 @@
             This allows you to easily grab frames from video and collect the best moments without exporting the entire
             clip.
         </p>
+        <div class="download-screens">
+            <img src="assets/howto/1.PNG" alt="Albums view in Fliqer iOS app" loading="lazy">
+            <img src="assets/howto/2.PNG" alt="Album grid with videos in Fliqer" loading="lazy">
+            <img src="assets/howto/3.PNG" alt="Extract screen showing frame capture in Fliqer" loading="lazy">
+        </div>
 
         <hr style="margin: 32px 0; border: none; border-top: 1px solid var(--color-border);" />
 
