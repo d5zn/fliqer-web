@@ -74,24 +74,76 @@
             color: var(--color-text);
         }
 
-        .download-screens,
-        .meta-screens,
+        .download-screens {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-top: 24px;
+            flex-wrap: nowrap;
+        }
+
+        .download-screens img {
+            flex: 1 1 0;
+            min-width: 0;
+            width: auto;
+            max-width: none;
+            height: auto;
+            border-radius: 32px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            box-shadow: 0 16px 32px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+        }
+
+        @media (max-width: 700px) {
+            .download-screens { flex-wrap: wrap; }
+            .download-screens img { flex: none; width: 100%; max-width: 320px; }
+        }
+
+        .meta-screens {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-top: 24px;
+            flex-wrap: nowrap;
+        }
+
+        .meta-screens img {
+            flex: 1 1 0;
+            min-width: 0;
+            width: auto;
+            max-width: none;
+            height: auto;
+            border-radius: 32px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            box-shadow: 0 16px 32px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+        }
+
+        @media (max-width: 700px) {
+            .meta-screens { flex-wrap: wrap; }
+            .meta-screens img { flex: none; width: 100%; max-width: 320px; }
+        }
+
         .workflow-screens {
             display: flex;
             justify-content: center;
             gap: 16px;
             margin-top: 24px;
-            flex-wrap: wrap;
+            flex-wrap: nowrap;
         }
 
-        .download-screens img,
-        .meta-screens img,
         .workflow-screens img {
-            width: 100%;
-            max-width: 320px;
+            flex: 1 1 0;
+            min-width: 0;
+            width: auto;
+            max-width: none;
             height: auto;
-            border-radius: 24px;
-            box-shadow: 0 16px 32px rgba(0, 0, 0, 0.6);
+            border-radius: 32px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            box-shadow: 0 16px 32px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+        }
+
+        @media (max-width: 700px) {
+            .workflow-screens { flex-wrap: wrap; }
+            .workflow-screens img { flex: none; width: 100%; max-width: 320px; }
         }
 
         .article-fig {
@@ -100,8 +152,9 @@
             max-width: 320px;
             width: 100%;
             height: auto;
-            border-radius: 24px;
-            box-shadow: 0 16px 32px rgba(0, 0, 0, 0.6);
+            border-radius: 32px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            box-shadow: 0 16px 32px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.08);
         }
 
         .article-page .content-wrapper {
@@ -110,6 +163,35 @@
 
         .article-page .footer {
             scroll-snap-align: none;
+            padding: 48px 24px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .article-page .footer .footer-nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 24px 40px;
+            margin-bottom: 24px;
+        }
+
+        .article-page .footer .footer-nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .article-page .footer .footer-nav a:hover {
+            color: var(--text-primary);
+        }
+
+        .article-page .footer .copyright {
+            text-align: center;
+            opacity: 0.85;
+        }
+
+        .article-page .footer .copyright p {
+            margin: 0;
         }
 
         .article-badge {
@@ -204,9 +286,6 @@
     </header>
 
     <div class="content-wrapper">
-        <h2>How to Extract a Frame from Video</h2>
-        <p><em>A free way to grab a frame from video in original quality</em></p>
-
         <p>
             Sometimes a video contains the perfect moment — a facial expression, a movement, a landscape, or a scene
             you didn’t have time to photograph.
@@ -224,7 +303,7 @@
 
         <hr style="margin: 32px 0; border: none; border-top: 1px solid var(--color-border);" />
 
-        <h2>Step 1 — Download the Fliqer Frame Grabber</h2>
+        <h2>Download the Fliqer Frame Grabber</h2>
         <p>
             The easiest way to extract frames from video is to use Fliqer.
         </p>
