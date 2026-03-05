@@ -111,6 +111,77 @@
         .article-page .footer {
             scroll-snap-align: none;
         }
+
+        .article-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 999px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            background: rgba(255, 155, 4, 0.2);
+            border: 1px solid rgba(255, 155, 4, 0.4);
+            color: #FF9B04;
+        }
+
+        .article-header-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 24px;
+            background: rgba(5, 5, 5, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .article-header-bar .back-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: color 0.2s;
+        }
+
+        .article-header-bar .back-link:hover {
+            color: var(--text-primary);
+        }
+
+        .article-lang-switcher {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .article-lang-switcher button {
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: var(--text-secondary);
+            padding: 6px 14px;
+            border-radius: 999px;
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: inherit;
+        }
+
+        .article-lang-switcher button:hover {
+            color: var(--text-primary);
+            border-color: rgba(255, 255, 255, 0.25);
+        }
+
+        .article-lang-switcher button.is-active {
+            background: rgba(255, 155, 4, 0.2);
+            border-color: rgba(255, 155, 4, 0.4);
+            color: #FF9B04;
+        }
     </style>
 </head>
 
@@ -118,11 +189,18 @@
     <div class="bg-gradient"></div>
     <div class="noise-overlay"></div>
 
-    <header class="hero" style="padding-bottom: 40px; padding-top: 80px;">
+    <header class="article-header-bar">
+        <a href="index.html" class="back-link">← Back to Home</a>
+        <div class="article-lang-switcher">
+            <button type="button" class="article-lang-btn is-active" data-lang="en" aria-pressed="true">English</button>
+            <button type="button" class="article-lang-btn" data-lang="ru" aria-pressed="false">Русский</button>
+        </div>
+    </header>
+
+    <header class="hero" style="padding-bottom: 40px; padding-top: 120px;">
         <div class="hero-tag">Guide</div>
         <h1 style="font-size: 3rem; margin-bottom: 16px;">How to Extract a Frame from Video</h1>
         <p class="description">A free way to grab a frame from video in original quality.</p>
-        <a href="index.html" class="btn btn-secondary">← Back to Home</a>
     </header>
 
     <div class="content-wrapper">
@@ -199,6 +277,7 @@
         <hr style="margin: 32px 0; border: none; border-top: 1px solid var(--color-border);" />
 
         <h2>Original Metadata and Image Formats</h2>
+        <p><span class="article-badge">Only in iOS App</span></p>
         <p>
             When you extract a frame from video using Fliqer, the saved image keeps the original metadata from the
             source video.
@@ -297,6 +376,31 @@
     </footer>
 
     <a href="https://www.addicted.design/" class="float-btn-addicted" target="_blank">addicted</a>
+
+    <script>
+        (function () {
+            var key = 'article-lang';
+            var btns = document.querySelectorAll('.article-lang-btn');
+            var saved = localStorage.getItem(key) || 'en';
+            btns.forEach(function (btn) {
+                btn.addEventListener('click', function () {
+                    var lang = this.getAttribute('data-lang');
+                    btns.forEach(function (b) {
+                        b.classList.toggle('is-active', b.getAttribute('data-lang') === lang);
+                        b.setAttribute('aria-pressed', b.getAttribute('data-lang') === lang ? 'true' : 'false');
+                    });
+                    localStorage.setItem(key, lang);
+                });
+                if (btn.getAttribute('data-lang') === saved) {
+                    btn.classList.add('is-active');
+                    btn.setAttribute('aria-pressed', 'true');
+                } else {
+                    btn.classList.remove('is-active');
+                    btn.setAttribute('aria-pressed', 'false');
+                }
+            });
+        })();
+    </script>
 </body>
 
 </html>

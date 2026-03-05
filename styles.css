@@ -329,9 +329,9 @@ nav>.nav-links {
 }
 
 .how-read-more {
-    height: 48px;
+    height: 56px;
     padding: 0 2rem;
-    font-size: 0.95rem;
+    font-size: 1rem;
 }
 
 /* Hero Buttons Specifics */
@@ -2574,14 +2574,18 @@ nav>* {
 }
 
 .faq-accordion {
-    max-width: 640px;
+    width: 674px;
+    max-width: 100%;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
     gap: 12px;
+    box-sizing: border-box;
 }
 
 .faq-item {
+    width: 100%;
+    box-sizing: border-box;
     border-radius: var(--radius-md);
     overflow: hidden;
 }
