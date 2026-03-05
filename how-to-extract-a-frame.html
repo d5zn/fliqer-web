@@ -24,6 +24,34 @@
             padding-bottom: 32px;
         }
 
+        .article-page .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            text-align: left;
+            max-width: 800px;
+            margin: 0 auto;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        .article-page .hero .hero-tag {
+            margin-bottom: 8px;
+        }
+
+        .article-page .hero h1 {
+            width: 100%;
+            margin-bottom: 12px;
+        }
+
+        .article-page .hero .description {
+            width: 100%;
+            margin: 0;
+            font-size: 1.1rem;
+            line-height: 1.5;
+            color: var(--text-secondary);
+        }
+
         .content-wrapper {
             max-width: 800px;
             margin: 0 auto;
@@ -327,9 +355,9 @@
             clip.
         </p>
         <div class="download-screens">
-            <img src="assets/howto/1.PNG" alt="Albums view in Fliqer iOS app" loading="lazy">
-            <img src="assets/howto/2.PNG" alt="Album grid with videos in Fliqer" loading="lazy">
-            <img src="assets/howto/3.PNG" alt="Extract screen showing frame capture in Fliqer" loading="lazy">
+            <img id="img1" src="assets/howto/1.PNG" alt="Albums gallery in Fliqer app" loading="lazy">
+            <img id="img2" src="assets/howto/2.PNG" alt="Video album in Fliqer app" loading="lazy">
+            <img id="img3" src="assets/howto/3.PNG" alt="Player in Fliqer app" loading="lazy">
         </div>
 
         <hr style="margin: 32px 0; border: none; border-top: 1px solid var(--color-border);" />
@@ -350,7 +378,7 @@
             This makes it easy to precisely grab the right frame from video, which is especially useful for sports,
             motion shots, or cinematic moments.
         </p>
-        <img src="assets/howto/4.PNG" alt="Frame step controls in Fliqer showing 1–30 frames options"
+        <img id="img4" src="assets/howto/4.PNG" alt="Frame step controls in Fliqer app"
             class="article-fig" loading="lazy">
 
         <hr style="margin: 32px 0; border: none; border-top: 1px solid var(--color-border);" />
@@ -381,9 +409,9 @@
             edited, or archived.
         </p>
         <div class="meta-screens">
-            <img src="assets/howto/5.PNG" alt="Video metadata view in Fliqer" loading="lazy">
-            <img src="assets/howto/6.PNG" alt="Original video metadata in Photos app" loading="lazy">
-            <img src="assets/howto/7.PNG" alt="Extracted frame metadata in Photos app" loading="lazy">
+            <img id="img5" src="assets/howto/5.PNG" alt="Metadata in Fliqer app" loading="lazy">
+            <img id="img6" src="assets/howto/6.PNG" alt="Metadata in Apple Photos" loading="lazy">
+            <img id="img7" src="assets/howto/7.PNG" alt="Metadata in Apple Photos" loading="lazy">
         </div>
 
         <hr style="margin: 32px 0; border: none; border-top: 1px solid var(--color-border);" />
@@ -407,9 +435,9 @@
             frames from longer clips.
         </p>
         <div class="workflow-screens">
-            <img src="assets/howto/8.PNG" alt="Pinned albums overview in Fliqer" loading="lazy">
-            <img src="assets/howto/9.PNG" alt="Album grid with processed badges in Fliqer" loading="lazy">
-            <img src="assets/howto/10.PNG" alt="Filtered view of processed videos in album" loading="lazy">
+            <img id="img8" src="assets/howto/8.PNG" alt="Pin album feature in Fliqer app" loading="lazy">
+            <img id="img9" src="assets/howto/9.PNG" alt="Capture history in Fliqer app" loading="lazy">
+            <img id="img10" src="assets/howto/10.PNG" alt="Capture history in Fliqer app" loading="lazy">
         </div>
 
         <hr style="margin: 32px 0; border: none; border-top: 1px solid var(--color-border);" />
@@ -521,7 +549,17 @@
                     footerTerms: 'Terms of Service',
                     footerSupport: 'Support',
                     copyright: '© 2026 Egor Sazanov. All rights reserved.',
-                    footerDev: 'Developed by'
+                    footerDev: 'Developed by',
+                    alt1: 'Albums gallery in Fliqer app',
+                    alt2: 'Video album in Fliqer app',
+                    alt3: 'Player in Fliqer app',
+                    alt4: 'Frame step controls in Fliqer app',
+                    alt5: 'Metadata in Fliqer app',
+                    alt6: 'Metadata in Apple Photos',
+                    alt7: 'Metadata in Apple Photos',
+                    alt8: 'Pin album feature in Fliqer app',
+                    alt9: 'Capture history in Fliqer app',
+                    alt10: 'Capture history in Fliqer app'
                 },
                 ru: {
                     backLink: '← На главную',
@@ -584,7 +622,17 @@
                     footerTerms: 'Условия использования',
                     footerSupport: 'Поддержка',
                     copyright: '© 2026 Егор Сазанов. Все права защищены.',
-                    footerDev: 'Разработка:'
+                    footerDev: 'Разработка:',
+                    alt1: 'Галерея альбомов в приложении Fliqer',
+                    alt2: 'Видео альбом в приложении Fliqer',
+                    alt3: 'Плеер в приложении Fliqer',
+                    alt4: 'Переключение кадров в приложении Fliqer',
+                    alt5: 'Метаданные в приложении Fliqer',
+                    alt6: 'Метаданные в приложении «Фото» (Apple)',
+                    alt7: 'Метаданные в приложении «Фото» (Apple)',
+                    alt8: 'Закрепление альбома в приложении Fliqer',
+                    alt9: 'Рабочая история в приложении Fliqer',
+                    alt10: 'Рабочая история в приложении Fliqer'
                 }
             };
 
@@ -593,8 +641,13 @@
                 var keys = Object.keys(translations.en);
                 for (var i = 0; i < keys.length; i++) {
                     var k = keys[i];
+                    if (k.indexOf('alt') === 0) continue;
                     var el = document.getElementById('t_' + k);
                     if (el) el.textContent = d[k];
+                }
+                for (var j = 1; j <= 10; j++) {
+                    var imgEl = document.getElementById('img' + j);
+                    if (imgEl && d['alt' + j]) imgEl.setAttribute('alt', d['alt' + j]);
                 }
                 document.documentElement.lang = lang === 'ru' ? 'ru' : 'en';
                 document.title = lang === 'ru' ? 'Как извлечь кадр из видео — Fliqer' : 'How to Extract a Frame from Video - Fliqer';
