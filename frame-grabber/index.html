@@ -155,12 +155,16 @@
       ]
     }
     </script>
-    <!-- Fix: bypass scroll-reveal for frame-grabber section so it peeks into hero on load -->
+    <!-- Fix: exclude .frame-grabber-section from scroll-reveal by removing .section class;
+         compensate here with the structural properties .section normally provides -->
     <style>
-        .frame-grabber-section,
-        .frame-grabber-section.reveal-on-scroll {
-            opacity: 1 !important;
-            transform: translateY(0) !important;
+        .frame-grabber-section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            scroll-snap-align: start;
+            padding-bottom: 8rem; /* previously inherited from .section */
         }
     </style>
 </head>
@@ -238,7 +242,7 @@
         </section>
 
         <!-- 2. Frame Grabber Demo (peeks into hero) -->
-        <section class="section frame-grabber-section" id="frame-grabber">
+        <section class="frame-grabber-section" id="frame-grabber">
             <div class="container">
                 <div class="fg-try-online">
                     <span class="fg-try-online-label">Try Online</span>
