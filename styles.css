@@ -429,7 +429,8 @@ nav>.nav-links {
 
 .hero-content {
     max-width: 920px;
-    z-index: 2;
+    z-index: 3;
+    position: relative;
     transform: translateY(-176px);
 }
 
