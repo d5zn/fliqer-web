@@ -84,12 +84,86 @@
             align-items: flex-start;
         }
 
+        /* Article page hero (like How to page) */
+        .article-page .hero {
+            min-height: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            text-align: left;
+            max-width: 800px;
+            margin: 0 auto;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        .article-page .hero .hero-tag {
+            margin-bottom: 8px;
+        }
+
+        .article-page .hero h1 {
+            width: 100%;
+            margin-bottom: 12px;
+        }
+
+        .article-page .hero .description {
+            width: 100%;
+            margin: 0;
+            font-size: 1.1rem;
+            line-height: 1.5;
+            color: var(--text-secondary);
+        }
+
+        /* Article header bar (fixed top) */
+        .article-header-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 24px;
+            background: rgba(5, 5, 5, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .article-header-bar .back-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .article-header-bar .back-link:hover {
+            color: var(--text-primary);
+        }
+
+        .article-header-bar .language-dropdown {
+            position: relative;
+        }
+
+        .article-header-bar .lang-menu {
+            right: 0;
+            left: auto;
+        }
+
         /* Language Switcher Styles */
         .language-dropdown {
             position: fixed;
             top: 24px;
             right: 24px;
             z-index: 1000;
+        }
+
+        body.article-page .language-dropdown {
+            position: relative;
+            top: auto;
+            right: auto;
         }
 
         .lang-btn {
@@ -155,39 +229,40 @@
     </style>
 </head>
 
-<body>
+<body class="article-page">
     <div class="bg-gradient"></div>
     <div class="noise-overlay"></div>
 
-    <!-- Language Switcher Dropdown -->
-    <div class="language-dropdown">
-        <button class="lang-btn" id="langBtn">
-            <i class="ph-bold ph-globe"></i>
-            <span id="currentLang">English</span>
-            <i class="ph-bold ph-caret-down"></i>
-        </button>
-        <div class="lang-menu" id="langMenu">
-            <div class="lang-option active" data-lang="en">English</div>
-            <div class="lang-option" data-lang="ar">Arabic (العربية)</div>
-            <div class="lang-option" data-lang="zh">Chinese (简体中文)</div>
-            <div class="lang-option" data-lang="fr">French (Français)</div>
-            <div class="lang-option" data-lang="de">German (Deutsch)</div>
-            <div class="lang-option" data-lang="ja">Japanese (日本語)</div>
-            <div class="lang-option" data-lang="ko">Korean (한국어)</div>
-            <div class="lang-option" data-lang="pt">Portuguese (Português)</div>
-            <div class="lang-option" data-lang="ru">Russian (Русский)</div>
-            <div class="lang-option" data-lang="es">Spanish (Español)</div>
-            <div class="lang-option" data-lang="th">Thai (ไทย)</div>
-            <div class="lang-option" data-lang="uk">Ukrainian (Українська)</div>
-            <div class="lang-option" data-lang="vi">Vietnamese (Tiếng Việt)</div>
+    <header class="article-header-bar">
+        <a href="https://fliqer.app/frame-extractor" class="back-link" id="hero-back">← Back to Video Frame Extractor</a>
+        <div class="language-dropdown" style="position: static;">
+            <button class="lang-btn" id="langBtn">
+                <i class="ph-bold ph-globe"></i>
+                <span id="currentLang">English</span>
+                <i class="ph-bold ph-caret-down"></i>
+            </button>
+            <div class="lang-menu" id="langMenu">
+                <div class="lang-option active" data-lang="en">English</div>
+                <div class="lang-option" data-lang="ar">Arabic (العربية)</div>
+                <div class="lang-option" data-lang="zh">Chinese (简体中文)</div>
+                <div class="lang-option" data-lang="fr">French (Français)</div>
+                <div class="lang-option" data-lang="de">German (Deutsch)</div>
+                <div class="lang-option" data-lang="ja">Japanese (日本語)</div>
+                <div class="lang-option" data-lang="ko">Korean (한국어)</div>
+                <div class="lang-option" data-lang="pt">Portuguese (Português)</div>
+                <div class="lang-option" data-lang="ru">Russian (Русский)</div>
+                <div class="lang-option" data-lang="es">Spanish (Español)</div>
+                <div class="lang-option" data-lang="th">Thai (ไทย)</div>
+                <div class="lang-option" data-lang="uk">Ukrainian (Українська)</div>
+                <div class="lang-option" data-lang="vi">Vietnamese (Tiếng Việt)</div>
+            </div>
         </div>
-    </div>
+    </header>
 
-    <header class="hero" style="padding-bottom: 40px; padding-top: 80px;">
+    <header class="hero" style="padding-bottom: 40px; padding-top: 120px;">
         <div id="hero-tag" class="hero-tag">Support Center</div>
         <h1 id="hero-title" style="font-size: 3rem; margin-bottom: 16px;">How can we help?</h1>
         <p id="hero-desc" class="description">Guides, FAQs, and support for Fliqer</p>
-        <a id="hero-back" href="https://fliqer.app/frame-extractor" class="btn btn-secondary">← Back to Video Frame Extractor</a>
     </header>
 
     <div class="content-wrapper">
@@ -424,7 +499,8 @@
             setText('hero-tag', data.heroTag);
             setText('hero-title', data.heroTitle);
             setText('hero-desc', data.heroDesc);
-            setText('hero-back', data.heroBack);
+            const heroBack = document.getElementById('hero-back');
+            if (heroBack) heroBack.textContent = data.heroBack;
 
             setText('card-title', data.cardTitle);
             setText('card-text', data.cardText);

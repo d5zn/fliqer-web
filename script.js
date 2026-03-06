@@ -133,6 +133,8 @@ const revealObserver = new IntersectionObserver((entries) => {
 });
 
 document.querySelectorAll('.section, .hero-content').forEach(el => {
+    // Don't hide the frame-grabber (player) section on load — it should stay visible with the hero
+    if (el.classList.contains('frame-grabber-section')) return;
     el.classList.add('reveal-on-scroll');
     revealObserver.observe(el);
 });
@@ -438,18 +440,20 @@ const popupCloseBtn = document.getElementById('popup-close');
 const workWithUsBtns = document.querySelectorAll('.nav-cta, .footer-cta, #hero-btn'); // Select nav, footer, and hero buttons
 const popupForm = document.getElementById('project-form');
 
-// Open Popup
-workWithUsBtns.forEach(btn => {
-    btn.addEventListener('click', (e) => {
-        e.preventDefault(); // Prevent anchor navigation
-        popupOverlay.classList.add('active');
-        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+// Open Popup only on pages that have the popup (e.g. main landing with form); otherwise links work normally
+if (popupOverlay) {
+    workWithUsBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            popupOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
     });
-});
+}
 
 // Close Popup Function
 const closePopup = () => {
-    popupOverlay.classList.remove('active');
+    if (popupOverlay) popupOverlay.classList.remove('active');
     document.body.style.overflow = '';
 };
 
@@ -469,7 +473,7 @@ if (popupOverlay) {
 
 // Close on ESC Key
 document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && popupOverlay.classList.contains('active')) {
+    if (e.key === 'Escape' && popupOverlay && popupOverlay.classList.contains('active')) {
         closePopup();
     }
 });
