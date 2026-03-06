@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Video Frame Extractor – Extract Frames From Video | Fliqer</title>
     <meta name="description"
-        content="Online Video Frame Extractor. Extract frames from video, grab frame, video to image. Single frame or full sequence in full resolution. Works in browser and iOS. No upload — process locally.">
+        content="Free online video frame extractor. Extract frames from video, grab frame, video to image. Full resolution, no signup. Works in browser and iOS. No upload — process locally.">
     <meta name="keywords" content="frame grabber, grab frame, video to image, extract frame, video sequence, extract frames from video, frame extraction, video frame capture, save frame from video, screenshot from video, video frame extractor">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://fliqer.app/frame-extractor">
@@ -38,16 +38,6 @@
     <link rel="stylesheet" href="../styles.css">
 
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
-    <!-- Import Maps to support ES modules without a bundler for Three.js and SimplexNoise -->
-    <script type="importmap">
-    {
-      "imports": {
-        "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
-        "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/",
-        "simplex-noise": "https://unpkg.com/simplex-noise@4.0.1/dist/esm/simplex-noise.js"
-      }
-    }
-    </script>
 
     <!-- Structured Data (JSON-LD) for SEO -->
     <script type="application/ld+json">
@@ -74,7 +64,14 @@
         {
           "@type": "Organization",
           "name": "Fliqer",
-          "url": "https://fliqer.app/"
+          "url": "https://fliqer.app/frame-extractor"
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://fliqer.app/frame-extractor" },
+            { "@type": "ListItem", "position": 2, "name": "Video Frame Extractor", "item": "https://fliqer.app/frame-extractor" }
+          ]
         },
         {
           "@type": "FAQPage",
@@ -143,8 +140,7 @@
         </linearGradient>
     </svg>
 
-    <!-- Background Elements -->
-    <canvas id="webgl-canvas"></canvas>
+    <!-- Background -->
     <div class="noise-overlay"></div>
 
     <!-- Navigation -->
@@ -155,7 +151,7 @@
             <span></span>
         </button>
 
-        <a href="#" class="logo">Fliqer</a>
+        <a href="/frame-extractor" class="logo">Fliqer</a>
 
         <div class="nav-links">
             <a href="#frame-grabber">Try it</a>
@@ -545,8 +541,10 @@
                             of Service</a>
                     </div>
                     <div class="col">
-                        <h4 style="margin-bottom: 1.2rem; font-weight: 600; font-size: 1.1rem; color: #fff;">Connect
-                        </h4>
+                        <h4 style="margin-bottom: 1.2rem; font-weight: 600; font-size: 1.1rem; color: #fff;">Tool</h4>
+                        <a href="https://fliqer.app/frame-extractor"
+                            style="display: block; margin-bottom: 0.8rem; color: var(--text-secondary); text-decoration: none;">Video Frame Extractor</a>
+                        <h4 style="margin-bottom: 1.2rem; font-weight: 600; font-size: 1.1rem; color: #fff;">Connect</h4>
                         <a href="../support.html"
                             style="display: block; margin-bottom: 0.8rem; color: var(--text-secondary); text-decoration: none;">Support</a>
                         <a href="mailto:support@fliqer.app"

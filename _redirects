@@ -1,0 +1,3 @@
+# Redirect root and index to canonical tool URL (301 = permanent, SEO-friendly)
+/    https://fliqer.app/frame-extractor   301
+/index.html    https://fliqer.app/frame-extractor   301
