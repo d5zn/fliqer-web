@@ -423,7 +423,7 @@ nav>.nav-links {
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding-top: 4rem;
+    padding-top: 2.4rem;
     scroll-snap-align: start;
 }
 
@@ -546,7 +546,7 @@ h2 {
 @media (max-width: 768px) {
     .hero {
         align-items: stretch;
-        padding-top: 6rem;
+        padding-top: 3.6rem;
         /* учёт высоты навигации */
     }
 
