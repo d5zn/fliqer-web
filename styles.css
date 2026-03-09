@@ -2175,14 +2175,14 @@ nav>* {
 .frame-grabber-section {
     position: relative;
     z-index: 2;
-    /* Pull up so ~1/4 of the card peeks into the hero; +160px gap from hero block */
-    margin-top: calc(-14vh + 160px);
+    /* Pull up so ~1/4 of the card peeks into the hero; +80px gap from hero block instead of 160px */
+    margin-top: calc(-14vh + 80px);
     padding-top: calc(8rem + 2vh);
 }
 
 @media (max-width: 768px) {
     .frame-grabber-section {
-        margin-top: calc(-10vh + 160px);
+        margin-top: calc(-10vh + 80px);
         padding-top: calc(6rem + 2vh);
     }
 }
@@ -2344,8 +2344,8 @@ nav>* {
 
 @media (min-width: 1025px) {
     .frame-grabber-section {
-        /* Pull up so more of the drop container is visible on hero; +160px gap from hero */
-        margin-top: calc(-391px + 160px);
+        /* Pull up so more of the drop container is visible on hero; +80px gap from hero */
+        margin-top: calc(-391px + 80px);
     }
     .frame-grabber-section .container {
         max-width: 1012px;
